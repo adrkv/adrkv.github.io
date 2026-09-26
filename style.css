@@ -79,8 +79,10 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .affiliation-logo .con-edison-logo{width:180px;height:80px}
 .consulting-project:hover{transform:none;border-color:var(--line)}
 .podcast-caption{font-size:11px;line-height:1.7;color:var(--muted);margin-top:auto;margin-bottom:12px}
-.affiliation>.podcast-link{margin-top:0;gap:12px;white-space:nowrap}
-.podcast-link img{display:block;flex-shrink:0}
+.podcast-links{display:flex;flex-direction:column;gap:4px}
+.podcast-link{gap:12px;min-height:44px;width:fit-content;white-space:nowrap}
+.podcast-link:hover{color:var(--ink)}
+.podcast-link img{display:block;flex-shrink:0;object-fit:contain}
 .affiliation-kind{font-size:9px;letter-spacing:1.5px;color:var(--muted);font-weight:550;margin-bottom:12px}
 .affiliation h3{font-size:24px;line-height:1.2;letter-spacing:-.7px;font-weight:500;margin-bottom:14px}
 .affiliation-description{font-size:13px;line-height:1.8;color:var(--muted);margin-bottom:25px}
