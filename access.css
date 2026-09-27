@@ -1,0 +1,13 @@
+.paper-access-label { display: inline-flex; align-items: center; padding: 5px 9px; border: 1px solid #d9d4c7; border-radius: 999px; background: #f4f0e7; color: #75603d; font-size: 10px; font-weight: 550; line-height: 1.5; white-space: nowrap; }
+.article-preview #overview, .article-preview #figure-1, .paper-offer { scroll-margin-top: 32px; }
+.article-body .paper-offer { margin-top: 44px; padding: 32px; border: 1px solid var(--line); border-radius: 18px; background: #f4f3ed; }
+.article-body .paper-offer-kicker { margin: 0 0 15px; color: var(--accent); font-size: 10px; line-height: 1.5; letter-spacing: 1.5px; font-weight: 600; }
+.article-body .paper-offer h2 { margin: 0 0 16px; font-size: 29px; line-height: 1.2; }
+.article-body .paper-offer > p:not(.paper-offer-kicker) { font-size: 14px; line-height: 1.7; color: var(--muted); }
+.article-body .paper-offer-includes { margin: 22px 0 26px; padding-left: 1.15em; font-size: 14px; line-height: 1.7; }
+.article-body .paper-offer-link { display: inline-flex; align-items: center; justify-content: center; gap: 18px; max-width: 100%; min-height: 48px; padding: 13px 20px; border-radius: 99px; background: var(--accent); color: #fff; font-size: 14px; font-weight: 550; line-height: 1.5; text-align: center; text-decoration: none; }
+.article-body .paper-offer-link:hover { background: #28585d; }
+.article-body .paper-offer > .paper-offer-details { margin: 17px 0 4px; font-size: 11px; }
+.article-body .paper-offer > .paper-offer-delivery { margin: 0; font-size: 11px; }
+@media (max-width: 560px) { .article-body .paper-offer { padding: 24px 20px; } .article-body .paper-offer h2 { font-size: 25px; } .article-body .paper-offer-link { gap: 10px; padding-inline: 16px; font-size: 13px; } }
+@media print { .article-body .paper-offer { break-inside: avoid; } }
