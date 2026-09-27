@@ -53,11 +53,6 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .project-name .project-icon{width:36px;height:36px}
 .project-heading>span{color:var(--accent);font-size:20px}
 .project>p{font-size:13px;line-height:1.8;color:var(--muted);margin-bottom:28px}
-.enablement-next{display:flex;align-items:center;flex-wrap:wrap;gap:8px 24px;margin:10px 0 28px}
-.enablement-next p{max-width:660px;font-size:14px;line-height:1.8;color:var(--muted)}
-.enablement-next .booking-cta{min-height:44px;padding-block:10px;flex-shrink:0;color:var(--accent)}
-.enablement-next .booking-cta:hover{text-decoration:underline;text-underline-offset:4px}
-@media(max-width:760px){.enablement-next{flex-direction:column;align-items:flex-start;gap:4px;margin:10px 0 24px}.enablement-next p{font-size:13px}}
 .section-subtitle{font-size:14px;line-height:1.6;color:var(--muted);margin-top:14px;letter-spacing:0}
 .strategy-section{padding-block:82px 88px;border-top:1px solid var(--line)}
 .strategy-lead{margin-bottom:32px}
@@ -170,12 +165,6 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .experience-card p{font-size:13px;line-height:1.65;color:var(--muted)}
 .experience-card:hover h4{color:var(--accent)}
 @media(max-width:760px){.experience-section{margin-top:30px;padding-top:25px}.experience-grid{grid-template-columns:1fr;gap:26px}.experience-card+.experience-card{border-top:1px solid var(--line);border-radius:0;padding-top:26px}.experience-logo{height:60px;margin-bottom:18px}.experience-logo img{height:60px;width:170px}.experience-card h4{font-size:17px}.role-history{font-size:13px}.current-role{font-size:15px}}
-
-.project-collection{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:550;white-space:nowrap}
-.project-collection img{display:block;border-radius:8px}
-.project-collection:hover{color:var(--accent)}
-@media(max-width:760px){.project-collection{gap:8px;margin-top:7px}.project-collection img{width:28px;height:28px}}
-@media(max-width:390px){.project-collection-name{display:none}}
 
 /* Reading and contact */
 .location-link{display:inline-flex;align-items:center;gap:3px;padding-block:3px}
@@ -295,11 +284,11 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
   .audience-menu>summary{font-size:12px}
   .header .audience-links{left:auto;right:0}
 }
-.enablement-mission{max-width:810px;margin:-8px 0 0;color:var(--muted);font-size:15px;line-height:1.8}
-.github-source-link{display:inline-flex;align-items:center;gap:6px;vertical-align:baseline;color:var(--accent);white-space:nowrap}
-.github-source-link svg{width:15px;height:15px;flex:0 0 15px}
-.github-source-link span{text-decoration:underline;text-decoration-color:#a6c1bd;text-underline-offset:4px}
-.github-source-link:hover span{text-decoration-color:currentColor}
+.enablement-mission{margin:-8px 0 28px;color:var(--muted);font-size:15px;line-height:1.8}
+.github-source-link,.enablement-booking-link{display:inline-flex;align-items:center;gap:6px;vertical-align:baseline;color:var(--accent);white-space:nowrap}
+.github-source-link svg,.enablement-booking-link img{width:15px;height:15px;flex:0 0 15px}
+.github-source-link span,.enablement-booking-link span{text-decoration:underline;text-decoration-color:#a6c1bd;text-underline-offset:4px}
+.github-source-link:hover span,.enablement-booking-link:hover span{text-decoration-color:currentColor}
 
 /* Crop empty ceiling only; retain the sign and the entire group. */
 .event-photo{position:relative;width:100%;aspect-ratio:1170/738;overflow:hidden;background:#e8e7de}
@@ -312,5 +301,5 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .event-annotation>strong{font-size:14px;font-weight:650;line-height:1.15;white-space:nowrap}
 .event-annotation>span{font-size:11px;font-weight:500;line-height:1.3;white-space:nowrap;color:#426569}
 .patent-preview{display:block;width:100%;height:210px;object-fit:contain;object-position:center;margin:0 0 24px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}
-@media(max-width:760px){.enablement-mission{font-size:13px;margin:-7px 0 0}.patent-preview{height:190px}}
+@media(max-width:760px){.enablement-mission{font-size:13px;margin:-7px 0 24px}.patent-preview{height:190px}}
 @media(max-width:370px){.event-annotation{top:82%}}
