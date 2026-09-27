@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://adrkv.github.io/</loc></url>  <url><loc>https://adrkv.github.io/underground-fault-location.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://adrkv.github.io/</loc></url>
   <url><loc>https://adrkv.github.io/meet.html</loc></url>
+  <url><loc>https://adrkv.github.io/life-sciences-technology-transfer.html</loc></url>
+  <url><loc>https://adrkv.github.io/data-center-cooling.html</loc></url>
+  <url><loc>https://adrkv.github.io/clean-in-place-intelligence.html</loc></url>
+  <url><loc>https://adrkv.github.io/process-setpoint-optimization.html</loc></url>
+  <url><loc>https://adrkv.github.io/ev-charging-operations.html</loc></url>
+  <url><loc>https://adrkv.github.io/underground-fault-location.html</loc></url>
   <url><loc>https://adrkv.github.io/feeder-hosting-capacity.html</loc></url>
 </urlset>

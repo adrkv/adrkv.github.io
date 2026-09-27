@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI for process setpoint optimization | Addy Kaveti</title>
+  <meta name="description" content="Using butter production to connect material variability, product quality, and constrained operating decisions.">
+  <link rel="canonical" href="https://adrkv.github.io/process-setpoint-optimization.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI for process setpoint optimization">
+  <meta property="og:description" content="Using butter production to connect material variability, product quality, and constrained operating decisions.">
+  <meta property="og:url" content="https://adrkv.github.io/process-setpoint-optimization.html">
+  <meta property="og:site_name" content="Addy Kaveti">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/assets/addy-icon.svg">
+  <link rel="stylesheet" href="/article.css?v=20260927-industry-library">
+  <link rel="stylesheet" href="/topics.css?v=20260927-industry-library">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header"><a class="brand" href="/" aria-label="Addy Kaveti home">Addy Kaveti<span aria-hidden="true">.</span></a><nav aria-label="Main navigation"><a href="/#strategy">Strategy</a><a href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav></header>
+  <main id="main" class="article-main wrap">
+    <a class="back-link" href="/?industry=manufacturing#whitepapers"><span aria-hidden="true">←</span> Back to whitepapers</a>
+    <article aria-labelledby="article-title">
+      <header class="article-heading">
+        <p class="eyebrow"><span class="topic-icon topic-manufacturing"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 21V10l6 3V8l6 4V3h4l2 18H3ZM7 17h1M12 17h1M17 17h1"/></svg></span>WHITEPAPER</p>
+        <h1 id="article-title">AI for process setpoint optimization</h1>
+        <p class="article-summary">Using butter production to connect material variability, product quality, and constrained operating decisions.</p>
+        <a class="article-affiliation" href="/?affiliation=schneider-electric#whitepapers" aria-label="View whitepapers developed at Schneider Electric"><span>Developed at</span><span class="article-affiliation-logo"><img src="/assets/schneider-electric.png" width="225" height="225" alt="Schneider Electric"></span></a>
+        <div class="article-tags"><a class="topic-tag topic-manufacturing" href="/?industry=manufacturing#whitepapers"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 21V10l6 3V8l6 4V3h4l2 18H3ZM7 17h1M12 17h1M17 17h1"/></svg>Manufacturing</a><a class="topic-tag" href="/?topic=process-optimization#whitepapers"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 3v18M12 3v18M20 3v18M1 8h6M9 16h6M17 10h6"/></svg>Process optimization</a></div>
+      </header>
+      <div class="reading-layout">
+        <nav class="article-contents" aria-label="Article contents"><p>On this page</p><ol><li><a href="#business-objective">Define the output worth improving</a></li>
+<li><a href="#variables">Separate starting conditions from control choices</a></li>
+<li><a href="#model">Build a model of process response</a></li>
+<li><a href="#optimization">Search within approved constraints</a></li>
+<li><a href="#handoffs">Connect the recommendation to the plant</a></li>
+<li><a href="#pilot">Test the decision before automating it</a></li>
+<li><a href="#references">Information sources</a></li></ol></nav>
+        <div class="article-body">
+<p class="article-intro">Production equipment can run at the same settings and still produce different outcomes when the incoming material changes. AI and machine learning offer a way to connect those starting conditions, the settings an operator can change, and the product quality the business needs.</p>
+<p class="figure-note">A proposed approach to constrained setpoint optimization, illustrated with butter production.</p>
+
+<h2 id="business-objective">Define the output worth improving</h2>
+<p>The objective is to obtain more acceptable product from the available input while meeting quality requirements. That requires a clear definition of yield. Finished-product mass, recovered fat, fat lost to buttermilk, moisture content, and the proportion of output within specification answer different questions.</p>
+<p>For example, a change in product mass caused by moisture is not equivalent to improved fat recovery. The business case should identify which material loss matters, which product characteristics must remain within specification, and how throughput or processing time affects the value of a recommendation.</p>
+<p>Butter production provides a useful example because the material and the process interact. The cream’s composition and temperature treatment influence fat crystallization and butter consistency; churning separates butter grains from buttermilk. <a href="https://dairyprocessinghandbook.tetrapak.com/chapter/butter" target="_blank" rel="noopener noreferrer">The Dairy Processing Handbook</a> explains these relationships and treats churning recovery as a measure of fat conversion. They give the modeling problem a physical basis.</p>
+
+<h2 id="variables">Separate starting conditions from control choices</h2>
+<p>The model should distinguish what arrives at the process from what can be changed during the decision window. Otherwise an optimizer may suggest an input condition that the operator cannot actually alter.</p>
+<div class="table-scroll" role="region" aria-label="Inputs, controls, and outcomes in a butter-production model" tabindex="0">
+  <table>
+    <caption><span>Define the variables before choosing the model</span></caption>
+    <thead><tr><th scope="col">Variable group</th><th scope="col">Examples</th><th scope="col">How it is used</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Starting conditions</th><td>Cream viscosity, fat content, temperature, acidity, and moisture.</td><td>Describe the incoming material and the current batch.</td></tr>
+      <tr><th scope="row">Adjustable settings</th><td>Beater speed, churning temperature and duration, and cooling rate where the equipment permits.</td><td>Define the candidate choices available to the operator.</td></tr>
+      <tr><th scope="row">Process configuration</th><td>Blade configuration and mixing sequence.</td><td>Describe the setup; treat changes as separate engineering decisions where necessary.</td></tr>
+      <tr><th scope="row">Measured outcomes</th><td>Moisture, fat content, fat loss, and acceptable output.</td><td>Evaluate quality and the chosen yield objective.</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Recipe creation and process adjustment are related but distinct tasks. Recipe work selects a starting setup between runs. Process adjustment responds to conditions during a run. Each needs its own approved choices, timing, and limits. A mechanical configuration should not appear as a continuously adjustable setpoint simply because it is present in the dataset.</p>
+
+<h2 id="model">Build a model of process response</h2>
+<p>The data foundation pairs starting conditions and recorded settings with the outcomes they produced. Batch identifiers, time stamps, units, sample times, and recipe versions are essential to that pairing. Laboratory results need to be assigned to the material they represent, rather than joined to whichever sensor record happens to share the closest time stamp.</p>
+<p>An AI/ML model then estimates product outcomes for a given combination of inputs and settings. Physics-based relationships can complement the learned model where suitable equations and measurements are available. The intended role is a surrogate for evaluating candidate decisions, with a defined range of use.</p>
+<p>Validation should hold out complete batches or later operating periods. Randomly splitting closely related records from the same batch can make performance look better than it will be on a new run. Evaluation should also examine material and recipe conditions that occur less often, and flag cases unlike those used in development.</p>
+<p>Only information available at the recommendation time belongs among the model’s inputs. A final quality result is useful for training and evaluation, but cannot serve as an input to a decision made before that result exists.</p>
+
+<h2 id="optimization">Search within approved constraints</h2>
+<p>Prediction estimates the outcome of a candidate setting. Optimization searches across permitted candidates to improve the agreed objective. A solver can use the process model to compare choices while respecting product specifications, equipment limits, and restrictions on how quickly settings may change.</p>
+<p>The objective might favor fat recovery while limiting quality deviations and processing time. Its exact form is a business and engineering decision. Combining measures into a single score requires agreed units or weights; a mathematically attractive answer is not useful if it sacrifices a product characteristic the business considers essential.</p>
+<figure id="figure-1" class="visual-panel">
+  <h3 class="visual-title">From batch conditions to a candidate setting</h3>
+  <ol class="process-flow">
+    <li><span class="step-number" aria-hidden="true">01</span><strong>Describe the current state</strong><p>Use available material measurements, equipment configuration, and current settings.</p></li>
+    <li><span class="step-number" aria-hidden="true">02</span><strong>Predict the outcomes</strong><p>Estimate quality and yield for candidate settings using the process model.</p></li>
+    <li><span class="step-number" aria-hidden="true">03</span><strong>Compare feasible choices</strong><p>Search within approved limits and exclude unsupported operating conditions.</p></li>
+    <li><span class="step-number" aria-hidden="true">04</span><strong>Review and learn</strong><p>Record the accepted setting, actual outcome, and reason for any override.</p></li>
+  </ol>
+  <figcaption class="figure-note">A proposed recommendation workflow. A prediction is evidence for a trial, not proof that the expected gain will occur.</figcaption>
+</figure>
+<p>The optimizer should be able to return no recommendation. Incomplete measurements, unfamiliar material, or a lack of feasible candidates are reasons to retain the approved operating approach and request review. Model confidence does not change equipment protection or product-release requirements.</p>
+
+<h2 id="handoffs">Connect the recommendation to the plant</h2>
+<p>An operator needs to know what is being suggested, when to apply it, and what evidence supports it. Engineering and quality teams need to know which constraints were applied. The business needs an outcome measured against a credible baseline.</p>
+<div class="table-scroll" role="region" aria-label="Handoffs for a process-setpoint optimization pilot" tabindex="0">
+  <table>
+    <caption><span>Agree on the decision and its owner</span></caption>
+    <thead><tr><th scope="col">Perspective</th><th scope="col">Decision to resolve</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Operations</th><td>Which adjustments are practical during the run, and how are overrides recorded?</td></tr>
+      <tr><th scope="row">Process engineering and quality</th><td>Which settings, product specifications, and trial conditions are acceptable?</td></tr>
+      <tr><th scope="row">Data and modeling</th><td>Where is the model reliable, and which cases require review?</td></tr>
+      <tr><th scope="row">Business and production planning</th><td>Which yield measure matters, and how will material use, quality, and throughput be compared?</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="pilot">Test the decision before automating it</h2>
+<p>Begin with historical data and a baseline representing the current operating approach. Check whether the model reproduces observed outcomes well enough to support the intended decision. Review candidate recommendations with process specialists before planning a controlled production trial.</p>
+<p>During a trial, compare like-for-like material and operating conditions, retain the approved process limits, and measure actual quality and yield. Predictions and estimated financial benefits should remain separate from observed results. Record rejected recommendations as well as accepted ones; they can expose missing constraints or practical limitations.</p>
+<p>After a recipe, material supply, or equipment change, reassess the model’s coverage and performance. New records can support a revised model, but updates should be evaluated before they influence recommendations. Moving from an operator aid to automatic control is a separate engineering step that needs its own testing and approval.</p>
+
+<h2 id="references">Information sources</h2>
+<ol class="article-references">
+  <li><a href="https://dairyprocessinghandbook.tetrapak.com/chapter/butter" target="_blank" rel="noopener noreferrer">Tetra Pak Dairy Processing Handbook: Butter.</a> Cream treatment, churning, fat recovery, and product consistency.</li>
+</ol>
+
+        </div>
+      </div>
+    </article>
+    <nav class="article-end" aria-label="Article navigation"><a class="back-link" href="/?industry=manufacturing#whitepapers"><span aria-hidden="true">←</span> Back to whitepapers</a><a class="text-link" href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav>
+  </main>
+  <footer class="footer wrap"><a href="/">Addy Kaveti</a><a href="https://www.linkedin.com/in/adrkv/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

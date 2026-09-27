@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI for clean-in-place analysis | Addy Kaveti</title>
+  <meta name="description" content="Comparing cleaning cycles, investigating deviations, and connecting process data to quality and resource use.">
+  <link rel="canonical" href="https://adrkv.github.io/clean-in-place-intelligence.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI for clean-in-place analysis">
+  <meta property="og:description" content="Comparing cleaning cycles, investigating deviations, and connecting process data to quality and resource use.">
+  <meta property="og:url" content="https://adrkv.github.io/clean-in-place-intelligence.html">
+  <meta property="og:site_name" content="Addy Kaveti">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/assets/addy-icon.svg">
+  <link rel="stylesheet" href="/article.css?v=20260927-industry-library">
+  <link rel="stylesheet" href="/topics.css?v=20260927-industry-library">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header"><a class="brand" href="/" aria-label="Addy Kaveti home">Addy Kaveti<span aria-hidden="true">.</span></a><nav aria-label="Main navigation"><a href="/#strategy">Strategy</a><a href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav></header>
+  <main id="main" class="article-main wrap">
+    <a class="back-link" href="/?industry=manufacturing#whitepapers"><span aria-hidden="true">←</span> Back to whitepapers</a>
+    <article aria-labelledby="article-title">
+      <header class="article-heading">
+        <p class="eyebrow"><span class="topic-icon topic-manufacturing"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 21V10l6 3V8l6 4V3h4l2 18H3ZM7 17h1M12 17h1M17 17h1"/></svg></span>WHITEPAPER</p>
+        <h1 id="article-title">AI for clean-in-place analysis</h1>
+        <p class="article-summary">Comparing cleaning cycles, investigating deviations, and connecting process data to quality and resource use.</p>
+        <a class="article-affiliation" href="/?affiliation=schneider-electric#whitepapers" aria-label="View whitepapers developed at Schneider Electric"><span>Developed at</span><span class="article-affiliation-logo"><img src="/assets/schneider-electric.png" width="225" height="225" alt="Schneider Electric"></span></a>
+        <div class="article-tags"><a class="topic-tag topic-manufacturing" href="/?industry=manufacturing#whitepapers"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 21V10l6 3V8l6 4V3h4l2 18H3ZM7 17h1M12 17h1M17 17h1"/></svg>Manufacturing</a><a class="topic-tag" href="/?topic=clean-in-place#whitepapers"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3c-3 5-7 8-7 12a7 7 0 0 0 14 0c0-4-4-7-7-12ZM9 15c0 2 1 3 3 3"/></svg>Clean-in-place</a></div>
+      </header>
+      <div class="reading-layout">
+        <nav class="article-contents" aria-label="Article contents"><p>On this page</p><ol><li><a href="#business-priorities">Start with the cleaning decision</a></li>
+<li><a href="#data-foundation">Build a record of each cycle</a></li>
+<li><a href="#reference-runs">Compare runs with an approved reference</a></li>
+<li><a href="#diagnosis">Use AI to focus the investigation</a></li>
+<li><a href="#handoffs">Make responsibilities explicit</a></li>
+<li><a href="#pilot">Evaluate before changing the process</a></li>
+<li><a href="#references">Information sources</a></li></ol></nav>
+        <div class="article-body">
+<p class="article-intro">In food and beverage manufacturing, clean-in-place (CIP) keeps production equipment ready for the next run, but it also consumes time, water, chemicals, and energy. AI and machine learning can help teams compare cleaning cycles, investigate deviations, and identify opportunities for improvement within approved cleaning requirements.</p>
+<p class="figure-note">A proposed workflow for CIP decision support in food and beverage manufacturing.</p>
+
+<h2 id="business-priorities">Start with the cleaning decision</h2>
+<p>The first question is whether a cleaning cycle followed its required conditions. The next is why it deviated, and whether the cause calls for an operator response, maintenance, or an engineering review. Reducing consumption becomes useful only when cleaning effectiveness is maintained.</p>
+<p>CIP circulates cleaning liquids through equipment without routine dismantling. Cleaning depends on the interaction of time, temperature, chemical concentration, and mechanical action. The appropriate combination depends on the equipment and residues being removed. <a href="https://dairyprocessinghandbook.tetrapak.com/chapter/cleaning-dairy-equipment" target="_blank" rel="noopener noreferrer">The Dairy Processing Handbook</a> describes these factors and the need to verify cleaning effectiveness.</p>
+<div class="table-scroll" role="region" aria-label="CIP business priorities and supporting measures" tabindex="0">
+  <table>
+    <caption><span>Connect each improvement to an operating decision</span></caption>
+    <thead><tr><th scope="col">Priority</th><th scope="col">Measure to examine</th><th scope="col">Decision supported</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Maintain cleaning effectiveness</th><td>Phase conditions, deviations, and the relevant verification results.</td><td>Which cycles require investigation or follow-up?</td></tr>
+      <tr><th scope="row">Improve equipment availability</th><td>Cleaning duration, delayed phase transitions, and repeated cleaning.</td><td>Where is avoidable downtime occurring?</td></tr>
+      <tr><th scope="row">Use fewer resources</th><td>Water, chemicals, and energy per comparable cleaning cycle.</td><td>Which changes merit a controlled trial?</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>These measures should be assessed together. A shorter cycle may still miss a required condition; a run that uses more resources may reflect a different product or cleaning duty. The comparison must account for that context.</p>
+
+<h2 id="data-foundation">Build a record of each cycle</h2>
+<p>A useful dataset connects each run to its line, the equipment being cleaned, the recipe and its version, and the phases actually performed. Return temperature, conductivity, flow, turbidity where available, and phase duration describe how the cleaning unfolded. Setpoints describe what was intended; measured values describe what happened.</p>
+<p>Align measurements to the correct phase boundaries and preserve interruptions, manual interventions, and alarms. Missing data must remain distinguishable from a real process deviation. Runs using different recipes or equipment should not be combined simply because their total durations look similar.</p>
+<p>Operator comments, maintenance records, and laboratory results add a second layer of evidence. They may arrive after the cycle, so the data design needs a reliable way to connect a later finding to the relevant equipment and time period. A historical investigation result can become a useful label; an unexplained alarm cannot.</p>
+
+<h2 id="reference-runs">Compare runs with an approved reference</h2>
+<p>A reference or “golden” run is a selected example for a particular line, equipment item, and recipe. It gives engineers a consistent basis for comparison. Selecting that reference manually can require opening many trends and examining each cleaning phase.</p>
+<p>A proposed analytical approach is to build a phase-level target profile from the approved recipe, then rank recorded cycles by their differences from it. Temperature, conductivity, flow, and other relevant measurements can be compared over time. Area-based differences can summarize a trend, while phase duration and time outside approved limits preserve information that a single overall score would hide.</p>
+<p>Scoring needs explicit rules. Measurements have different units and importance; an acceptable average must not conceal a critical shortfall in one phase. The output should therefore show the contributing measurements and the reason for a candidate’s ranking. A process or quality specialist reviews the proposed reference before it is adopted.</p>
+<figure id="figure-1" class="visual-panel">
+  <h3 class="visual-title">From a recorded cycle to a reviewable decision</h3>
+  <ol class="process-flow">
+    <li><span class="step-number" aria-hidden="true">01</span><strong>Group comparable runs</strong><p>Match line, equipment, recipe version, and cleaning phases.</p></li>
+    <li><span class="step-number" aria-hidden="true">02</span><strong>Measure the differences</strong><p>Compare actual trends with approved phase conditions.</p></li>
+    <li><span class="step-number" aria-hidden="true">03</span><strong>Review the explanation</strong><p>Check the candidate reference and the measurements behind its score.</p></li>
+    <li><span class="step-number" aria-hidden="true">04</span><strong>Record the outcome</strong><p>Link the investigation, any corrective action, and verification evidence.</p></li>
+  </ol>
+  <figcaption class="figure-note">A proposed analysis workflow. Reference selection remains subject to expert review.</figcaption>
+</figure>
+
+<h2 id="diagnosis">Use AI to focus the investigation</h2>
+<p>AI/ML can extend the comparison by grouping runs with similar deviation patterns. Slow temperature ramp-up, irregular return flow, or an interrupted phase may each create a recognizable pattern. Clustering can surface recurring groups without assuming that their causes are already known.</p>
+<p>When historical investigations have reliable cause labels, a supervised model could rank likely explanations for a new deviation. The distinction matters: a similar curve suggests where to investigate; it does not establish a mechanical fault or an operator error. The interface should let a reviewer move from the summary to the underlying trends, events, and notes.</p>
+<p>Recipe conformity and cleanliness also require separate treatment. Process measurements can show that specified conditions were achieved, while cleaning verification supplies evidence about the result. A model trained only on process traces should not claim to predict microbiological outcomes. <a href="https://inspection.canada.ca/en/preventive-controls/dairy-products/dairy-processors" target="_blank" rel="noopener noreferrer">Canadian Food Inspection Agency guidance</a> emphasizes installation-specific effectiveness, monitoring, records, and the cleaning-compound manufacturer’s recommendations.</p>
+
+<h2 id="handoffs">Make responsibilities explicit</h2>
+<p>The useful handoff is an explained exception that someone can act on. The model, the cleaning procedure, and the production decision have different owners.</p>
+<div class="table-scroll" role="region" aria-label="Responsibilities in a CIP decision-support workflow" tabindex="0">
+  <table>
+    <caption><span>Who turns the analysis into action?</span></caption>
+    <thead><tr><th scope="col">Team</th><th scope="col">Contribution</th><th scope="col">Handoff</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Operations</th><td>Explain interventions and conditions during the run.</td><td>Verified observations and the action taken.</td></tr>
+      <tr><th scope="row">Process engineering and quality</th><td>Define approved conditions, reference runs, and verification requirements.</td><td>Reviewed limits and an investigation decision.</td></tr>
+      <tr><th scope="row">Data and modeling</th><td>Align records, evaluate rankings, and explain uncertainty.</td><td>Traceable evidence rather than an unexplained score.</td></tr>
+      <tr><th scope="row">Business and production planning</th><td>Assess resource use, downtime, and review effort.</td><td>Priorities for the next controlled improvement.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="pilot">Evaluate before changing the process</h2>
+<p>Start with a bounded group of comparable cycles and a retrospective baseline. Test whether the analysis finds known deviations, whether proposed reference runs survive expert review, and how many flagged runs prove useful. Keep later runs out of model development so evaluation reflects new operating data.</p>
+<p>The next stage can present recommendations alongside the existing workflow. Record accepted and rejected suggestions, investigation time, and relevant process outcomes. Any proposed recipe or setpoint change requires process and quality review, with the approved requirements retained. Estimated resource savings should remain estimates until a controlled comparison demonstrates them.</p>
+
+<h2 id="references">Information sources</h2>
+<ol class="article-references">
+  <li><a href="https://dairyprocessinghandbook.tetrapak.com/chapter/cleaning-dairy-equipment" target="_blank" rel="noopener noreferrer">Tetra Pak Dairy Processing Handbook: Cleaning of dairy equipment.</a> Cleaning factors and verification.</li>
+  <li><a href="https://inspection.canada.ca/en/preventive-controls/dairy-products/dairy-processors" target="_blank" rel="noopener noreferrer">Canadian Food Inspection Agency: Good manufacturing practices for dairy processors.</a> CIP monitoring and process-specific cleaning requirements.</li>
+</ol>
+
+        </div>
+      </div>
+    </article>
+    <nav class="article-end" aria-label="Article navigation"><a class="back-link" href="/?industry=manufacturing#whitepapers"><span aria-hidden="true">←</span> Back to whitepapers</a><a class="text-link" href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav>
+  </main>
+  <footer class="footer wrap"><a href="/">Addy Kaveti</a><a href="https://www.linkedin.com/in/adrkv/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

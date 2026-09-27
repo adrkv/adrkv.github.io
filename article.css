@@ -330,3 +330,10 @@ h1 {
   .article-body .visual-panel, .decision-pair section { background: #fff; break-inside: avoid; }
   .table-scroll::before { display: none; }
 }
+
+/* Multiple input groups feed a single decision. */
+.model-outputs.model-inputs { padding: 0; margin: 0; border: 0; }
+.model-inputs > div::before, .model-inputs > div::after { display: none; }
+.model-result { position: relative; margin-top: 32px; }
+.model-result::before { content: ""; position: absolute; width: 1px; height: 32px; top: -33px; left: 50%; background: var(--accent); }
+.model-result::after { content: ""; position: absolute; width: 6px; height: 6px; left: calc(50% - 3px); top: -8px; border-right: 1px solid var(--accent); border-bottom: 1px solid var(--accent); transform: rotate(45deg); }

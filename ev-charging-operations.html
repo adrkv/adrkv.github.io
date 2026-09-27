@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planning EV charging around fleet operations | Addy Kaveti</title>
+  <meta name="description" content="Connecting vehicle readiness, site capacity, and energy cost to a feasible charging schedule.">
+  <link rel="canonical" href="https://adrkv.github.io/ev-charging-operations.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Planning EV charging around fleet operations">
+  <meta property="og:description" content="Connecting vehicle readiness, site capacity, and energy cost to a feasible charging schedule.">
+  <meta property="og:url" content="https://adrkv.github.io/ev-charging-operations.html">
+  <meta property="og:site_name" content="Addy Kaveti">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/assets/addy-icon.svg">
+  <link rel="stylesheet" href="/article.css?v=20260927-industry-library">
+  <link rel="stylesheet" href="/topics.css?v=20260927-industry-library">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header"><a class="brand" href="/" aria-label="Addy Kaveti home">Addy Kaveti<span aria-hidden="true">.</span></a><nav aria-label="Main navigation"><a href="/#strategy">Strategy</a><a href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav></header>
+  <main id="main" class="article-main wrap">
+    <a class="back-link" href="/?industry=automotive-ev#whitepapers"><span aria-hidden="true">←</span> Back to whitepapers</a>
+    <article aria-labelledby="article-title">
+      <header class="article-heading">
+        <p class="eyebrow"><span class="topic-icon topic-automotive-ev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 14l2-7h12l2 7M4 18H3v-5h18v5h-1M7 18h10M6 13h.01M18 13h.01M6 18v3M18 18v3M13 7l-3 4h3l-2 4"/></svg></span>WHITEPAPER</p>
+        <h1 id="article-title">Planning EV charging around fleet operations</h1>
+        <p class="article-summary">Connecting vehicle readiness, site capacity, and energy cost to a feasible charging schedule.</p>
+        <a class="article-affiliation" href="/?affiliation=schneider-electric#whitepapers" aria-label="View whitepapers developed at Schneider Electric"><span>Developed at</span><span class="article-affiliation-logo"><img src="/assets/schneider-electric.png" width="225" height="225" alt="Schneider Electric"></span></a>
+        <div class="article-tags"><a class="topic-tag topic-automotive-ev" href="/?industry=automotive-ev#whitepapers"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 14l2-7h12l2 7M4 18H3v-5h18v5h-1M7 18h10M6 13h.01M18 13h.01M6 18v3M18 18v3M13 7l-3 4h3l-2 4"/></svg>Automotive &amp; EV</a><a class="topic-tag" href="/?topic=charging-operations#whitepapers"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3v5M16 3v5M6 8h12v4a6 6 0 0 1-12 0V8ZM12 18v4"/></svg>Charging operations</a></div>
+      </header>
+      <div class="reading-layout">
+        <nav class="article-contents" aria-label="Article contents"><p>On this page</p><ol><li><a href="#decision">The charging decision</a></li>
+<li><a href="#data">The data behind a feasible schedule</a></li>
+<li><a href="#approach">Where AI/ML can help</a></li>
+<li><a href="#pilot">A pilot that tests the decision</a></li>
+<li><a href="#adoption">Making the schedule usable</a></li>
+<li><a href="#references">Information sources</a></li></ol></nav>
+        <div class="article-body">
+<p class="article-intro">An EV charging plan has to meet the vehicle’s next assignment within the power available at the site. Energy prices, other building loads, and local generation affect when charging is attractive. Arrival times, departure times, and battery requirements determine how much flexibility is actually available.</p>
+<p>This paper presents a planning framework for managed charging, developed from EV-infrastructure use-case work. It connects business priorities to the data and decisions needed for a pilot. The capabilities described are proposals for evaluation in a focused pilot.</p>
+
+<h2 id="decision">The charging decision</h2>
+<p>A charging site makes several related decisions: how much power to allocate to each charger, which vehicles need priority, and when charging should occur. Where on-site generation or stationary batteries exist, their availability creates further choices. These decisions need a common schedule rather than separate optimization targets that conflict.</p>
+<p>For example, delaying every vehicle until a lower-price period can create a new simultaneous peak. Giving every connected vehicle its maximum charging rate may exceed the site’s available capacity. The operating objective must therefore include vehicle readiness and electrical limits alongside cost.</p>
+<p><a href="https://www.energy.gov/cmei/femp/managed-ev-charging-federal-fleets" target="_blank" rel="noopener noreferrer">DOE guidance on managed charging</a> distinguishes fixed schedules from systems that respond to changing vehicle and energy conditions. A static schedule can be a useful baseline. More complex control is justified when changing operations or site constraints create a measurable need.</p>
+<div class="table-scroll" role="region" aria-label="EV charging objectives and operating measures" tabindex="0">
+  <table><caption><span>Define what the charging plan must accomplish</span></caption>
+    <thead><tr><th scope="col">Priority</th><th scope="col">Measure to examine</th><th scope="col">Constraint or trade-off</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Vehicle readiness</th><td>Required energy available by departure.</td><td>The vehicle is only available to charge during its actual dwell period.</td></tr>
+      <tr><th scope="row">Energy cost</th><td>Charging cost under the applicable tariff.</td><td>A cheap interval may be too short for all vehicles.</td></tr>
+      <tr><th scope="row">Site capacity</th><td>Combined charging and other electrical demand.</td><td>Available capacity limits simultaneous charging power.</td></tr>
+      <tr><th scope="row">Use of local generation</th><td>Charging aligned with available on-site supply.</td><td>Generation timing may differ from vehicle availability.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="data">The data behind a feasible schedule</h2>
+<p>Charger count, battery capacity, charging speed, and vehicle arrival and departure times are key inputs. These describe the physical opportunity to charge. A schedule also needs the energy required for the next duty period, rather than assuming every vehicle needs an identical charge.</p>
+<p>Charging-session records should connect the vehicle, charger, timestamp, and delivered energy. The distinction between rated power and observed charging power matters: a rating alone does not tell the planner how much energy was delivered during a particular connection. Missing session records should remain identifiable when assessing the available history.</p>
+<p>Site data adds the demand from other equipment, electrical capacity, energy prices, and any on-site generation or storage. <a href="https://www.energy.gov/cmei/femp/smart-charge-management-implementation-federal-fleets" target="_blank" rel="noopener noreferrer">DOE’s implementation guidance</a> similarly brings together fleet inventory, operating schedules, utility rates, and building or grid data. The useful planning unit is a common time interval across these sources.</p>
+<figure id="figure-1" class="visual-panel">
+  <h3 class="visual-title">A schedule connects both sides of the site</h3>
+  <div class="model-outputs model-inputs">
+    <div><span class="visual-kicker">VEHICLE NEEDS</span><strong>Energy and availability</strong><p>Arrival, departure, charging capability, and the next assignment.</p></div>
+    <div><span class="visual-kicker">SITE CONDITIONS</span><strong>Power and supply</strong><p>Other loads, capacity limits, prices, generation, and storage.</p></div>
+  </div>
+  <div class="model-input model-result">Output: a feasible time and power allocation for each vehicle</div>
+  <figcaption class="figure-note">The plan should expose any unmet requirement so an operator can resolve it before departure.</figcaption>
+</figure>
+
+<h2 id="approach">Where AI/ML can help</h2>
+<p>Forecasting and scheduling perform different jobs. AI and machine learning may help estimate uncertain inputs, such as charging demand under changing utilization or the generation available under different weather conditions. The scheduling step then uses those estimates together with explicit constraints to compare possible allocations.</p>
+<p>This separation makes the result easier to evaluate. Forecast quality can be tested against observations. Schedule feasibility can be checked against departure requirements and site limits. A model that predicts demand accurately can still feed a poor schedule if the cost objective or operating constraints are wrong.</p>
+<p>A useful first comparison is the existing operating practice against a straightforward rule-based schedule. A more advanced model should demonstrate additional value on the same representative periods. The development question is which decisions need prediction and which can already be handled reliably with known schedules and rules.</p>
+<p>Where stationary storage exists, scheduling when and how much to charge it creates another decision. That introduces storage availability and operating limits into the problem. It should remain a separate scoped capability until the basic vehicle-charging schedule is understood. The presence of an EV or battery does not establish permission or equipment capability to export electricity.</p>
+
+<h2 id="pilot">A pilot that tests the decision</h2>
+<p>A focused pilot can replay historical operating periods before controlling chargers. It should include ordinary days and the difficult cases that affect service: late arrivals, an earlier departure, a charger unavailable for use, or less local generation than expected. These scenarios test whether a proposed schedule remains usable when the day changes.</p>
+<ol class="pilot-list">
+  <li><strong>Define the service requirement.</strong> Specify which vehicles must be ready, by when, and what energy each requires.</li>
+  <li><strong>Establish the baseline.</strong> Reconstruct current charging behavior and the relevant cost and capacity measures.</li>
+  <li><strong>Compare candidate schedules.</strong> Evaluate readiness, peak demand, energy cost, and unresolved conflicts under the same assumptions.</li>
+  <li><strong>Review exceptions.</strong> Agree on operator priorities when the available time or power cannot meet every request.</li>
+</ol>
+<p>Results from this exercise are planning estimates. Actual value depends on charger capabilities, communications, the applicable tariff, and how operators use the system. A later controlled trial should record delivered energy and vehicle readiness as well as the recommendation that was issued.</p>
+
+<h2 id="adoption">Making the schedule usable</h2>
+<p>Fleet staff own the departure requirements. Facilities engineers establish electrical limits and the interaction with other loads. Energy teams interpret tariffs and supply choices. Data and controls teams connect the inputs to equipment that can execute the schedule. These roles need agreement on priorities before automation is expanded.</p>
+<p>The interface should make the next action clear: which vehicle is charging, its planned completion time, and whether an exception needs attention. An operator also needs a way to update a departure or override the plan when service needs change. This operational handoff connects the schedule to measurable cost and service outcomes.</p>
+<p>A successful pilot provides evidence about feasible charging flexibility and the data needed to sustain it. It can inform infrastructure and operating choices without assuming that every site needs the same algorithm, storage system, or level of automation.</p>
+
+<h2 id="references">Information sources</h2>
+<ol class="article-references">
+  <li>U.S. Department of Energy, Federal Energy Management Program. <cite><a href="https://www.energy.gov/cmei/femp/managed-ev-charging-federal-fleets" target="_blank" rel="noopener noreferrer">Managed EV Charging for Federal Fleets.</a></cite> Charging objectives and fixed versus adaptive schedules.</li>
+  <li>U.S. Department of Energy, Federal Energy Management Program. <cite><a href="https://www.energy.gov/cmei/femp/smart-charge-management-implementation-federal-fleets" target="_blank" rel="noopener noreferrer">Smart Charge Management Implementation for Federal Fleets.</a></cite> Data, site coordination, and implementation considerations.</li>
+</ol>
+
+        </div>
+      </div>
+    </article>
+    <nav class="article-end" aria-label="Article navigation"><a class="back-link" href="/?industry=automotive-ev#whitepapers"><span aria-hidden="true">←</span> Back to whitepapers</a><a class="text-link" href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav>
+  </main>
+  <footer class="footer wrap"><a href="/">Addy Kaveti</a><a href="https://www.linkedin.com/in/adrkv/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+/* Small, consistent accents for the whitepaper taxonomy. */
+.topic-power-grid{--topic-ink:#a26716;--topic-soft:#fcf3df}
+.topic-life-sciences{--topic-ink:#7760a3;--topic-soft:#f2edf9}
+.topic-data-centers{--topic-ink:#3e739d;--topic-soft:#eaf3fa}
+.topic-manufacturing{--topic-ink:#4d8066;--topic-soft:#edf5ee}
+.topic-automotive-ev{--topic-ink:#ac6051;--topic-soft:#fbefea}
+.topic-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;flex:none;border-radius:12px;background:var(--topic-soft,#f0f1ec);color:var(--topic-ink,#346c72)}
+.topic-icon svg{display:block;width:21px;height:21px}
+.topic-tag{display:inline-flex;align-items:center;gap:6px;max-width:100%;min-height:32px;padding:5px 9px;border-radius:8px;font-size:10px;font-weight:500;line-height:1.5;color:var(--topic-ink,#626861);background:var(--topic-soft,#f0f1ec)}
+.topic-tag svg{display:block;width:14px;height:14px;flex:none}
+.topic-tag:hover{text-decoration:underline;text-underline-offset:3px}
+.article-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.article-tags .topic-tag{font-size:11px}
+.article-heading>.eyebrow{display:flex;align-items:center;gap:12px}
+.article-heading>.eyebrow .topic-icon{width:42px;height:42px}
+@media print{.topic-icon,.topic-tag{color:#333;background:#fff;border:1px solid #ddd}.article-tags{margin-top:12pt}}

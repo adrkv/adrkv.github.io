@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI for constrained data-center cooling | Addy Kaveti</title>
+  <meta name="description" content="Connecting cooling energy, operating limits, and AI/ML recommendations to an operator-approved control workflow.">
+  <link rel="canonical" href="https://adrkv.github.io/data-center-cooling.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI for constrained data-center cooling">
+  <meta property="og:description" content="Connecting cooling energy, operating limits, and AI/ML recommendations to an operator-approved control workflow.">
+  <meta property="og:url" content="https://adrkv.github.io/data-center-cooling.html">
+  <meta property="og:site_name" content="Addy Kaveti">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/assets/addy-icon.svg">
+  <link rel="stylesheet" href="/article.css?v=20260927-industry-library">
+  <link rel="stylesheet" href="/topics.css?v=20260927-industry-library">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header"><a class="brand" href="/" aria-label="Addy Kaveti home">Addy Kaveti<span aria-hidden="true">.</span></a><nav aria-label="Main navigation"><a href="/#strategy">Strategy</a><a href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav></header>
+  <main id="main" class="article-main wrap">
+    <a class="back-link" href="/?industry=data-centers#whitepapers"><span aria-hidden="true">←</span> Back to whitepapers</a>
+    <article aria-labelledby="article-title">
+      <header class="article-heading">
+        <p class="eyebrow"><span class="topic-icon topic-data-centers"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h14v7H5zM5 14h14v7H5zM8 6.5h.01M8 17.5h.01M12 6.5h4M12 17.5h4"/></svg></span>WHITEPAPER</p>
+        <h1 id="article-title">AI for constrained data-center cooling</h1>
+        <p class="article-summary">Connecting cooling energy, operating limits, and AI/ML recommendations to an operator-approved control workflow.</p>
+        <a class="article-affiliation" href="/?affiliation=schneider-electric#whitepapers" aria-label="View whitepapers developed at Schneider Electric"><span>Developed at</span><span class="article-affiliation-logo"><img src="/assets/schneider-electric.png" width="225" height="225" alt="Schneider Electric"></span></a>
+        <div class="article-tags"><a class="topic-tag topic-data-centers" href="/?industry=data-centers#whitepapers"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h14v7H5zM5 14h14v7H5zM8 6.5h.01M8 17.5h.01M12 6.5h4M12 17.5h4"/></svg>Data centers</a><a class="topic-tag" href="/?topic=energy-efficiency#whitepapers"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 4c-9-1-16 3-16 9a7 7 0 0 0 7 7c6 0 10-7 9-16ZM4 20 15 9"/></svg>Energy efficiency</a></div>
+      </header>
+      <div class="reading-layout">
+        <nav class="article-contents" aria-label="Article contents"><p>On this page</p><ol><li><a href="#objective">The operating objective</a></li>
+<li><a href="#data">A usable data foundation</a></li>
+<li><a href="#models">Comparing candidate operating choices</a></li>
+<li><a href="#validation">Validation before control</a></li>
+<li><a href="#adoption">Agreement across teams</a></li>
+<li><a href="#references">Information sources</a></li></ol></nav>
+        <div class="article-body">
+<p class="article-intro">Data-center cooling creates a constrained operating problem: reduce the energy used to remove heat while keeping equipment within its required conditions. AI and machine learning can help compare operating choices, but the useful output is a feasible recommendation that facilities teams can review and measure.</p>
+<p>This paper describes an approach developed through cooling-model and integration work. It combines historical operating data, equipment-performance models, and an approval workflow.</p>
+
+<h2 id="objective">The operating objective</h2>
+<p>Cooling demand changes with IT load, outdoor conditions, and equipment state. A single setpoint held for an extended period may therefore leave room for improvement. The decision includes which units run, how they share the load, and when settings change. Energy performance must be assessed alongside temperature, humidity, available capacity, and equipment constraints.</p>
+<p><a href="https://www.thegreengrid.org/node/372" target="_blank" rel="noopener noreferrer">Power Usage Effectiveness (PUE)</a> divides total data-center energy by IT-equipment energy. It helps describe infrastructure overhead, provided the numerator and denominator cover consistent boundaries and periods. It does not by itself establish lower electricity consumption, lower carbon emissions, or better water performance.</p>
+<figure id="figure-1" class="visual-panel">
+  <h3 class="visual-title">The ratio and the operating decision</h3>
+  <div class="model-input">PUE = total facility energy ÷ IT-equipment energy</div>
+  <div class="model-outputs">
+    <div><span class="visual-kicker">TRACK</span><strong>Infrastructure overhead</strong><p>Compare energy over a consistent measurement boundary.</p></div>
+    <div><span class="visual-kicker">OPTIMIZE</span><strong>Energy within constraints</strong><p>Evaluate kWh and operating conditions together.</p></div>
+  </div>
+  <figcaption class="figure-note">An operational comparison should record IT load as well as facility energy. A change in their ratio needs interpretation.</figcaption>
+</figure>
+<p>Using total kWh as the prediction and optimization target makes energy consumption explicit. That distinction matters when IT demand varies. A lower predicted ratio is insufficient evidence that a proposed operating schedule uses less energy.</p>
+
+<h2 id="data">A usable data foundation</h2>
+<p>The first engineering task is to establish what each measurement means. An energy value might represent consumption during an interval or a cumulative meter register. Treating one as the other produces an incorrect target before model training begins. Timestamps, units, and reset behavior need to be resolved with the controls team.</p>
+<p>Data preparation also needs consistent equipment identifiers. Duplicate names can refer to different devices, while multiple identifiers can describe the same signal. Missing histories, incomplete unit coverage, and ambiguous compressor-state codes should remain visible in the data-quality record.</p>
+<div class="table-scroll" role="region" aria-label="Cooling data and their role in the model" tabindex="0">
+  <table><caption><span>Connect the measurement to the decision</span></caption>
+    <thead><tr><th scope="col">Data</th><th scope="col">What it explains</th><th scope="col">Preparation check</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Facility and IT energy</th><td>The target and the load being supported.</td><td>Align meter boundaries and distinguish interval values from cumulative readings.</td></tr>
+      <tr><th scope="row">Temperature and humidity</th><td>Current conditions and operating constraints.</td><td>Confirm sensor location, units, completeness, and plausible values.</td></tr>
+      <tr><th scope="row">Unit state and setpoints</th><td>Which operating choices produced the observed outcome.</td><td>Map state codes and associate each signal with the correct unit.</td></tr>
+      <tr><th scope="row">Outdoor conditions</th><td>Changing heat load and cooling-unit performance.</td><td>Align weather observations with the equipment data.</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Aggregation should match the decision interval. Minute-level telemetry may support diagnosis, while a controller may accept setting changes less frequently. The training data and proposed schedule should reflect the frequency at which an operator can act. Missing data should not silently become evidence of stable conditions.</p>
+
+<h2 id="models">Comparing candidate operating choices</h2>
+<p>A predictive approach learns relationships between operating inputs and energy use. Candidate inputs include outdoor temperature, IT load, humidity, setpoints, and the number or stage of active cooling units. Regression models, including random forests, can be evaluated against a simpler baseline.</p>
+<p>The optimization step then evaluates permitted combinations of settings. Grid search is one way to compare candidates using the predictive model. The lowest predicted energy value is only a candidate: it must also satisfy the site’s operating requirements and fall within conditions the model can reasonably represent.</p>
+<p>A complementary simulation approach estimates cooling need and equipment performance. This approach separates IT heat, building-envelope effects, ventilation, and moisture-related load. It uses manufacturer performance information to represent how capacity and efficiency change with outdoor conditions, rather than assuming a universal relationship.</p>
+<div class="decision-pair" aria-label="Two approaches to evaluating cooling settings">
+  <section><span class="visual-kicker">AI/ML MODEL</span><h3>Learn from operation</h3><p>Estimate outcomes from recorded conditions and settings. Check coverage before recommending unfamiliar combinations.</p></section>
+  <section><span class="visual-kicker">SIMULATION</span><h3>Represent equipment behavior</h3><p>Test scenarios using load calculations and performance curves. Validate assumptions against measured operation.</p></section>
+</div>
+<p>Unit rotation adds another consideration. Repeatedly choosing the same equipment can concentrate runtime. Allowed combinations, cycling restrictions, and rotation rules therefore belong in the recommendation process. A mode that appears attractive in a model is only usable if the installed controls can actually command it.</p>
+
+<h2 id="validation">Validation before control</h2>
+<p>The proposed sequence should first be evaluated on historical periods excluded from training, across relevant loads and weather conditions. Compare energy and temperature predictions, then examine the recommended actions. Errors near an operating limit matter more than an attractive average score across ordinary periods.</p>
+<p>Weather forecasts and time-varying setpoint schedules can extend the approach. Reinforcement learning was also identified as an alternative development direction. These options require their own validation; their inclusion in a roadmap does not demonstrate that they outperform the tested baseline.</p>
+<figure id="figure-2" class="visual-panel">
+  <h3 class="visual-title">The recommendation-to-control workflow</h3>
+  <ol class="process-flow">
+    <li><span class="step-number" aria-hidden="true">01</span><strong>Prepare</strong><p>Validate and align the operating measurements.</p></li>
+    <li><span class="step-number" aria-hidden="true">02</span><strong>Evaluate</strong><p>Compare feasible settings and predicted outcomes.</p></li>
+    <li><span class="step-number" aria-hidden="true">03</span><strong>Approve</strong><p>Present provisional recommendations for operator review.</p></li>
+    <li><span class="step-number" aria-hidden="true">04</span><strong>Measure</strong><p>Record the action and assess the observed response.</p></li>
+  </ol>
+  <figcaption class="figure-note">The integration design separates provisional recommendations from live control points. Wider automation depends on successful validation and an agreed operating procedure.</figcaption>
+</figure>
+
+<h2 id="adoption">Agreement across teams</h2>
+<p>Facilities engineers define acceptable operating conditions and equipment combinations. Data engineers establish the measurement mapping and reliable pipeline. Model developers explain coverage and uncertainty. Controls and IT teams determine how recommendations reach the interface, while operators retain a clear approval and fallback path.</p>
+<p>Success should be judged through a monitored comparison at comparable loads and conditions: energy consumed, compliance with operating limits, operator acceptance, and the effort required to sustain the workflow. This connects model development to a repeatable operating decision without treating simulation results as realized savings.</p>
+
+<h2 id="references">Information sources</h2>
+<ol class="article-references">
+  <li>The Green Grid. <cite><a href="https://www.thegreengrid.org/node/372" target="_blank" rel="noopener noreferrer">Power Usage Effectiveness (PUE).</a></cite> Definition of the infrastructure-energy metric.</li>
+  <li>U.S. Department of Energy, Federal Energy Management Program. <cite><a href="https://www.energy.gov/cmei/femp/articles/best-practices-guide-energy-efficient-data-center-design" target="_blank" rel="noopener noreferrer">Best Practices Guide for Energy-Efficient Data Center Design.</a></cite> July 2024.</li>
+  <li>The Green Grid. <cite><a href="https://www.thegreengrid.org/system/files/store/WUE_v1.pdf" target="_blank" rel="noopener noreferrer">Water Usage Effectiveness: A Green Grid Data Center Sustainability Metric.</a></cite> Separate measurement of water use alongside energy and carbon metrics.</li>
+</ol>
+
+        </div>
+      </div>
+    </article>
+    <nav class="article-end" aria-label="Article navigation"><a class="back-link" href="/?industry=data-centers#whitepapers"><span aria-hidden="true">←</span> Back to whitepapers</a><a class="text-link" href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav>
+  </main>
+  <footer class="footer wrap"><a href="/">Addy Kaveti</a><a href="https://www.linkedin.com/in/adrkv/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

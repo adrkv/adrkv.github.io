@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI for life sciences technology transfer | Addy Kaveti</title>
+  <meta name="description" content="Using simulation and AI/ML to evaluate process settings, guide experiments, and support transfer between manufacturing sites.">
+  <link rel="canonical" href="https://adrkv.github.io/life-sciences-technology-transfer.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI for life sciences technology transfer">
+  <meta property="og:description" content="Using simulation and AI/ML to evaluate process settings, guide experiments, and support transfer between manufacturing sites.">
+  <meta property="og:url" content="https://adrkv.github.io/life-sciences-technology-transfer.html">
+  <meta property="og:site_name" content="Addy Kaveti">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/assets/addy-icon.svg">
+  <link rel="stylesheet" href="/article.css?v=20260927-industry-library">
+  <link rel="stylesheet" href="/topics.css?v=20260927-industry-library">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header"><a class="brand" href="/" aria-label="Addy Kaveti home">Addy Kaveti<span aria-hidden="true">.</span></a><nav aria-label="Main navigation"><a href="/#strategy">Strategy</a><a href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav></header>
+  <main id="main" class="article-main wrap">
+    <a class="back-link" href="/?industry=life-sciences#whitepapers"><span aria-hidden="true">←</span> Back to whitepapers</a>
+    <article aria-labelledby="article-title">
+      <header class="article-heading">
+        <p class="eyebrow"><span class="topic-icon topic-life-sciences"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3c0 8 10 10 10 18M17 3C17 11 7 13 7 21M8 5h8M9 9h6M9 15h6M8 19h8"/></svg></span>WHITEPAPER</p>
+        <h1 id="article-title">AI for life sciences technology transfer</h1>
+        <p class="article-summary">Using simulation and AI/ML to evaluate process settings, guide experiments, and support transfer between manufacturing sites.</p>
+        <a class="article-affiliation" href="/?affiliation=schneider-electric#whitepapers" aria-label="View whitepapers developed at Schneider Electric"><span>Developed at</span><span class="article-affiliation-logo"><img src="/assets/schneider-electric.png" width="225" height="225" alt="Schneider Electric"></span></a>
+        <div class="article-tags"><a class="topic-tag topic-life-sciences" href="/?industry=life-sciences#whitepapers"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3c0 8 10 10 10 18M17 3C17 11 7 13 7 21M8 5h8M9 9h6M9 15h6M8 19h8"/></svg>Life sciences</a><a class="topic-tag" href="/?topic=technology-transfer#whitepapers"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h16l-4-4M21 18H5l4 4M19 6l-4 4M5 18l4-4"/></svg>Technology transfer</a></div>
+      </header>
+      <div class="reading-layout">
+        <nav class="article-contents" aria-label="Article contents"><p>On this page</p><ol><li><a href="#transfer-gap">The gap between a recipe and a working process</a></li>
+<li><a href="#business-decision">Start with the decision the team needs to make</a></li>
+<li><a href="#simulation-ai">How simulation and AI/ML work together</a></li>
+<li><a href="#method-data">Choose the method around the available evidence</a></li>
+<li><a href="#pilot-handoffs">A pilot that teams can use</a></li>
+<li><a href="#validation">From candidate settings to manufacturing evidence</a></li>
+<li><a href="#references">Information sources</a></li></ol></nav>
+        <div class="article-body">
+<p class="article-intro">Technology transfer asks a receiving manufacturer to reproduce a process developed elsewhere, using its own equipment and operating conditions. This paper outlines a proposed approach that combines dynamic simulation with AI/ML to help engineers compare configurations, select useful experiments, and prepare a process for transfer.</p>
+
+<h2 id="transfer-gap">The gap between a recipe and a working process</h2>
+<p>A recipe that performs well in development may behave differently at a contract development and manufacturing organization (CDMO). Vessel geometry, cooling capacity, mixing equipment, and control behavior can change how a process responds. The receiving team needs to understand which differences matter before committing to equipment modifications or physical trials.</p>
+<p>Consider a temperature-controlled vessel. The desired temperature is only one part of the problem. Cooling-water conditions, valve capacity, and controller tuning also affect the response. A useful assessment asks whether the available equipment can achieve the required process behavior, which settings deserve further study, and where a physical limitation requires an engineering change.</p>
+<p>Technology transfer also carries knowledge between teams. The <a href="https://www.who.int/publications/m/item/trs1044-annex4" target="_blank" rel="noopener noreferrer">WHO technology-transfer guideline</a> recommends a documented plan, a gap analysis, and clear responsibilities between the sending and receiving units. An AI/ML workstream should fit into that transfer plan so its outputs answer an agreed engineering question.</p>
+
+<h2 id="business-decision">Start with the decision the team needs to make</h2>
+<p>The objective is to establish a viable process at the receiving site. A model becomes useful when it helps resolve a specific decision: whether existing equipment is suitable, which operating conditions warrant testing, or which bottleneck should receive engineering attention.</p>
+<p>Distinguish elapsed project time from hands-on engineering effort. Faster analysis of simulation results may free engineering capacity, but the overall transfer schedule also depends on equipment readiness, testing, and review. Measure the part of the workflow the pilot actually changes.</p>
+<div class="table-scroll" role="region" aria-label="Technology transfer decisions and measures" tabindex="0">
+  <table>
+    <caption><span>Connect the technical question to the business decision</span></caption>
+    <thead><tr><th scope="col">Decision</th><th scope="col">Evidence to compare</th><th scope="col">Pilot measure</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Use existing equipment or modify it?</th><td>Feasible operating conditions, equipment constraints, and predicted process response.</td><td>Candidate configurations that meet the agreed simulation criteria.</td></tr>
+      <tr><th scope="row">Which experiment comes next?</th><td>Previous test results, unexplored conditions, and engineering priorities.</td><td>Simulation runs and elapsed time needed to identify an acceptable candidate.</td></tr>
+      <tr><th scope="row">Where is engineering effort going?</th><td>Time spent setting up cases, reviewing trends, and selecting the next conditions.</td><td>Active engineering hours per evaluated candidate, including review.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="simulation-ai">How simulation and AI/ML work together</h2>
+<p>A dynamic simulator estimates how a modeled process changes over time. Engineers supply equipment characteristics, process conditions, and control logic, then inspect the resulting behavior. Repeating this cycle across interacting parameters can produce more scenarios than a team can conveniently examine by hand.</p>
+<p>AI/ML can support two parts of that cycle: selecting candidate conditions to simulate and finding useful patterns in the results. The proposed workflow keeps the simulator as the environment for virtual experimentation. Engineers define the allowed choices and acceptance criteria, and review the candidates before any plant change.</p>
+<figure id="figure-1" class="visual-panel">
+  <h3 class="visual-title">A proposed loop for virtual experimentation</h3>
+  <ol class="process-flow">
+    <li><span class="step-number" aria-hidden="true">01</span><strong>Define the transfer question</strong><p>Agree on target behavior, equipment constraints, and the conditions the model represents.</p></li>
+    <li><span class="step-number" aria-hidden="true">02</span><strong>Run a candidate scenario</strong><p>Apply a proposed configuration or set of parameters to the dynamic simulator.</p></li>
+    <li><span class="step-number" aria-hidden="true">03</span><strong>Compare and choose</strong><p>Evaluate the response and use an optimization method to select another useful test.</p></li>
+    <li><span class="step-number" aria-hidden="true">04</span><strong>Review the candidate</strong><p>Check the proposed settings, assumptions, and remaining tests with the engineering team.</p></li>
+  </ol>
+  <figcaption class="figure-note">The loop repeats within the modeled environment. A promising simulated candidate becomes an input to engineering review and validation planning.</figcaption>
+</figure>
+<p>Reinforcement learning is one candidate method when the problem involves a sequence of actions. An agent observes a simulated process state, chooses an allowed action, and receives feedback based on the resulting performance. The learned policy describes which action to take under specified conditions. In this application, training would occur in the simulator; it does not require exploratory actions on a live manufacturing line.</p>
+<p>The feedback function needs careful design. A shorter cycle is useful only within the process constraints. The team should inspect how the proposed method handles an unacceptable scenario, and whether its ranking favors a narrow simulated result that would be difficult to operate in practice.</p>
+
+<h2 id="method-data">Choose the method around the available evidence</h2>
+<p>Simulator speed and historical data availability influence the development approach. A simulator that runs quickly may support direct experimentation. When each run is expensive, a surrogate model can approximate selected simulator outputs and help screen candidates. The most promising candidates then return to the detailed simulator for checking.</p>
+<p>A surrogate depends on the cases used to train it. Historical batch data can add useful context, but differences in equipment, recipe version, and operating conditions must remain visible. A dataset from one configuration should not silently stand in for another. Test performance on scenarios held out from development and examine the errors that would change an engineering decision.</p>
+<p>Before selecting an algorithm, assemble a consistent record of equipment specifications, recipe steps, control settings, simulation inputs, and outputs. Preserve units, time alignment, and model versions. These details let a reviewer reproduce a result and distinguish a process effect from a data mismatch.</p>
+<p>The first comparison should include the team's existing approach. For a fixed set of parameters, a structured experimental design or conventional optimizer may be sufficient. A sequential control problem may justify reinforcement learning. The pilot should establish which method is useful for the question rather than assume that one AI/ML technique suits every transfer.</p>
+
+<h2 id="pilot-handoffs">A pilot that teams can use</h2>
+<p>Start with one process step and one decision. Define a reference simulation, a baseline search method, and a set of representative test scenarios. Track engineering effort alongside candidate quality. This creates a concrete basis for deciding whether additional model development or production integration is worthwhile.</p>
+<p>The receiving manufacturer and the product-originating team bring different knowledge. Process engineers understand equipment behavior. Data specialists build the experiment pipeline. Quality and validation teams determine how the resulting evidence fits the intended use. A shared handoff record prevents assumptions from disappearing between those groups.</p>
+<div class="table-scroll" role="region" aria-label="Suggested technology transfer pilot handoffs" tabindex="0">
+  <table>
+    <caption><span>Suggested responsibilities and handoffs</span></caption>
+    <thead><tr><th scope="col">Team</th><th scope="col">Contribution</th><th scope="col">Handoff</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Sending and receiving teams</th><td>Explain the process intent and the differences between sites.</td><td>Agreed transfer question and unresolved gaps.</td></tr>
+      <tr><th scope="row">Process and controls engineering</th><td>Review model behavior, equipment constraints, and allowed parameter changes.</td><td>Defined simulation cases and engineering acceptance criteria.</td></tr>
+      <tr><th scope="row">Data and AI/ML</th><td>Prepare traceable datasets, compare methods, and document errors.</td><td>Reproducible candidate results with assumptions and limitations.</td></tr>
+      <tr><th scope="row">Quality and validation</th><td>Assess the intended use and the evidence needed for subsequent change.</td><td>Review requirements and a documented validation path.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="validation">From candidate settings to manufacturing evidence</h2>
+<p>Simulation results describe the modeled process. They do not establish that the receiving plant will reproduce those results. A recommendation therefore needs a clear intended use, known limitations, and a plan for confirmation. Changes to equipment, data, or process assumptions should trigger a review of whether the model remains suitable.</p>
+<p>FDA's <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/process-validation-general-principles-and-practices" target="_blank" rel="noopener noreferrer">process-validation guidance</a> frames validation across process design, qualification, and continued verification. Its <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q8-q9-q10-questions-and-answers-appendix-qas-training-sessions-q8-q9-q10-points-consider" target="_blank" rel="noopener noreferrer">Q8, Q9, and Q10 points to consider</a> also discuss model acceptance criteria and verification through the lifecycle. These principles help define what happens after an optimization pilot produces promising candidates.</p>
+<p>The useful output is a reviewed set of options with enough context to support the next transfer decision: what was tested, why the candidate was selected, and what evidence is still needed before it can be used.</p>
+
+<div class="footnotes" id="references">
+  <h2>Information sources</h2>
+  <ol class="article-references">
+    <li><a href="https://www.who.int/publications/m/item/trs1044-annex4" target="_blank" rel="noopener noreferrer">WHO guidelines on technology transfer in pharmaceutical manufacturing</a>. TRS 1044, Annex 4, 2022.</li>
+    <li><a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/process-validation-general-principles-and-practices" target="_blank" rel="noopener noreferrer">FDA: Process Validation — General Principles and Practices</a>. 2011.</li>
+    <li><a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q8-q9-q10-questions-and-answers-appendix-qas-training-sessions-q8-q9-q10-points-consider" target="_blank" rel="noopener noreferrer">FDA: Q8, Q9, and Q10 Points to Consider</a>. Model validation, verification, and process lifecycle considerations.</li>
+  </ol>
+</div>
+
+        </div>
+      </div>
+    </article>
+    <nav class="article-end" aria-label="Article navigation"><a class="back-link" href="/?industry=life-sciences#whitepapers"><span aria-hidden="true">←</span> Back to whitepapers</a><a class="text-link" href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav>
+  </main>
+  <footer class="footer wrap"><a href="/">Addy Kaveti</a><a href="https://www.linkedin.com/in/adrkv/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>
