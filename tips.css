@@ -1,3 +1,4 @@
+@font-face { font-family: "Lilita One"; src: url("lilita-one.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
 /* Shared optional thank-you widget. Inline, accessible and hidden in print. */
 .tips-placement { margin-block: 32px 0; }
 .tip-widget {
@@ -17,7 +18,7 @@
 .tip-widget button { font: inherit; }
 .tip-stage {
   display: grid;
-  grid-template-columns: 130px minmax(0, 1fr) auto;
+  grid-template-columns: 130px minmax(0, 1fr);
   align-items: center;
   gap: 22px;
   padding: 16px 28px 16px 18px;
@@ -31,11 +32,8 @@
 .tip-character .cup-eyes { transform-origin: 89px 77px; animation: tip-blink 6.4s linear infinite; }
 .tip-character .cup-steam { animation: tip-steam 4.8s ease-in-out infinite; }
 .tip-character .cup-toe { transform-origin: 135px 160px; animation: tip-tap 4.8s ease-in-out infinite; }
-.tip-copy { padding-block: 10px; }
-.tip-copy p { margin: 0; }
-.tip-question { font-size: clamp(19px, 2.5vw, 23px); font-weight: 520; line-height: 1.25; letter-spacing: -.65px; }
 .tip-value { color: var(--tip-muted); font-size: 12px; line-height: 1.6; letter-spacing: 0; }
-.tip-copy .tip-value { margin-top: 9px; max-width: 36ch; }
+.tip-panel > .tip-value { margin: 0 0 18px; }
 .tip-controls { align-self: center; }
 .tip-trigger, .tip-fallback {
   display: inline-grid;
@@ -81,9 +79,7 @@
 @media (max-width: 620px) {
   .tip-stage { grid-template-columns: 104px minmax(0, 1fr); gap: 8px 16px; padding: 21px 21px 23px 12px; }
   .tip-character { grid-row: 1 / 3; width: 104px; height: 126px; }
-  .tip-copy { align-self: end; padding: 0; }
   .tip-controls { grid-column: 2; align-self: start; margin-top: 6px; }
-  .tip-question { font-size: 20px; letter-spacing: -.55px; }
   .tip-trigger, .tip-fallback { min-width: 126px; padding-inline: 16px; }
   .tip-panel { padding: 21px 20px; }
   .tip-amount { padding: 18px 14px 15px; }
@@ -91,7 +87,6 @@
 @media (max-width: 370px) {
   .tip-stage { grid-template-columns: 88px minmax(0, 1fr); gap: 6px 10px; padding: 18px 16px 20px 8px; border-radius: 20px; }
   .tip-character { width: 88px; height: 138px; }
-  .tip-question { font-size: 18px; }
   .tip-panel { padding: 19px 15px; }
   .tip-amounts { gap: 7px; }
   .tip-amount { padding: 17px 10px 14px; }
@@ -120,7 +115,6 @@
 .tip-widget--dock .tip-trigger:not(:hover):not(:focus-visible):not([aria-expanded="true"]) { color: var(--tip-muted); }
 .tip-widget--dock .tip-panel { position: fixed; width: min(340px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); overflow-y: auto; margin: 0; padding: 22px; box-shadow: 0 16px 50px #2125221a; z-index: 81; }
 .tip-widget--dock .tip-panel-heading { margin-bottom: 15px; }
-.tip-panel-question { margin: 0 0 10px; color: var(--tip-ink); font-size: 21px; font-weight: 520; letter-spacing: -.6px; line-height: 1.2; }
 .tip-widget--dock .tip-value { margin: 0 0 20px; max-width: 34ch; }
 .tip-widget--dock .tip-amount { padding: 17px 12px 15px; }
 .tip-widget--dock .tip-amount-value { font-size: 25px; }
@@ -137,3 +131,66 @@
   .tip-widget--dock .tip-panel { padding: 19px; }
 }
 @media print { .tips-placement, .tip-widget { display: none !important; } }
+
+/* A little record-store salesmanship beside the animated cup. */
+.tip-pitch { display: flex; flex-direction: column; align-items: center; justify-self: start; gap: 6px; }
+.tip-badge {
+  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  width: 204px; min-height: 112px; padding: 13px 17px 12px;
+  border: 2px solid #e4a052; border-radius: 26px / 18px;
+  background: #282b27; color: #ffe7b2;
+  box-shadow: inset 0 0 0 3px #282b27, inset 0 0 0 4px #b4703b, 2px 3px 0 #a95235;
+  transform: rotate(-3deg);
+  font-family: "Lilita One", "Arial Rounded MT Bold", sans-serif;
+  font-weight: 400; line-height: 1; text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+}
+.tip-badge-row { display: flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; }
+.tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; line-height: 1; min-width: 47px; text-align: center; font-size: 36px; color: #f4ad65; text-shadow: 1px 1px 0 #bd5238, 2px 2px 0 #8e3d2d; }
+.tip-badge-number > span { display: inline-block; font-size: .67em; line-height: 1; }
+.tip-badge-label { width: 110px; font-size: 17px; letter-spacing: .35px; text-shadow: 1px 1px 0 #a94632; }
+.tip-badge-foot { align-self: center; margin-top: 7px; padding-top: 6px; border-top: 1px solid #95653c; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 9px; line-height: 1.2; font-weight: 600; letter-spacing: .9px; text-align: center; color: #f4cc97; }
+.tip-pitch .tip-controls { margin: 0; }
+.tip-pitch .tip-trigger, .tip-pitch .tip-fallback { min-height: 44px; padding-block: 10px; border: 0; }
+.header:has(.tip-dock-slot) { height: 156px; }
+.tip-dock-slot, .tip-widget--dock { width: 235px; }
+.tip-dock-slot { height: 130px; }
+.tip-widget--dock .tip-stage { gap: 9px; border-radius: 20px; }
+.tip-widget--dock.is-moved .tip-stage { padding: 4px; }
+.tip-widget--dock .tip-move { flex: 0 0 72px; width: 72px; height: 82px; }
+.tip-widget--dock .tip-character { width: 72px; height: 80px; }
+.tip-widget--dock .tip-pitch { gap: 3px; }
+.tip-widget--dock .tip-badge { width: 150px; min-height: 82px; padding: 7px 11px; border-radius: 23px / 16px; }
+.tip-widget--dock .tip-badge-row { gap: 5px; }
+.tip-widget--dock .tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; line-height: 1; min-width: 34px; font-size: 25px; }
+.tip-widget--dock .tip-badge-label { width: 83px; font-size: 12.5px; letter-spacing: .25px; }
+.tip-widget--dock .tip-badge-foot { margin-top: 3px; padding-top: 3px; font-size: 8px; letter-spacing: .55px; }
+.tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-height: 40px; padding-block: 8px; }
+@media (max-width: 620px) {
+  .tip-stage { grid-template-columns: 100px minmax(0, 1fr); gap: 12px; }
+  .tip-stage > .tip-character { grid-row: auto; }
+  .tip-badge { width: 176px; min-height: 104px; padding-inline: 12px; }
+  .tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; line-height: 1; min-width: 39px; font-size: 30px; }
+  .tip-badge-label { width: 98px; font-size: 15px; }
+  .header:has(.tip-dock-slot) { height: 146px; }
+  .tip-dock-slot, .tip-widget--dock { width: 183px; }
+  .tip-dock-slot { height: 116px; }
+  .tip-widget--dock .tip-stage { gap: 5px; }
+  .tip-widget--dock .tip-move { flex-basis: 49px; width: 49px; height: 70px; }
+  .tip-widget--dock .tip-character { width: 49px; height: 66px; }
+  .tip-widget--dock .tip-badge { width: 125px; min-height: 74px; padding-inline: 7px; border-radius: 20px / 14px; }
+  .tip-widget--dock .tip-badge-row { gap: 3px; }
+  .tip-widget--dock .tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; line-height: 1; min-width: 29px; font-size: 23px; }
+  .tip-widget--dock .tip-badge-label { width: 72px; font-size: 10.6px; letter-spacing: .1px; }
+  .tip-widget--dock .tip-badge-foot { font-size: 7.5px; letter-spacing: .2px; }
+}
+@media (max-width: 370px) {
+  .tip-stage { grid-template-columns: 70px minmax(0, 1fr); gap: 10px; padding-inline: 9px; }
+  .tip-stage > .tip-character { width: 76px; height: 120px; }
+  .tip-badge { width: 154px; padding-inline: 9px; }
+  .tip-badge-row { gap: 5px; }
+  .tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; line-height: 1; min-width: 32px; font-size: 28px; }
+  .tip-badge-label { width: 87px; font-size: 13px; }
+  .tip-badge-foot { font-size: 8px; letter-spacing: .4px; }
+  .tip-dock-slot, .tip-widget--dock { width: 180px; }
+}
