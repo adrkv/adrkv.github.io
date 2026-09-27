@@ -2,6 +2,7 @@
   const library = document.getElementById('whitepapers');
   if (!library) return;
   const papers = Array.from(library.querySelectorAll('.whitepaper-entry'));
+  const results = library.querySelector('.whitepaper-list');
   const industryLinks = Array.from(library.querySelectorAll('[data-industry-filter]'));
   const topicSelect = library.querySelector('#whitepaper-topic');
   const affiliationSelect = library.querySelector('#whitepaper-affiliation');
@@ -27,7 +28,9 @@
   }
 
   function render() {
-    state = readState();
+    const nextState = readState();
+    const filtersChanged = state && ['industry', 'topic', 'affiliation'].some(key => state[key] !== nextState[key]);
+    state = nextState;
     industryLinks.forEach(link => {
       if (link.dataset.industryFilter === state.industry) link.setAttribute('aria-current', 'true');
       else link.removeAttribute('aria-current');
@@ -48,6 +51,7 @@
     status.textContent = `${count} whitepaper${count === 1 ? '' : 's'}${context.length ? ' · ' + context.join(' · ') : ''}`;
     empty.hidden = count !== 0;
     reset.hidden = Object.values(state).every(value => value === 'all');
+    if (filtersChanged) results.scrollTop = 0;
   }
 
   function navigate(next) {
@@ -68,7 +72,10 @@
   }));
   topicSelect.addEventListener('change', () => navigate({ ...state, topic: topicSelect.value }));
   affiliationSelect.addEventListener('change', () => navigate({ ...state, affiliation: affiliationSelect.value }));
-  reset.addEventListener('click', () => navigate({ industry: 'all', topic: 'all', affiliation: 'all' }));
+  reset.addEventListener('click', () => {
+    navigate({ industry: 'all', topic: 'all', affiliation: 'all' });
+    industryLinks.find(link => link.dataset.industryFilter === 'all').focus({ preventScroll: true });
+  });
   window.addEventListener('popstate', render);
   window.addEventListener('hashchange', render);
   render();
