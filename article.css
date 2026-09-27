@@ -97,6 +97,8 @@ h1 {
 .article-affiliation:hover > span:first-child { text-decoration: underline; text-underline-offset: 4px; }
 .article-affiliation-logo { display: flex; align-items: center; width: 148px; height: 48px; flex: 0 0 148px; overflow: hidden; }
 .article-affiliation-logo img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+.article-context { max-width: 740px; margin-top: 26px; padding-left: 18px; border-left: 2px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.75; }
+.article-context strong { color: var(--ink); font-weight: 550; }
 .reading-layout {
   display: grid;
   grid-template-columns: 192px minmax(0, 720px);

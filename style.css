@@ -102,6 +102,14 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .affiliation-detail{font-size:11px;display:inline-block;margin-top:8px}
 .affiliation>.card-cta{margin-top:auto}
 .affiliation-links{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:auto}
+.event-memory{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:center;margin-top:28px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
+.event-memory>img{display:block;width:100%;height:auto}
+.event-memory figcaption{padding:36px}
+.event-memory .eyebrow{margin-bottom:16px}
+.event-memory h3{font-size:clamp(23px,2.5vw,32px);font-weight:500;letter-spacing:-.8px;line-height:1.15}
+.event-memory p:not(.eyebrow){margin-top:14px;color:var(--muted);font-size:13px;line-height:1.8}
+.event-memory .text-link{margin-top:24px}
+@media(max-width:760px){.event-memory{grid-template-columns:1fr}.event-memory figcaption{padding:28px}.event-memory .text-link{margin-top:20px}}
 .affiliation-links a:hover{text-decoration:underline;text-underline-offset:4px}
 .academic-section{margin-top:38px;padding-top:28px;border-top:1px solid var(--line)}
 .academic-heading{font-size:13px;line-height:1.6;color:var(--muted);font-weight:450;letter-spacing:0;margin-bottom:24px}
