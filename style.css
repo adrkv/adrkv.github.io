@@ -266,23 +266,30 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .greeting-label{position:relative;isolation:isolate;width:fit-content}
 .greeting-label::before{content:"";position:absolute;z-index:-1;left:-6px;top:.32em;width:calc(100% + 10px);height:.92em;background:#f4dc65;opacity:.82;transform:rotate(-2deg);clip-path:polygon(1% 9%,98% 0,100% 80%,87% 96%,47% 91%,2% 100%,0 48%);pointer-events:none}
 
-/* Audience shortcuts remain visible across the top bar. */
-.header:has(>nav.audience-links){display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;height:auto;min-height:138px}
-.header .audience-links{display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.5vw,20px);min-width:0}
-.header .audience-links>a{display:flex;align-items:center;gap:7px;min-height:44px;padding:10px 0;color:var(--muted);font-size:12px;line-height:1.4;white-space:nowrap}
+/* The tip control and audience shortcuts share a compact baseline below the cup. */
+.header:has(>nav.audience-links){display:grid;grid-template-columns:210px minmax(0,1fr);align-items:end;gap:0 24px;height:auto;min-height:0;padding:0}
+.header>.tip-dock-slot{height:136px;align-self:start}
+.header .tip-widget--dock .tip-stage{display:grid;grid-template-columns:110px 96px;grid-template-rows:100px 36px;align-items:start;gap:0}
+.header .tip-widget--dock .tip-move{grid-column:1;grid-row:1}
+.header .tip-widget--dock .tip-pitch{display:contents}
+.header .tip-widget--dock .tip-badge{grid-column:2;grid-row:1;align-self:start;margin-top:8px}
+.header .tip-widget--dock .tip-controls{grid-column:1;grid-row:2;align-self:center;justify-self:center;margin:0;position:relative;z-index:1}
+.header .audience-links{display:flex;align-items:center;justify-content:space-between;gap:clamp(12px,1.5vw,20px);min-width:0;align-self:end}
+.header .audience-links>a{display:flex;align-items:center;gap:7px;min-height:36px;padding:8px 0;color:var(--muted);font-size:12px;line-height:1.4;white-space:nowrap}
 .header .audience-links>a:hover,.header .audience-links>a:focus-visible{color:var(--accent);text-decoration:underline;text-underline-offset:5px}
 .header .audience-links>a:last-child span{margin-left:0}
 .audience-links svg,.audience-links img{width:16px;height:16px;object-fit:contain;flex:0 0 16px;color:var(--accent)}
 .audience-links span{min-width:0}
-@media(max-width:1000px){
-  .header:has(>nav.audience-links){grid-template-columns:minmax(0,1fr) auto;gap:0 16px;min-height:0;padding:4px 0 8px}
-  .header>.tip-dock-slot{grid-column:1;grid-row:1}
-  .header:has(>nav.audience-links)>.brand{grid-column:2;grid-row:1;justify-self:end}
-  .header .audience-links{grid-column:1 / -1;grid-row:2;gap:24px}
+@media(max-width:860px){
+  .header:has(>nav.audience-links){gap:0 20px}
+  .header .audience-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+  .header .audience-links>a{white-space:normal;min-height:44px}
 }
-@media(max-width:700px){
-  .header .audience-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;width:min(100%,420px);justify-self:center}
-  .header .audience-links>a{white-space:normal}
+@media(max-width:620px){
+  .header:has(>nav.audience-links){grid-template-columns:minmax(0,1fr);gap:0;padding-bottom:6px}
+  .header>.tip-dock-slot{grid-column:1;grid-row:1}
+  .header .tip-widget--dock .tip-stage{grid-template-columns:102px 88px}
+  .header .audience-links{grid-column:1;grid-row:2;width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
 }
 .enablement-mission{margin:-8px 0 28px;color:var(--muted);font-size:15px;line-height:1.8}
 .github-source-link,.enablement-booking-link{display:inline-flex;align-items:center;gap:6px;vertical-align:baseline;color:var(--accent);white-space:nowrap}
