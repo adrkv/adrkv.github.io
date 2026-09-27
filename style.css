@@ -102,6 +102,13 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .affiliation-detail{font-size:11px;display:inline-block;margin-top:8px}
 .affiliation>.card-cta{margin-top:auto}
 .affiliation-links{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:auto}
+.community-affiliation:hover{transform:none;border-color:var(--line)}
+.community-booking{width:100%;padding-top:14px;border-top:1px solid var(--line)}
+.community-booking h4{font-size:13px;line-height:1.5;font-weight:550;letter-spacing:-.1px}
+.community-booking p{margin-top:6px;color:var(--muted);font-size:11px;line-height:1.7}
+.community-booking .booking-cta{min-height:44px;gap:8px;margin-top:7px;padding-block:9px}
+.booking-cta img{display:block;flex-shrink:0;object-fit:contain}
+.community-booking .booking-cta:focus-visible{outline-offset:4px;border-radius:6px}
 .event-memory{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:center;margin-top:28px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
 .event-memory>img{display:block;width:100%;height:auto}
 .event-memory figcaption{padding:36px}
