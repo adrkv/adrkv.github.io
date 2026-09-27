@@ -13,7 +13,7 @@
   <meta property="og:site_name" content="Addy Kaveti">
   <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/svg+xml" href="/assets/addy-icon.svg">
-  <link rel="stylesheet" href="/article.css?v=20260927">
+  <link rel="stylesheet" href="/article.css?v=20260927-visuals">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -60,16 +60,33 @@
   <li><strong>For the utility’s customers:</strong> disruptions to essential services, including hospitals, care facilities, and emergency responders, productivity losses for commercial and industrial businesses, and compromises to public safety and convenience.</li>
 </ul>
 
+<div class="table-scroll" role="region" aria-label="Business priorities and operational measures" tabindex="0">
+  <table>
+    <caption><span>Connecting the model to the business decision</span></caption>
+    <thead>
+      <tr><th scope="col">Priority</th><th scope="col">Operational measure</th><th scope="col">Why it matters</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Locate faults accurately</th><td>Difference between estimated and actual electrical distance-to-fault.</td><td>Narrow the search to the structures nearest the fault.</td></tr>
+      <tr><th scope="row">Reduce field effort</th><td>Time spent traveling, searching, and thumping to locate faults.</td><td>Help crews reach the repair sooner and become available for the next fault.</td></tr>
+      <tr><th scope="row">Restore service</th><td>Restoration time and service reliability measures.</td><td>Limit disruption to customers and reduce exposure to cascading failures.</td></tr>
+    </tbody>
+  </table>
+</div>
+
 <h2 id="restoration-process">Finding and repairing underground cable faults</h2>
-<p>A generalized process for finding and repairing underground cable faults includes the following steps:</p>
-<ol>
-  <li>The control room operator monitors system alerts for irregularities.</li>
-  <li>The traditional approach applies physics-based equations with a scaling factor.</li>
-  <li>A range of manholes is determined based on the estimated fault location.</li>
-  <li>The field crew is informed of the estimated manhole locations.</li>
-  <li>The crew travels to the fault location and finds the correct manhole, employing thumping where required.</li>
-  <li>The crew finds the fault, conducts repairs or replacements, performs required tests, including high-potential tests, and updates systems.</li>
-</ol>
+<p>The traditional approach estimates fault location using physics-based equations with a scaling factor. The workflow below shows where an AI/ML estimate can support the same restoration process.</p>
+<figure class="visual-panel">
+  <h3 class="visual-title">From fault evidence to a field decision</h3>
+  <ol class="process-flow">
+    <li><span class="step-number" aria-hidden="true">01</span><strong>Observe the event</strong><p>The control room monitors alerts; waveform records provide evidence of the fault.</p></li>
+    <li><span class="step-number" aria-hidden="true">02</span><strong>Estimate the distance</strong><p>The AI/ML model estimates electrical distance-to-fault in ohms.</p></li>
+    <li><span class="step-number" aria-hidden="true">03</span><strong>Map to a structure</strong><p>Translate the estimate into nearby manholes, vaults, or service boxes.</p></li>
+    <li><span class="step-number" aria-hidden="true">04</span><strong>Locate in the field</strong><p>Inform the crew of the estimated locations. The crew travels to the area and locates the fault, using thumping where required.</p></li>
+    <li><span class="step-number" aria-hidden="true">05</span><strong>Repair and verify</strong><p>Crews repair or replace the cable, perform required tests, including high-potential tests, and update systems.</p></li>
+  </ol>
+  <figcaption class="figure-note">Conceptual workflow. AI supports the location estimate; field crews find, repair, and test the cable. Deployment was part of the roadmap following the proof of concept.</figcaption>
+</figure>
 <p>By accurately determining underground fault locations, field crews can reduce the time-consuming thumping, driving, and walking-around activities used to determine fault locations. This saves field crews time so they can more quickly get to and repair the next fault, reducing the likelihood of cascading faults and more severe widespread outages.</p>
 <p>Utilities may also apply a calculated scaling factor to improve the accuracy of their estimated fault location. These calculations may be performed manually, resulting in wasted engineering hours and sporadic updates that further reduce the accuracy of estimated fault locations.</p>
 
@@ -92,6 +109,20 @@
 <p>In the next step, a range of AI and machine learning algorithms were selected and tested. The choice of algorithm is important as different types are better suited to capturing specific relationships within the data. An unsuitable choice can lead to a suboptimal AI model and reduced accuracy.</p>
 <p>Analysis of waveforms was implemented to assess each potential event record, distinguishing true faults from transient system noise. This is an important quality-control measure, as records are often subject to errors or may contain events not representative of the faults being studied, reducing the accuracy of the AI models.</p>
 <p>The team also analyzed different combinations of substations to identify optimal groupings that could increase AI model accuracy.</p>
+
+<div class="table-scroll" role="region" aria-label="Expertise involved in fault-location work" tabindex="0">
+  <table>
+    <caption><span>Connecting expertise across the work</span></caption>
+    <thead>
+      <tr><th scope="col">Expertise</th><th scope="col">Contribution</th><th scope="col">What it enables</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Utility teams and domain experts</th><td>Identify the electrical and network attributes that matter.</td><td>A model grounded in how the grid behaves.</td></tr>
+      <tr><th scope="row">Data scientists and domain experts</th><td>Engineer features, assess event quality, and test AI/ML models.</td><td>A distance estimate built from relevant fault evidence.</td></tr>
+      <tr><th scope="row">Control room and field crews</th><td>Communicate estimated structures, locate the fault, and carry out repair and testing.</td><td>A path from an analytical estimate to a practical field action.</td></tr>
+    </tbody>
+  </table>
+</div>
 
 <h2 id="data-foundation">Data used to build AI models</h2>
 <p>The AI models utilize a diverse set of data types, including electrical measurements from waveforms, grid characteristics, and external environmental conditions, that can increase the accuracy of fault location determination.</p>
