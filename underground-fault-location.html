@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI for underground cable fault location | Addy Kaveti</title>
+  <meta name="description" content="Connecting fault-location models to restoration time, field effort, and the data needed to build them.">
+  <link rel="canonical" href="https://adrkv.github.io/underground-fault-location.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI for underground cable fault location">
+  <meta property="og:description" content="Connecting fault-location models to restoration time, field effort, and the data needed to build them.">
+  <meta property="og:url" content="https://adrkv.github.io/underground-fault-location.html">
+  <meta property="og:site_name" content="Addy Kaveti">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/assets/addy-icon.svg">
+  <link rel="stylesheet" href="/article.css?v=20260927">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header">
+    <a class="brand" href="/" aria-label="Addy Kaveti home">Addy Kaveti<span aria-hidden="true">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="/#strategy">Strategy</a>
+      <a href="/#contact">Say hello <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main" class="article-main wrap">
+    <a class="back-link" href="/#strategy"><span aria-hidden="true">←</span> Back to Strategy</a>
+    <article aria-labelledby="article-title">
+      <header class="article-heading">
+        <p class="eyebrow">WHITEPAPER</p>
+        <h1 id="article-title">AI for underground cable fault location</h1>
+        <p class="article-summary">Connecting fault-location models to restoration time, field effort, and the data needed to build them.</p>
+      </header>
+
+      <div class="reading-layout">
+        <nav class="article-contents" aria-label="Article contents">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#business-context">Business benefits of accurately determining cable fault location</a></li>
+<li><a href="#restoration-process">Finding and repairing underground cable faults</a></li>
+<li><a href="#modeling-challenges">Challenges with current approaches to determining fault location</a></li>
+<li><a href="#proof-of-concept">Estimating fault location using AI</a></li>
+<li><a href="#methodology">AI methodology</a></li>
+<li><a href="#data-foundation">Data used to build AI models</a></li>
+<li><a href="#deployment-roadmap">Deployment roadmap</a></li>
+<li><a href="#references">Information sources</a></li>
+          </ol>
+        </nav>
+        <div class="article-body">
+          <p class="article-intro">A major time sink for service restoration is fault location determination. Inaccurate fault locations result in field crews wasting time thumping, driving, and walking around to find faults. AI models can learn non-linear relationships from large numbers of attributes that impact grid behavior and use those relationships to estimate fault location.</p>
+
+<h2 id="business-context">Business benefits of accurately determining cable fault location</h2>
+<p>Cable faults are damage to cables that stops or restricts the flow of electricity. Examples of cable faults include short circuits, open circuits, and grounding faults between conductors and the ground. Causes include insulation damage from moisture, ageing, mechanical damage, and environmental factors like chemicals and UV exposure, conductor breakage, joint failures, and damage to the cable’s protective sheath.</p>
+<p>Determining accurate cable fault location enables utility field crews to rapidly find and diagnose faults and restore service. This can reduce the likelihood of cascading faults that lead to more serious widespread, longer-duration outages. Cascading faults occur when a manageable but unresolved failure causes the electric load to be transferred to adjacent feeders, placing them under significant strain and potentially causing them to fail. This series of events can continue across multiple lines, turning a single, localized fault into widespread outages. Outages become more pronounced when multiple, simultaneous failures arise, which can be the case during periods of high electricity demand.</p>
+<p>The consequences of large-scale outages can be significant for both utilities and the customers they serve:</p>
+<ul>
+  <li><strong>For the utility:</strong> increased operations and repair costs, reputational harm, and deterioration of key performance metrics, including reliability (SAIDI, SAIFI, ENS, MTTR), customer satisfaction, and regulatory compliance.</li>
+  <li><strong>For the utility’s customers:</strong> disruptions to essential services, including hospitals, care facilities, and emergency responders, productivity losses for commercial and industrial businesses, and compromises to public safety and convenience.</li>
+</ul>
+
+<h2 id="restoration-process">Finding and repairing underground cable faults</h2>
+<p>A generalized process for finding and repairing underground cable faults includes the following steps:</p>
+<ol>
+  <li>The control room operator monitors system alerts for irregularities.</li>
+  <li>The traditional approach applies physics-based equations with a scaling factor.</li>
+  <li>A range of manholes is determined based on the estimated fault location.</li>
+  <li>The field crew is informed of the estimated manhole locations.</li>
+  <li>The crew travels to the fault location and finds the correct manhole, employing thumping where required.</li>
+  <li>The crew finds the fault, conducts repairs or replacements, performs required tests, including high-potential tests, and updates systems.</li>
+</ol>
+<p>By accurately determining underground fault locations, field crews can reduce the time-consuming thumping, driving, and walking-around activities used to determine fault locations. This saves field crews time so they can more quickly get to and repair the next fault, reducing the likelihood of cascading faults and more severe widespread outages.</p>
+<p>Utilities may also apply a calculated scaling factor to improve the accuracy of their estimated fault location. These calculations may be performed manually, resulting in wasted engineering hours and sporadic updates that further reduce the accuracy of estimated fault locations.</p>
+
+<h2 id="modeling-challenges">Challenges with current approaches to determining fault location</h2>
+<p>Utilities have traditionally used physics-based models to determine fault locations. The accuracy of these models varies widely. Accuracy issues can be attributed to several factors:</p>
+<ul>
+  <li>The same equations are generally used to model the behavior of grid segments, but these grid segments possess different attributes that cause them to behave differently and in ways that the equations may not adequately model.</li>
+  <li>The equations may not be designed to accommodate large numbers of attributes and variables that impact a fault’s electrical signature. These variables include dynamic load changes, variable soil resistivity from weather, and the specific age and condition of grid assets.</li>
+  <li>Equations that assume linear relationships between variables may not adequately represent non-linear behavior in real-world electric grids.</li>
+</ul>
+<p>AI models can improve fault location estimates by using data specific to each grid segment to create a model for that segment. They can accommodate large numbers of variables that impact a fault’s electrical signature and account for non-linear relationships between these variables. Models can be adapted to new grid conditions as grid topologies and properties change.</p>
+
+<h2 id="proof-of-concept">Estimating fault location using AI</h2>
+<p>In this proof of concept, underground fault location was expressed as electrical distance-to-fault, expressed in ohms from the substation bus to the point of fault. This distance is then mapped to a structure, such as a manhole, vault housing a regulator, or service box, nearest to the fault so that field crews can access and repair cables.</p>
+<p>Through the proof of concept, an AI model was developed to more accurately determine distance-to-fault for single-phase and two-phase faults. The work included identifying the relevant data attributes, engineering additional features, testing AI/ML algorithms, and analyzing waveforms to assess event records.</p>
+
+<h2 id="methodology">AI methodology</h2>
+<p>The utility’s team collaborated with subject matter experts to identify the most significant data attributes that drive fault location determination. This step is critical because selecting the most relevant attributes from a large pool of variables requires deep domain knowledge of electrical power systems. Using incorrect attributes can diminish model accuracy.</p>
+<p>Building upon the above, the data scientists and subject matter experts engineered new data attributes to capture additional signals from the data. This was accomplished by identifying subtle relationships between the variables themselves.</p>
+<p>In the next step, a range of AI and machine learning algorithms were selected and tested. The choice of algorithm is important as different types are better suited to capturing specific relationships within the data. An unsuitable choice can lead to a suboptimal AI model and reduced accuracy.</p>
+<p>Analysis of waveforms was implemented to assess each potential event record, distinguishing true faults from transient system noise. This is an important quality-control measure, as records are often subject to errors or may contain events not representative of the faults being studied, reducing the accuracy of the AI models.</p>
+<p>The team also analyzed different combinations of substations to identify optimal groupings that could increase AI model accuracy.</p>
+
+<h2 id="data-foundation">Data used to build AI models</h2>
+<p>The AI models utilize a diverse set of data types, including electrical measurements from waveforms, grid characteristics, and external environmental conditions, that can increase the accuracy of fault location determination.</p>
+<p>The data originates at physical locations within the medium-voltage network, such as inside the area substation at the primary distribution bus, at the outgoing feeder protection relay connecting the bus to an underground primary feeder cable, and at the utility’s customer point of common coupling (PCC). Devices employed for this capture include power quality (PQ) monitors, protection relays, digital fault recorders, and other intelligent electronic devices (IEDs).</p>
+<p>The data was accessed through existing infrastructure, avoiding the need for new capital investments. The proof of concept did not require installation of hardware or software, further reducing monetary investments and risk.</p>
+<p>Finally, to create a suitable dataset for AI modeling, records from disparate sources were consolidated and linked to create a single, unified view for each fault event.</p>
+
+<h2 id="deployment-roadmap">Deployment roadmap</h2>
+<p>The project concluded with a strategic roadmap to further improve AI model accuracy, automate the data pipeline, and scale the solution network-wide. AI model deployment formed part of this roadmap.</p>
+<p>AI solution development is tailored to the specific business outcome being targeted and to the utility’s unique grid network and datasets. Here, the goal is determining fault location. For other applications, the goals might be predictive maintenance, root-cause analysis of faults, load prediction, or power quality improvement.</p>
+
+<h2 id="references">Information sources</h2>
+<ol class="article-references">
+  <li><cite>On Characterizing Information Dissemination During City-Wide Cascading Failures in Smart Grid.</cite> IEEE Systems Journal, July 2017.</li>
+  <li><cite>Final Report on the August 14, 2003 Blackout in the United States and Canada: Causes and Recommendations.</cite> U.S.–Canada Power System Outage Task Force, April 2004.</li>
+</ol>
+
+        </div>
+      </div>
+    </article>
+
+    <nav class="article-end" aria-label="Article navigation">
+      <a class="back-link" href="/#strategy"><span aria-hidden="true">←</span> Back to Strategy</a>
+      <a class="text-link" href="/#contact">Let's connect <span aria-hidden="true">↗</span></a>
+    </nav>
+  </main>
+
+  <footer class="footer wrap">
+    <a href="/">Addy Kaveti</a>
+    <a href="https://www.linkedin.com/in/adrkv/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+  </footer>
+</body>
+</html>
