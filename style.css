@@ -261,28 +261,23 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .greeting-label{position:relative;isolation:isolate;width:fit-content}
 .greeting-label::before{content:"";position:absolute;z-index:-1;left:-6px;top:.32em;width:calc(100% + 10px);height:.92em;background:#f4dc65;opacity:.82;transform:rotate(-2deg);clip-path:polygon(1% 9%,98% 0,100% 80%,87% 96%,47% 91%,2% 100%,0 48%);pointer-events:none}
 
-/* Audience shortcuts stay in the top bar, leaving the introduction clear. */
-.header:has(.audience-menu)>.brand{margin-left:auto}
-.audience-menu{position:relative;z-index:90;flex:0 0 auto;margin:0 24px 0 28px}
-.audience-menu>summary{display:flex;align-items:center;gap:8px;min-height:44px;padding:10px 0;color:var(--muted);font-size:13px;font-weight:500;list-style:none;cursor:pointer}
-.audience-menu>summary::-webkit-details-marker{display:none}
-.audience-menu>summary svg{flex-shrink:0;transition:transform .2s}
-.audience-menu[open]>summary svg{transform:rotate(180deg)}
-.audience-menu>summary:hover,.audience-menu[open]>summary{color:var(--accent)}
-.audience-menu>summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px;border-radius:4px}
-.header .audience-links{position:absolute;left:-14px;top:calc(100% + 5px);display:flex;flex-direction:column;align-items:stretch;gap:2px;width:250px;max-width:calc(100vw - 40px);padding:8px;border:1px solid var(--line);border-radius:14px;background:#fffefa;box-shadow:0 12px 32px #2125220d}
-.header .audience-links>a{display:flex;align-items:center;gap:10px;min-height:44px;padding:10px 12px;border-radius:8px;color:var(--muted);font-size:12px;line-height:1.45}
-.header .audience-links>a:hover,.header .audience-links>a:focus-visible{background:#eef2ed;color:var(--accent)}
+/* Audience shortcuts remain visible across the top bar. */
+.header:has(>nav.audience-links){display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;height:auto;min-height:138px}
+.header .audience-links{display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.5vw,20px);min-width:0}
+.header .audience-links>a{display:flex;align-items:center;gap:7px;min-height:44px;padding:10px 0;color:var(--muted);font-size:12px;line-height:1.4;white-space:nowrap}
+.header .audience-links>a:hover,.header .audience-links>a:focus-visible{color:var(--accent);text-decoration:underline;text-underline-offset:5px}
 .header .audience-links>a:last-child span{margin-left:0}
 .audience-links svg,.audience-links img{width:16px;height:16px;object-fit:contain;flex:0 0 16px;color:var(--accent)}
 .audience-links span{min-width:0}
-@media(max-width:620px){
-  .header:has(.audience-menu){display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:1fr 1fr;column-gap:8px}
-  .header>.tip-dock-slot{grid-column:1;grid-row:1 / 3}
-  .header:has(.audience-menu)>.brand{grid-column:2;grid-row:1;align-self:end;justify-self:end;margin:0;padding:0 0 8px}
-  .audience-menu{grid-column:2;grid-row:2;align-self:start;justify-self:end;margin:0}
-  .audience-menu>summary{font-size:12px}
-  .header .audience-links{left:auto;right:0}
+@media(max-width:1000px){
+  .header:has(>nav.audience-links){grid-template-columns:minmax(0,1fr) auto;gap:0 16px;min-height:0;padding:4px 0 8px}
+  .header>.tip-dock-slot{grid-column:1;grid-row:1}
+  .header:has(>nav.audience-links)>.brand{grid-column:2;grid-row:1;justify-self:end}
+  .header .audience-links{grid-column:1 / -1;grid-row:2;gap:24px}
+}
+@media(max-width:700px){
+  .header .audience-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;width:min(100%,420px);justify-self:center}
+  .header .audience-links>a{white-space:normal}
 }
 .enablement-mission{margin:-8px 0 28px;color:var(--muted);font-size:15px;line-height:1.8}
 .github-source-link,.enablement-booking-link{display:inline-flex;align-items:center;gap:6px;vertical-align:baseline;color:var(--accent);white-space:nowrap}
