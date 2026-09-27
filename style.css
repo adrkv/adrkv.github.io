@@ -207,12 +207,10 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .hero-connect{position:relative;flex-shrink:0}
 .hero-greeting{display:flex;flex-direction:column;justify-content:center;gap:9px;min-height:54px;padding-block:4px}
 .greeting-label{display:flex;align-items:center;gap:15px;font-size:16px;font-weight:550;letter-spacing:-.25px;line-height:1.3}
-.greeting-label>span{color:var(--accent);font-size:17px;transition:transform .2s}
 .greeting-hint{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:10px;line-height:1.5;white-space:nowrap}
 .greeting-hint svg{flex-shrink:0;color:var(--accent)}
 .greeting-hint svg:last-of-type{margin-right:3px}
 .hero-greeting:hover .greeting-label{color:var(--accent)}
-.hero-greeting:hover .greeting-label>span{transform:translate(2px,-2px)}
 .hello-curve{position:absolute;inset:0;width:100%;height:100%;color:var(--accent);pointer-events:none;visibility:hidden}
 .hello-curve.is-ready{visibility:visible}
 .portrait-frame{box-shadow:0 22px 52px -32px #193b4245}
@@ -272,15 +270,31 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .hello-curve{color:#367bad}
 .hello-curve-line{stroke-dasharray:2 7;stroke-linecap:round;stroke-width:2}
 .greeting-label{position:relative;isolation:isolate;width:fit-content}
-.greeting-label::before{content:"";position:absolute;z-index:-1;left:-6px;top:.32em;width:calc(100% - 24px);height:.92em;background:#f4dc65;opacity:.82;transform:rotate(-2deg);clip-path:polygon(1% 9%,98% 0,100% 80%,87% 96%,47% 91%,2% 100%,0 48%);pointer-events:none}
-.greeting-label>span{color:#367bad}
+.greeting-label::before{content:"";position:absolute;z-index:-1;left:-6px;top:.32em;width:calc(100% + 10px);height:.92em;background:#f4dc65;opacity:.82;transform:rotate(-2deg);clip-path:polygon(1% 9%,98% 0,100% 80%,87% 96%,47% 91%,2% 100%,0 48%);pointer-events:none}
 
-/* Quiet shortcuts for the different conversations visitors may want to have. */
-.hero-audiences{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 18px;max-width:430px;margin-top:25px;padding-top:15px;border-top:1px solid var(--line)}
-.hero-audiences a{display:flex;align-items:center;gap:8px;min-width:0;min-height:36px;padding-block:5px;font-size:11px;line-height:1.45;color:var(--muted)}
-.hero-audiences a:hover{color:var(--accent)}
-.hero-audiences svg,.hero-audiences img{width:16px;height:16px;object-fit:contain;flex:0 0 16px;color:var(--accent)}
-.hero-audiences span{min-width:0}
+/* Audience shortcuts stay in the top bar, leaving the introduction clear. */
+.header:has(.audience-menu)>.brand{margin-left:auto}
+.audience-menu{position:relative;z-index:90;flex:0 0 auto;margin:0 24px 0 28px}
+.audience-menu>summary{display:flex;align-items:center;gap:8px;min-height:44px;padding:10px 0;color:var(--muted);font-size:13px;font-weight:500;list-style:none;cursor:pointer}
+.audience-menu>summary::-webkit-details-marker{display:none}
+.audience-menu>summary svg{flex-shrink:0;transition:transform .2s}
+.audience-menu[open]>summary svg{transform:rotate(180deg)}
+.audience-menu>summary:hover,.audience-menu[open]>summary{color:var(--accent)}
+.audience-menu>summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px;border-radius:4px}
+.header .audience-links{position:absolute;left:-14px;top:calc(100% + 5px);display:flex;flex-direction:column;align-items:stretch;gap:2px;width:250px;max-width:calc(100vw - 40px);padding:8px;border:1px solid var(--line);border-radius:14px;background:#fffefa;box-shadow:0 12px 32px #2125220d}
+.header .audience-links>a{display:flex;align-items:center;gap:10px;min-height:44px;padding:10px 12px;border-radius:8px;color:var(--muted);font-size:12px;line-height:1.45}
+.header .audience-links>a:hover,.header .audience-links>a:focus-visible{background:#eef2ed;color:var(--accent)}
+.header .audience-links>a:last-child span{margin-left:0}
+.audience-links svg,.audience-links img{width:16px;height:16px;object-fit:contain;flex:0 0 16px;color:var(--accent)}
+.audience-links span{min-width:0}
+@media(max-width:620px){
+  .header:has(.audience-menu){display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:1fr 1fr;column-gap:8px}
+  .header>.tip-dock-slot{grid-column:1;grid-row:1 / 3}
+  .header:has(.audience-menu)>.brand{grid-column:2;grid-row:1;align-self:end;justify-self:end;margin:0;padding:0 0 8px}
+  .audience-menu{grid-column:2;grid-row:2;align-self:start;justify-self:end;margin:0}
+  .audience-menu>summary{font-size:12px}
+  .header .audience-links{left:auto;right:0}
+}
 .enablement-mission{max-width:760px;margin:-8px 0 28px;color:var(--muted);font-size:15px;line-height:1.8}
 .github-source-link{display:inline-flex;align-items:center;gap:6px;vertical-align:baseline;color:var(--accent);white-space:nowrap}
 .github-source-link svg{width:15px;height:15px;flex:0 0 15px}
@@ -294,5 +308,5 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .event-annotation>span{display:block;white-space:nowrap;font-family:"Bradley Hand","Segoe Print",cursive;font-size:clamp(10px,1.2vw,14px);font-weight:600;line-height:1.1;transform:rotate(-5deg);transform-origin:left center}
 .event-annotation>svg{display:block;width:100%;height:auto;margin-top:3px;stroke-width:2.3}
 .patent-preview{display:block;width:100%;height:210px;object-fit:contain;object-position:center;margin:0 0 24px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}
-@media(max-width:760px){.hero-audiences{max-width:420px;gap:2px 13px;margin-top:22px;padding-top:12px}.hero-audiences a{font-size:10px}.enablement-mission{font-size:13px;margin:-7px 0 24px}.event-annotation>span{font-size:12px}.patent-preview{height:190px}}
-@media(max-width:370px){.hero-audiences{gap:2px 10px}.hero-audiences a{gap:6px;font-size:9.5px}.hero-audiences svg,.hero-audiences img{width:14px;height:14px;flex-basis:14px}.event-annotation>span{font-size:10px}}
+@media(max-width:760px){.enablement-mission{font-size:13px;margin:-7px 0 24px}.event-annotation>span{font-size:12px}.patent-preview{height:190px}}
+@media(max-width:370px){.event-annotation>span{font-size:10px}}
