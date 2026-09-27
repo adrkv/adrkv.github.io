@@ -52,12 +52,11 @@
   cursor: pointer;
   transition: background .2s, color .2s, transform .2s;
 }
-.tip-trigger > span { grid-area: 1 / 1; transition: opacity .16s, transform .2s; }
-.tip-trigger-rest { opacity: 1; }
-.tip-trigger-ready { opacity: 0; transform: translateY(3px); }
-.tip-trigger:hover, .tip-trigger:focus-visible, .tip-trigger[aria-expanded="true"] { background: var(--tip-accent); color: #fff; }
-.tip-trigger:hover .tip-trigger-rest, .tip-trigger:focus-visible .tip-trigger-rest, .tip-trigger[aria-expanded="true"] .tip-trigger-rest { opacity: 0; transform: translateY(-3px); }
-.tip-trigger:hover .tip-trigger-ready, .tip-trigger:focus-visible .tip-trigger-ready, .tip-trigger[aria-expanded="true"] .tip-trigger-ready { opacity: 1; transform: translateY(0); }
+/* One disclosure control; the amounts are the checkout actions. */
+.tip-trigger { display: inline-flex; justify-content: center; gap: 6px; border-color: transparent; }
+.tip-chevron { flex: 0 0 auto; transition: transform .2s; }
+.tip-trigger[aria-expanded="true"] .tip-chevron { transform: rotate(180deg); }
+.tip-trigger:hover, .tip-trigger:focus-visible { background: #edf3ee; color: var(--tip-accent); }
 .tip-widget button:focus-visible, .tip-widget a:focus-visible { outline: 3px solid #468a92; outline-offset: 4px; }
 .tip-panel { margin: 12px 0 0; padding: 25px 28px 22px; border: 1px solid var(--tip-line); border-radius: 20px; background: #fffefa; animation: tip-reveal .22s ease-out; }
 .tip-panel[hidden] { display: none; }
@@ -115,7 +114,7 @@
 .tip-widget--dock.is-dragging .tip-move { cursor: grabbing; }
 .tip-widget--dock .tip-character { width: 62px; height: 66px; pointer-events: none; }
 .tip-widget--dock .tip-controls { margin: 0; align-self: center; }
-.tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-width: 100px; min-height: 40px; padding: 10px 12px; border-color: transparent; font-size: 11px !important; }
+.tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-width: 100px; min-height: 40px; padding: 10px 8px; border-color: transparent; font-size: 11px !important; }
 .tip-widget--dock .tip-trigger:not(:hover):not(:focus-visible):not([aria-expanded="true"]) { color: var(--tip-muted); }
 .tip-widget--dock .tip-panel { position: fixed; width: min(340px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); overflow-y: auto; margin: 0; padding: 22px; box-shadow: 0 16px 50px #2125221a; z-index: 81; }
 .tip-widget--dock .tip-panel-heading { margin-bottom: 15px; }

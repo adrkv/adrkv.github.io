@@ -83,7 +83,7 @@
     };
     const toggle = (control) => {
       opener = control;
-      if (pinned) close();
+      if (!panel.hidden) close();
       else { pinned = true; dismissed = false; setOpen(true); }
     };
     const moveTo = (left, top) => {
@@ -140,9 +140,6 @@
         opener = trigger;
         setOpen(true);
       }
-    });
-    trigger.addEventListener('focus', () => {
-      if (!dismissed && !drag) { opener = trigger; setOpen(true); }
     });
     trigger.addEventListener('click', () => toggle(trigger));
     widget.addEventListener('pointerenter', cancelHoverClose);
