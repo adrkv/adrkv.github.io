@@ -62,8 +62,12 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .strategy-icon{display:block;flex-shrink:0}
 .strategy-highlight{border-top:1px solid var(--line);padding-top:24px}
 .strategy-kicker{font-size:9px;letter-spacing:1px;line-height:1.7;color:var(--muted);margin-bottom:20px}
-.client-heading{margin-bottom:22px}
+.client-heading{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px;max-width:356px;margin-bottom:22px}
 .client-heading img{display:block;object-fit:contain;object-position:left center;max-width:100%}
+.client-schneider{display:flex;align-items:center;height:54px;overflow:hidden}
+.client-schneider img{width:100%;height:auto}
+.client-connector{font-size:11px;font-weight:400;color:var(--muted)}
+.client-heading>img{width:100%;height:auto}
 .highlight-description{font-size:14px;line-height:1.8;color:var(--muted);margin-bottom:21px}
 .strategy-more{border-top:1px solid var(--line);padding-top:22px;margin-top:28px}
 .strategy-more p{font-size:13px;line-height:1.8;color:var(--muted);margin-bottom:14px}
