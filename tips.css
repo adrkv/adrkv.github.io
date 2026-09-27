@@ -54,8 +54,7 @@
 }
 /* One disclosure control; the amounts are the checkout actions. */
 .tip-trigger { display: inline-flex; justify-content: center; gap: 6px; border-color: transparent; white-space: nowrap; }
-.tip-chevron { flex: 0 0 auto; transition: transform .2s; }
-.tip-trigger[aria-expanded="true"] .tip-chevron { transform: rotate(180deg); }
+.tip-heart { flex: 0 0 auto; font-size: 12px; line-height: 1; }
 .tip-trigger:hover, .tip-trigger:focus-visible { background: #edf3ee; color: var(--tip-accent); }
 .tip-widget button:focus-visible, .tip-widget a:focus-visible { outline: 3px solid #468a92; outline-offset: 4px; }
 .tip-panel { margin: 12px 0 0; padding: 25px 28px 22px; border: 1px solid var(--tip-line); border-radius: 20px; background: #fffefa; animation: tip-reveal .22s ease-out; }
@@ -133,12 +132,12 @@
 @media print { .tips-placement, .tip-widget { display: none !important; } }
 
 /* A small retro sticker, tucked beside the cup like a spoken aside. */
-.tip-pitch { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-self: start; gap: 0; margin-left: -18px; }
+.tip-pitch { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-self: start; gap: 0; margin-left: -6px; }
 .tip-badge {
   --sticker-shape: polygon(50% 0%, 58% 9%, 70% 4%, 74% 16%, 87% 13%, 88% 27%, 100% 31%, 94% 43%, 100% 54%, 89% 61%, 93% 75%, 80% 78%, 75% 92%, 62% 88%, 52% 100%, 43% 90%, 29% 97%, 25% 84%, 9% 86%, 14% 71%, 0% 65%, 8% 53%, 0% 42%, 12% 35%, 8% 20%, 23% 21%, 29% 7%, 42% 12%);
   position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
   width: 110px; height: 104px; padding: 16px 8px;
-  border: 0; border-radius: 0; background: transparent; color: #426569;
+  border: 0; border-radius: 0; background: transparent; color: #775719;
   filter: none; transform: translateY(-7px) rotate(-7deg);
   font-family: "Lilita One", "Arial Rounded MT Bold", sans-serif; font-weight: 400; line-height: 1; text-transform: uppercase; -webkit-font-smoothing: antialiased;
 }
@@ -146,41 +145,54 @@
 .tip-badge::before { inset: 0; z-index: -2; background: #b8c4bb; }
 .tip-badge::after { inset: 1.5px; z-index: -1; background: #f3eedf; }
 .tip-badge-row { display: flex; align-items: center; justify-content: center; gap: 3px; white-space: nowrap; }
-.tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; min-width: 23px; font-size: 18px; line-height: 1; color: inherit; }
+.tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; min-width: 21px; font-size: 17px; line-height: 1; color: inherit; }
 .tip-badge-number > span { display: inline-block; font-size: .7em; line-height: 1; }
-.tip-badge-label { font-size: 10.5px; letter-spacing: .1px; }
-.tip-badge-foot { margin-top: 1px; padding-top: 4px; border-top: 0; font-family: "Lilita One", "Arial Rounded MT Bold", sans-serif; font-size: 8.5px; line-height: 1.2; font-weight: 400; letter-spacing: -.1px; text-align: center; white-space: nowrap; color: inherit; }
+.tip-badge-label { font-size: 10px; letter-spacing: .1px; }
+.tip-badge-foot { margin-top: 1px; padding-top: 4px; border-top: 0; font-family: "Lilita One", "Arial Rounded MT Bold", sans-serif; font-size: 8px; line-height: 1.2; font-weight: 400; letter-spacing: -.1px; text-align: center; white-space: nowrap; color: inherit; }
 .tip-pitch .tip-controls { margin: -6px 0 0; }
 .tip-pitch .tip-trigger, .tip-pitch .tip-fallback { min-width: 110px; min-height: 40px; padding: 8px 6px; border: 0; }
 .header:has(.tip-dock-slot) { height: 138px; }
-.tip-dock-slot, .tip-widget--dock { width: 198px; }
+.tip-dock-slot, .tip-widget--dock { width: 210px; }
 .tip-dock-slot { height: 126px; }
 .tip-widget--dock .tip-stage { gap: 0; border-radius: 20px; }
 .tip-widget--dock.is-moved .tip-stage { padding: 0; }
 .tip-widget--dock .tip-move { flex: 0 0 110px; width: 110px; height: 120px; }
 .tip-widget--dock .tip-character { width: 110px; height: 120px; }
-.tip-widget--dock .tip-pitch { margin-left: -18px; transform: translateY(8px); }
+.tip-widget--dock .tip-pitch { margin-left: -6px; transform: translateY(8px); }
 .tip-widget--dock .tip-badge { width: 96px; height: 92px; padding: 14px 6px; gap: 3px; }
-.tip-widget--dock .tip-badge-number { min-width: 20px; font-size: 15.5px; }
-.tip-widget--dock .tip-badge-label { font-size: 9.5px; }
-.tip-widget--dock .tip-badge-foot { font-size: 8px; padding-top: 3px; }
+.tip-widget--dock .tip-badge-number { min-width: 19px; font-size: 14.5px; }
+.tip-widget--dock .tip-badge-label { font-size: 9px; }
+.tip-widget--dock .tip-badge-foot { font-size: 7.5px; padding-top: 3px; }
 .tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-width: 100px; min-height: 36px; padding: 6px 4px; }
 @media (max-width: 620px) {
   .tip-stage { grid-template-columns: 112px minmax(0, 1fr); gap: 0; padding: 20px 20px 18px 12px; }
   .tip-stage > .tip-character { grid-row: auto; width: 112px; height: 126px; }
   .tip-badge { width: 98px; height: 94px; padding: 14px 6px; gap: 3px; }
-  .tip-badge-number { min-width: 21px; font-size: 16px; }
-  .tip-badge-label { font-size: 9.5px; }
-  .tip-badge-foot { font-size: 8px; }
+  .tip-badge-number { min-width: 20px; font-size: 15px; }
+  .tip-badge-label { font-size: 9px; }
+  .tip-badge-foot { font-size: 7.5px; }
   .header:has(.tip-dock-slot) { height: 130px; }
-  .tip-dock-slot, .tip-widget--dock { width: 180px; }
+  .tip-dock-slot, .tip-widget--dock { width: 190px; }
   .tip-dock-slot { height: 120px; }
   .tip-widget--dock .tip-move { flex-basis: 102px; width: 102px; height: 114px; }
   .tip-widget--dock .tip-character { width: 102px; height: 114px; }
-  .tip-widget--dock .tip-pitch { margin-left: -20px; }
+  .tip-widget--dock .tip-pitch { margin-left: -10px; }
   .tip-widget--dock .tip-badge { width: 90px; height: 84px; padding-inline: 5px; }
-  .tip-widget--dock .tip-badge-number { min-width: 18px; font-size: 14px; }
-  .tip-widget--dock .tip-badge-label { font-size: 9px; letter-spacing: -.1px; }
+  .tip-widget--dock .tip-badge-number { min-width: 17px; font-size: 13px; }
+  .tip-widget--dock .tip-badge-label { font-size: 8.5px; letter-spacing: -.1px; }
   .tip-widget--dock .tip-badge-foot { font-size: 7.5px; }
   .tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-width: 96px; }
 }
+
+/* A restrained gold glint, with dark tones that remain legible on cream. */
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .tip-badge-number, .tip-badge-label, .tip-badge-foot {
+    background-image: linear-gradient(110deg, #674510 20%, #87631c 43%, #775719 52%, #674510 70%);
+    background-size: 250% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: tip-gold-glint 9s ease-in-out infinite;
+  }
+}
+@keyframes tip-gold-glint { 0%, 65% { background-position: 100% 50%; } 88%, 100% { background-position: 0% 50%; } }
