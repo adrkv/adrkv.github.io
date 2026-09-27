@@ -93,6 +93,9 @@ h1 {
   letter-spacing: -.25px;
   margin-top: 28px;
 }
+.article-affiliation { display: flex; align-items: center; gap: 14px; margin-top: 22px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.article-affiliation-logo { display: flex; align-items: center; width: 148px; height: 48px; flex: 0 0 148px; overflow: hidden; }
+.article-affiliation-logo img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
 .reading-layout {
   display: grid;
   grid-template-columns: 192px minmax(0, 720px);
