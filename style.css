@@ -53,11 +53,11 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .project-name .project-icon{width:36px;height:36px}
 .project-heading>span{color:var(--accent);font-size:20px}
 .project>p{font-size:13px;line-height:1.8;color:var(--muted);margin-bottom:28px}
-.enablement-next{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;margin-top:28px;padding-top:24px;border-top:1px solid #d2d8cf}
+.enablement-next{display:flex;align-items:center;flex-wrap:wrap;gap:8px 24px;margin:10px 0 28px}
 .enablement-next p{max-width:660px;font-size:14px;line-height:1.8;color:var(--muted)}
 .enablement-next .booking-cta{min-height:44px;padding-block:10px;flex-shrink:0;color:var(--accent)}
 .enablement-next .booking-cta:hover{text-decoration:underline;text-underline-offset:4px}
-@media(max-width:760px){.enablement-next{flex-direction:column;align-items:flex-start;gap:10px;margin-top:24px;padding-top:20px}.enablement-next p{font-size:13px}}
+@media(max-width:760px){.enablement-next{flex-direction:column;align-items:flex-start;gap:4px;margin:10px 0 24px}.enablement-next p{font-size:13px}}
 .section-subtitle{font-size:14px;line-height:1.6;color:var(--muted);margin-top:14px;letter-spacing:0}
 .strategy-section{padding-block:82px 88px;border-top:1px solid var(--line)}
 .strategy-lead{margin-bottom:32px}
@@ -295,7 +295,7 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
   .audience-menu>summary{font-size:12px}
   .header .audience-links{left:auto;right:0}
 }
-.enablement-mission{max-width:760px;margin:-8px 0 28px;color:var(--muted);font-size:15px;line-height:1.8}
+.enablement-mission{max-width:810px;margin:-8px 0 0;color:var(--muted);font-size:15px;line-height:1.8}
 .github-source-link{display:inline-flex;align-items:center;gap:6px;vertical-align:baseline;color:var(--accent);white-space:nowrap}
 .github-source-link svg{width:15px;height:15px;flex:0 0 15px}
 .github-source-link span{text-decoration:underline;text-decoration-color:#a6c1bd;text-underline-offset:4px}
@@ -308,5 +308,5 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .event-annotation>span{display:block;white-space:nowrap;font-family:"Bradley Hand","Segoe Print",cursive;font-size:clamp(10px,1.2vw,14px);font-weight:600;line-height:1.1;transform:rotate(-5deg);transform-origin:left center}
 .event-annotation>svg{display:block;width:100%;height:auto;margin-top:3px;stroke-width:2.3}
 .patent-preview{display:block;width:100%;height:210px;object-fit:contain;object-position:center;margin:0 0 24px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}
-@media(max-width:760px){.enablement-mission{font-size:13px;margin:-7px 0 24px}.event-annotation>span{font-size:12px}.patent-preview{height:190px}}
+@media(max-width:760px){.enablement-mission{font-size:13px;margin:-7px 0 0}.event-annotation>span{font-size:12px}.patent-preview{height:190px}}
 @media(max-width:370px){.event-annotation>span{font-size:10px}}
