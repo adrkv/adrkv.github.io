@@ -1,10 +1,10 @@
 /* Shared one-time thank-you interaction. No payment is collected on this site. */
 (() => {
-  // Verified one-time Ko-fi links preselect the corresponding USD amount.
+  // Preselect USD amounts and use Ko-fi's tip-panel option to hide the public feed.
   const CHECKOUT_URLS = {
-    '5': 'https://ko-fi.com/adrkv/5',
-    '15': 'https://ko-fi.com/adrkv/15',
-    '50': 'https://ko-fi.com/adrkv/50'
+    '5': 'https://ko-fi.com/adrkv/5?hidefeed=true',
+    '15': 'https://ko-fi.com/adrkv/15?hidefeed=true',
+    '50': 'https://ko-fi.com/adrkv/50?hidefeed=true'
   };
   const AMOUNTS_ARE_PRESELECTED = true;
 
@@ -23,7 +23,7 @@
     if (handle) handle.setAttribute('aria-controls', panelId);
     widget.querySelectorAll('[data-tip-amount]').forEach((link) => {
       const amount = link.dataset.tipAmount;
-      link.href = CHECKOUT_URLS[amount] || 'https://ko-fi.com/adrkv';
+      link.href = CHECKOUT_URLS[amount] || 'https://ko-fi.com/adrkv/5?hidefeed=true';
       link.setAttribute('aria-label', AMOUNTS_ARE_PRESELECTED
         ? `Give a $${amount} one-time thank-you on Ko-fi (opens in a new tab)`
         : `Suggested $${amount} thank-you. Choose an amount on Ko-fi (opens in a new tab)`);
