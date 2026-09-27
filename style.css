@@ -53,6 +53,11 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .project-name .project-icon{width:36px;height:36px}
 .project-heading>span{color:var(--accent);font-size:20px}
 .project>p{font-size:13px;line-height:1.8;color:var(--muted);margin-bottom:28px}
+.enablement-next{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;margin-top:28px;padding-top:24px;border-top:1px solid #d2d8cf}
+.enablement-next p{max-width:660px;font-size:14px;line-height:1.8;color:var(--muted)}
+.enablement-next .booking-cta{min-height:44px;padding-block:10px;flex-shrink:0;color:var(--accent)}
+.enablement-next .booking-cta:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:760px){.enablement-next{flex-direction:column;align-items:flex-start;gap:10px;margin-top:24px;padding-top:20px}.enablement-next p{font-size:13px}}
 .section-subtitle{font-size:14px;line-height:1.6;color:var(--muted);margin-top:14px;letter-spacing:0}
 .strategy-section{padding-block:82px 88px;border-top:1px solid var(--line)}
 .strategy-lead{margin-bottom:32px}
