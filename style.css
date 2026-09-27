@@ -177,9 +177,7 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 @media(max-width:760px){.experience-section{margin-top:30px;padding-top:25px}.experience-grid{grid-template-columns:1fr;gap:26px}.experience-card+.experience-card{border-top:1px solid var(--line);border-radius:0;padding-top:26px}.experience-logo{height:60px;margin-bottom:18px}.experience-logo img{height:60px;width:170px}.experience-card h4{font-size:17px}.role-history{font-size:13px}.current-role{font-size:15px}}
 
 /* Reading and contact */
-.location-link{display:inline-flex;align-items:center;gap:3px;padding-block:3px}
-.location-link:hover{color:var(--accent)}
-.location-arrow{margin-left:5px;font-size:11px;letter-spacing:0}
+.location-label{display:inline-flex;align-items:center;gap:3px;padding-block:3px}
 .whitepaper-feature{display:grid;grid-template-columns:.42fr 1fr;gap:32px;align-items:center;margin-top:24px;padding:28px 30px;border:1px solid var(--line);border-radius:20px;background:#fff;transition:border-color .2s,transform .2s}
 .whitepaper-feature:hover{border-color:var(--accent);transform:translateY(-3px)}
 .whitepaper-category{display:flex;gap:14px;align-items:center}
