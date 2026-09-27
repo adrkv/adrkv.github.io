@@ -53,7 +53,7 @@
   transition: background .2s, color .2s, transform .2s;
 }
 /* One disclosure control; the amounts are the checkout actions. */
-.tip-trigger { display: inline-flex; justify-content: center; gap: 6px; border-color: transparent; }
+.tip-trigger { display: inline-flex; justify-content: center; gap: 6px; border-color: transparent; white-space: nowrap; }
 .tip-chevron { flex: 0 0 auto; transition: transform .2s; }
 .tip-trigger[aria-expanded="true"] .tip-chevron { transform: rotate(180deg); }
 .tip-trigger:hover, .tip-trigger:focus-visible { background: #edf3ee; color: var(--tip-accent); }
