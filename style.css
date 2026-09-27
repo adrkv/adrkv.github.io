@@ -172,3 +172,32 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .contact-option p{font-size:13px;line-height:1.8;color:var(--muted);margin-top:14px;overflow-wrap:anywhere}
 .contact-option:hover h3{color:var(--accent)}
 @media(max-width:760px){.whitepaper-feature{grid-template-columns:1fr;gap:22px;padding:25px;margin-top:20px}.whitepaper-feature h4{font-size:21px}.contact-options{grid-template-columns:1fr;gap:18px}.contact-section h2{margin-bottom:29px}.contact-option{padding-block:21px 6px}.contact-option h3{font-size:26px;margin-top:13px}.contact-option p{margin-top:10px}}
+
+/* A quiet invitation, carried from the introduction to the contact options. */
+.hero-actions{gap:30px;align-items:center}
+.hero-connect{position:relative;flex-shrink:0}
+.hero-greeting{display:flex;flex-direction:column;justify-content:center;gap:9px;min-height:54px;padding-block:4px}
+.greeting-label{display:flex;align-items:center;gap:15px;font-size:16px;font-weight:550;letter-spacing:-.25px;line-height:1.3}
+.greeting-label>span{color:var(--accent);font-size:17px;transition:transform .2s}
+.greeting-hint{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:10px;line-height:1.5;white-space:nowrap}
+.greeting-hint svg{flex-shrink:0;color:var(--accent)}
+.greeting-hint svg:last-of-type{margin-right:3px}
+.hero-greeting:hover .greeting-label{color:var(--accent)}
+.hero-greeting:hover .greeting-label>span{transform:translate(2px,-2px)}
+.hello-curve{position:absolute;left:56px;bottom:calc(100% + 10px);width:180px;height:200px;color:var(--accent);pointer-events:none}
+.hello-curve-mobile{display:none;pointer-events:none}
+.portrait-frame{box-shadow:0 22px 52px -32px #193b4245}
+.contact-section{border-top:0;border-radius:24px;background:#eef2ed;padding:44px 40px 38px;margin-top:12px;margin-bottom:44px}
+.contact-heading{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:36px}
+.contact-heading h2{margin-bottom:0}
+.contact-heading>p{font-size:14px;color:var(--muted);line-height:1.6}
+.contact-top{display:flex;align-items:center;gap:11px}
+.contact-icon{color:var(--accent);flex-shrink:0}
+.contact-option{border-top-color:#ced8d0;padding-top:23px}
+.contact-option h3{font-size:24px}
+.contact-option h3>span{transition:transform .2s}
+.contact-option:hover h3>span{transform:translate(2px,-2px)}
+@media(min-width:761px) and (max-width:1000px){.hello-curve{left:16px;width:140px;height:156px}.hero-actions{gap:23px}.button{gap:18px;padding-inline:20px}.greeting-hint{font-size:9px}.contact-section{padding-inline:30px}.contact-option h3{font-size:21px}}
+@media(max-width:760px){.hero-actions{gap:27px;margin-top:57px}.hero-greeting{gap:8px}.hello-curve{display:none}.hello-curve-mobile{display:block;position:absolute;left:0;bottom:calc(100% + 2px);width:100px;height:47px;color:var(--accent);transform:scaleX(-1)}.portrait-frame{box-shadow:0 16px 38px -28px #193b4250}.contact-section{padding:30px 26px 26px;margin-top:0;margin-bottom:30px;border-radius:20px}.contact-heading{display:block;margin-bottom:27px}.contact-heading h2{margin-bottom:13px}.contact-heading>p{font-size:13px}.contact-option h3{font-size:26px}.contact-options{gap:22px}.contact-option{padding-top:21px}}
+@media(max-width:390px){.hero-actions{gap:20px}.button{padding-inline:20px;gap:18px}.greeting-hint{font-size:9px}.contact-section{padding-inline:23px}}
+@media(max-width:350px){.hero-actions{gap:16px}.hero-actions .button{font-size:11px;gap:12px;padding-inline:16px;white-space:nowrap}}
