@@ -1,4 +1,4 @@
-@font-face { font-family: "Lilita One"; src: url("lilita-one.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: "Metal Mania"; src: url("metal-mania.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
 /* Shared optional thank-you widget. Inline, accessible and hidden in print. */
 .tips-placement { margin-block: 32px 0; }
 .tip-widget {
@@ -131,20 +131,20 @@
 }
 @media print { .tips-placement, .tip-widget { display: none !important; } }
 
-/* Three quiet lines beside the cup, without a sticker or frame. */
+/* Angled rock-style lettering beside the cup, without a sticker or frame. */
 .tip-pitch { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-self: start; gap: 0; margin-left: -6px; }
 .tip-badge {
   position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px;
   width: 110px; height: 104px; padding: 16px 8px;
-  border: 0; border-radius: 0; background: transparent; color: #775719;
-  filter: none; transform: translateY(-7px);
-  font-family: "Lilita One", "Arial Rounded MT Bold", sans-serif; font-weight: 400; line-height: 1; text-transform: uppercase; -webkit-font-smoothing: antialiased;
+  border: 0; border-radius: 0; background: transparent; color: #f4dc65;
+  filter: none; transform: translate(5px, -7px) rotate(-9deg); transform-origin: left center;
+  font-family: "Metal Mania", Impact, "Arial Narrow", sans-serif; font-weight: 400; line-height: 1; text-transform: uppercase; -webkit-font-smoothing: antialiased;
 }
 .tip-badge-row { display: flex; align-items: center; justify-content: flex-start; gap: 3px; white-space: nowrap; }
-.tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; min-width: 21px; font-size: 17px; line-height: 1; color: inherit; }
+.tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; min-width: 21px; font-size: 20px; line-height: 1; color: inherit; }
 .tip-badge-number > span { display: inline-block; font-size: .7em; line-height: 1; }
-.tip-badge-label { font-size: 10px; letter-spacing: .1px; }
-.tip-badge-foot { margin-top: 1px; padding-top: 4px; border-top: 0; font-family: "Lilita One", "Arial Rounded MT Bold", sans-serif; font-size: 8px; line-height: 1.2; font-weight: 400; letter-spacing: -.1px; text-align: left; white-space: nowrap; color: inherit; }
+.tip-badge-label { font-size: 12px; letter-spacing: .15px; }
+.tip-badge-foot { margin-top: 1px; padding-top: 4px; border-top: 0; font-family: "Metal Mania", Impact, "Arial Narrow", sans-serif; font-size: 10.5px; line-height: 1.2; font-weight: 400; letter-spacing: -.1px; text-align: left; white-space: nowrap; color: inherit; }
 .tip-pitch .tip-controls { margin: -6px 0 0; }
 .tip-pitch .tip-trigger, .tip-pitch .tip-fallback { min-width: 110px; min-height: 40px; padding: 8px 6px; border: 0; }
 .header:has(.tip-dock-slot) { height: 138px; }
@@ -156,17 +156,17 @@
 .tip-widget--dock .tip-character { width: 110px; height: 120px; }
 .tip-widget--dock .tip-pitch { margin-left: -6px; transform: translateY(8px); }
 .tip-widget--dock .tip-badge { width: 96px; height: 92px; padding: 14px 6px; gap: 3px; }
-.tip-widget--dock .tip-badge-number { min-width: 19px; font-size: 14.5px; }
-.tip-widget--dock .tip-badge-label { font-size: 9px; }
-.tip-widget--dock .tip-badge-foot { font-size: 7.5px; padding-top: 3px; }
+.tip-widget--dock .tip-badge-number { min-width: 19px; font-size: 17px; }
+.tip-widget--dock .tip-badge-label { font-size: 12px; }
+.tip-widget--dock .tip-badge-foot { font-size: 10.5px; padding-top: 3px; }
 .tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-width: 100px; min-height: 36px; padding: 6px 4px; }
 @media (max-width: 620px) {
   .tip-stage { grid-template-columns: 112px minmax(0, 1fr); gap: 0; padding: 20px 20px 18px 12px; }
   .tip-stage > .tip-character { grid-row: auto; width: 112px; height: 126px; }
   .tip-badge { width: 98px; height: 94px; padding: 14px 6px; gap: 3px; }
-  .tip-badge-number { min-width: 20px; font-size: 15px; }
-  .tip-badge-label { font-size: 9px; }
-  .tip-badge-foot { font-size: 7.5px; }
+  .tip-badge-number { min-width: 20px; font-size: 18px; }
+  .tip-badge-label { font-size: 11px; }
+  .tip-badge-foot { font-size: 9.5px; }
   .header:has(.tip-dock-slot) { height: 130px; }
   .tip-dock-slot, .tip-widget--dock { width: 190px; }
   .tip-dock-slot { height: 120px; }
@@ -174,26 +174,15 @@
   .tip-widget--dock .tip-character { width: 102px; height: 114px; }
   .tip-widget--dock .tip-pitch { margin-left: -10px; }
   .tip-widget--dock .tip-badge { width: 90px; height: 84px; padding-inline: 5px; }
-  .tip-widget--dock .tip-badge-number { min-width: 17px; font-size: 13px; }
-  .tip-widget--dock .tip-badge-label { font-size: 8.5px; letter-spacing: -.1px; }
-  .tip-widget--dock .tip-badge-foot { font-size: 7.5px; }
+  .tip-widget--dock .tip-badge-number { min-width: 17px; font-size: 16px; }
+  .tip-widget--dock .tip-badge-label { font-size: 11.5px; letter-spacing: 0; }
+  .tip-widget--dock .tip-badge-foot { font-size: 10px; }
   .tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-width: 96px; }
 }
 
-/* A slow gold glint and soft glow; reduced-motion preferences disable animation. */
-.tip-badge-number, .tip-badge-label, .tip-badge-foot { text-shadow: 0 0 7px #bd8d3026; }
-@supports ((background-clip: text) or (-webkit-background-clip: text)) {
-  .tip-badge-number, .tip-badge-label, .tip-badge-foot {
-    background-image: linear-gradient(110deg, #674510 20%, #8c6722 43%, #b08329 48%, #775719 54%, #674510 70%);
-    background-size: 250% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: tip-gold-glint 9s ease-in-out infinite;
-  }
-}
-@keyframes tip-gold-glint { 0%, 65% { background-position: 100% 50%; } 88%, 100% { background-position: 0% 50%; } }
+/* Match the greeting highlighter; a fine dark edge preserves contrast. */
+.tip-badge-number, .tip-badge-label, .tip-badge-foot { color: #f4dc65; -webkit-text-fill-color: #f4dc65; -webkit-text-stroke: 1.2px #393324; paint-order: stroke fill; text-shadow: none; }
 
 @media (forced-colors: active) {
-  .tip-badge-number, .tip-badge-label, .tip-badge-foot { background: none; color: CanvasText; -webkit-text-fill-color: CanvasText; text-shadow: none; animation: none; }
+  .tip-badge-number, .tip-badge-label, .tip-badge-foot { color: CanvasText; -webkit-text-fill-color: CanvasText; -webkit-text-stroke: 0; text-shadow: none; }
 }
