@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Explore my work and background, or say hello.">
   <meta name="twitter:image" content="https://adrkv.github.io/assets/featured-connect.png">
   <link rel="icon" type="image/svg+xml" href="assets/addy-icon.svg">
-  <link rel="stylesheet" href="style.css?v=20260927-dot-arrow">
+  <link rel="stylesheet" href="style.css?v=20260927-whitepaper-affiliation">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -73,11 +73,24 @@
           <div class="patent-bottom"><span>Granted March 31, 2026</span><span class="card-cta">Read the patent <span aria-hidden="true">↗</span></span></div>
         </a>
       </div>
-      <div class="whitepaper-library" aria-labelledby="whitepapers-title">
+      <div class="whitepaper-library" id="whitepapers" aria-labelledby="whitepapers-title">
+        <div class="whitepaper-overview" id="whitepapers-schneider-electric">
         <div class="whitepaper-category"><svg width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 12c-5-4-12-5-19-4v29c7-1 14 0 19 4 5-4 12-5 19-4V8c-7-1-14 0-19 4Zm0 0v29M11 16c3 0 5 .6 7 1.5M11 23c3 0 5 .6 7 1.5M30 17.5c2-.9 4-1.5 7-1.5M30 24.5c2-.9 4-1.5 7-1.5"/></svg><h3 id="whitepapers-title">Whitepapers</h3></div>
+          <nav class="whitepaper-filters" aria-label="Filter whitepapers by where they were developed">
+            <a href="#whitepapers" data-affiliation-filter="all" aria-current="true">All</a>
+            <a href="#whitepapers-schneider-electric" data-affiliation-filter="schneider-electric">Schneider Electric</a>
+          </nav>
+        </div>
         <div class="whitepaper-list">
-          <a class="whitepaper-entry" href="underground-fault-location.html"><h4>AI for underground cable fault location <span aria-hidden="true">↗</span></h4><p>Connecting fault-location models to restoration time, field effort, and the data needed to build them.</p></a>
-          <a class="whitepaper-entry" href="feeder-hosting-capacity.html"><h4>AI for feeder hosting capacity <span aria-hidden="true">↗</span></h4><p>Connecting renewable integration decisions to grid constraints, AI/ML models, and a practical pilot approach.</p></a>
+          <p class="whitepaper-status" role="status" aria-live="polite" aria-atomic="true"></p>
+          <article class="whitepaper-entry" data-affiliation="schneider-electric">
+            <a class="whitepaper-article" href="underground-fault-location.html"><h4>AI for underground cable fault location <span aria-hidden="true">↗</span></h4><p>Connecting fault-location models to restoration time, field effort, and the data needed to build them.</p></a>
+            <a class="whitepaper-tag" href="#whitepapers-schneider-electric">Developed at Schneider Electric</a>
+          </article>
+          <article class="whitepaper-entry" data-affiliation="schneider-electric">
+            <a class="whitepaper-article" href="feeder-hosting-capacity.html"><h4>AI for feeder hosting capacity <span aria-hidden="true">↗</span></h4><p>Connecting renewable integration decisions to grid constraints, AI/ML models, and a practical pilot approach.</p></a>
+            <a class="whitepaper-tag" href="#whitepapers-schneider-electric">Developed at Schneider Electric</a>
+          </article>
         </div>
       </div>
       <a class="text-link publications-link" href="https://www.linkedin.com/in/adrkv/" target="_blank" rel="noopener noreferrer">Publications on LinkedIn <span aria-hidden="true">↗</span></a>
@@ -113,7 +126,10 @@
               <li><span>Data Scientist / Procurement Analytics</span><span class="role-date">Jun 2021–Oct 2022</span></li>
             </ul>
           </details>
-          <a class="card-cta" href="https://www.linkedin.com/posts/adrkv_distributech2024-activity-7169369420765618176-ffTZ" target="_blank" rel="noopener noreferrer">DISTRIBUTECH 2024 <span aria-hidden="true">↗</span></a>
+          <div class="affiliation-links">
+            <a class="card-cta" href="#whitepapers-schneider-electric" aria-label="Read whitepapers developed at Schneider Electric">Read my whitepapers <span aria-hidden="true">↗</span></a>
+            <a class="card-cta" href="https://www.linkedin.com/posts/adrkv_distributech2024-activity-7169369420765618176-ffTZ" target="_blank" rel="noopener noreferrer">DISTRIBUTECH 2024 <span aria-hidden="true">↗</span></a>
+          </div>
         </article>
         <article class="affiliation consulting-project" id="con-edison">
           <div class="affiliation-logo"><img class="con-edison-logo" src="assets/con-edison.svg" alt="Con Edison" loading="lazy"></div>
@@ -199,6 +215,29 @@
   <footer class="footer wrap"><span>© <span id="year">2026</span> Addy Kaveti</span><span>Boston, MA</span><a href="https://www.linkedin.com/in/adrkv/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></footer>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    (() => {
+      const library = document.getElementById('whitepapers');
+      const filters = Array.from(library.querySelectorAll('[data-affiliation-filter]'));
+      const papers = Array.from(library.querySelectorAll('[data-affiliation]'));
+      const status = library.querySelector('.whitepaper-status');
+      function filterWhitepapers() {
+        const selected = filters.find(link => link.hash === window.location.hash) || filters[0];
+        const affiliation = selected.dataset.affiliationFilter;
+        let count = 0;
+        papers.forEach(paper => {
+          paper.hidden = affiliation !== 'all' && !paper.dataset.affiliation.split(' ').includes(affiliation);
+          if (!paper.hidden) count++;
+        });
+        filters.forEach(link => {
+          if (link === selected) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
+        });
+        const context = affiliation === 'all' ? '' : ` developed at ${selected.textContent.trim()}`;
+        status.textContent = `${count} whitepaper${count === 1 ? '' : 's'}${context}.`;
+      }
+      window.addEventListener('hashchange', filterWhitepapers);
+      filterWhitepapers();
+    })();
     (() => {
       const copy = document.querySelector('.hero-copy');
       const dot = copy.querySelector('.period');

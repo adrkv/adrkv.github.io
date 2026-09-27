@@ -93,7 +93,8 @@ h1 {
   letter-spacing: -.25px;
   margin-top: 28px;
 }
-.article-affiliation { display: flex; align-items: center; gap: 14px; margin-top: 22px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.article-affiliation { display: flex; align-items: center; gap: 14px; width: fit-content; margin-top: 22px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.article-affiliation:hover > span:first-child { text-decoration: underline; text-underline-offset: 4px; }
 .article-affiliation-logo { display: flex; align-items: center; width: 148px; height: 48px; flex: 0 0 148px; overflow: hidden; }
 .article-affiliation-logo img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
 .reading-layout {
