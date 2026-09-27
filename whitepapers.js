@@ -5,13 +5,14 @@
   const results = library.querySelector('.whitepaper-list');
   const industryLinks = Array.from(library.querySelectorAll('[data-industry-filter]'));
   const topicSelect = library.querySelector('#whitepaper-topic');
-  const affiliationSelect = library.querySelector('#whitepaper-affiliation');
   const status = library.querySelector('.whitepaper-status');
   const empty = library.querySelector('.whitepaper-empty');
   const reset = library.querySelector('.whitepaper-reset');
   const validIndustries = new Set(industryLinks.map(link => link.dataset.industryFilter));
   const validTopics = new Set(Array.from(topicSelect.options, option => option.value));
-  const validAffiliations = new Set(Array.from(affiliationSelect.options, option => option.value));
+  // Preserve older partnership links without a separate company filter control.
+  const validAffiliations = new Set(['all', ...papers.flatMap(paper => (paper.dataset.affiliation || '').split(' ').filter(Boolean))]);
+  const affiliationLabels = { 'schneider-electric': 'From my time at Schneider Electric' };
   let state;
 
   function readState() {
@@ -36,7 +37,6 @@
       else link.removeAttribute('aria-current');
     });
     topicSelect.value = state.topic;
-    affiliationSelect.value = state.affiliation;
     let count = 0;
     papers.forEach(paper => {
       const matches = ['industry', 'topic', 'affiliation'].every(key =>
@@ -47,7 +47,7 @@
     const context = [];
     if (state.industry !== 'all') context.push(industryLinks.find(link => link.dataset.industryFilter === state.industry).textContent.trim());
     if (state.topic !== 'all') context.push(topicSelect.selectedOptions[0].textContent);
-    if (state.affiliation !== 'all') context.push('Developed at ' + affiliationSelect.selectedOptions[0].textContent);
+    if (state.affiliation !== 'all') context.push(affiliationLabels[state.affiliation] || state.affiliation);
     status.textContent = `${count} whitepaper${count === 1 ? '' : 's'}${context.length ? ' · ' + context.join(' · ') : ''}`;
     empty.hidden = count !== 0;
     reset.hidden = Object.values(state).every(value => value === 'all');
@@ -68,10 +68,9 @@
   industryLinks.forEach(link => link.addEventListener('click', event => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    navigate({ ...state, industry: link.dataset.industryFilter });
+    navigate({ ...state, industry: link.dataset.industryFilter, affiliation: 'all' });
   }));
-  topicSelect.addEventListener('change', () => navigate({ ...state, topic: topicSelect.value }));
-  affiliationSelect.addEventListener('change', () => navigate({ ...state, affiliation: affiliationSelect.value }));
+  topicSelect.addEventListener('change', () => navigate({ ...state, topic: topicSelect.value, affiliation: 'all' }));
   reset.addEventListener('click', () => {
     navigate({ industry: 'all', topic: 'all', affiliation: 'all' });
     industryLinks.find(link => link.dataset.industryFilter === 'all').focus({ preventScroll: true });

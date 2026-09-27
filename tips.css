@@ -132,65 +132,55 @@
 }
 @media print { .tips-placement, .tip-widget { display: none !important; } }
 
-/* A little record-store salesmanship beside the animated cup. */
-.tip-pitch { display: flex; flex-direction: column; align-items: center; justify-self: start; gap: 6px; }
+/* A small retro sticker, tucked beside the cup like a spoken aside. */
+.tip-pitch { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-self: start; gap: 0; margin-left: -18px; }
 .tip-badge {
-  display: flex; flex-direction: column; justify-content: center; gap: 2px;
-  width: 204px; min-height: 112px; padding: 13px 17px 12px;
-  border: 2px solid #e4a052; border-radius: 26px / 18px;
-  background: #282b27; color: #ffe7b2;
-  box-shadow: inset 0 0 0 3px #282b27, inset 0 0 0 4px #b4703b, 2px 3px 0 #a95235;
-  transform: rotate(-3deg);
-  font-family: "Lilita One", "Arial Rounded MT Bold", sans-serif;
-  font-weight: 400; line-height: 1; text-transform: uppercase;
-  -webkit-font-smoothing: antialiased;
+  --sticker-shape: polygon(50% 0%, 58% 9%, 70% 4%, 74% 16%, 87% 13%, 88% 27%, 100% 31%, 94% 43%, 100% 54%, 89% 61%, 93% 75%, 80% 78%, 75% 92%, 62% 88%, 52% 100%, 43% 90%, 29% 97%, 25% 84%, 9% 86%, 14% 71%, 0% 65%, 8% 53%, 0% 42%, 12% 35%, 8% 20%, 23% 21%, 29% 7%, 42% 12%);
+  position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  width: 110px; height: 104px; padding: 16px 8px;
+  border: 0; border-radius: 0; background: transparent; color: #493227;
+  filter: drop-shadow(1px 2px 0 #9e603e3b); transform: translateY(-7px) rotate(-7deg);
+  font-family: "Lilita One", "Arial Rounded MT Bold", sans-serif; font-weight: 400; line-height: 1; text-transform: uppercase; -webkit-font-smoothing: antialiased;
 }
-.tip-badge-row { display: flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; }
-.tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; line-height: 1; min-width: 47px; text-align: center; font-size: 36px; color: #f4ad65; text-shadow: 1px 1px 0 #bd5238, 2px 2px 0 #8e3d2d; }
-.tip-badge-number > span { display: inline-block; font-size: .67em; line-height: 1; }
-.tip-badge-label { width: 110px; font-size: 17px; letter-spacing: .35px; text-shadow: 1px 1px 0 #a94632; }
-.tip-badge-foot { align-self: center; margin-top: 7px; padding-top: 6px; border-top: 1px solid #95653c; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 9px; line-height: 1.2; font-weight: 600; letter-spacing: .9px; text-align: center; color: #f4cc97; }
-.tip-pitch .tip-controls { margin: 0; }
-.tip-pitch .tip-trigger, .tip-pitch .tip-fallback { min-height: 44px; padding-block: 10px; border: 0; }
-.header:has(.tip-dock-slot) { height: 156px; }
-.tip-dock-slot, .tip-widget--dock { width: 235px; }
-.tip-dock-slot { height: 130px; }
-.tip-widget--dock .tip-stage { gap: 9px; border-radius: 20px; }
-.tip-widget--dock.is-moved .tip-stage { padding: 4px; }
-.tip-widget--dock .tip-move { flex: 0 0 72px; width: 72px; height: 82px; }
-.tip-widget--dock .tip-character { width: 72px; height: 80px; }
-.tip-widget--dock .tip-pitch { gap: 3px; }
-.tip-widget--dock .tip-badge { width: 150px; min-height: 82px; padding: 7px 11px; border-radius: 23px / 16px; }
-.tip-widget--dock .tip-badge-row { gap: 5px; }
-.tip-widget--dock .tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; line-height: 1; min-width: 34px; font-size: 25px; }
-.tip-widget--dock .tip-badge-label { width: 83px; font-size: 12.5px; letter-spacing: .25px; }
-.tip-widget--dock .tip-badge-foot { margin-top: 3px; padding-top: 3px; font-size: 8px; letter-spacing: .55px; }
-.tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-height: 40px; padding-block: 8px; }
+.tip-badge::before, .tip-badge::after { content: ""; position: absolute; pointer-events: none; clip-path: var(--sticker-shape); }
+.tip-badge::before { inset: 0; z-index: -2; background: #cf793f; }
+.tip-badge::after { inset: 2px; z-index: -1; background: #ffe2a1; }
+.tip-badge-row { display: flex; align-items: center; justify-content: center; gap: 3px; white-space: nowrap; }
+.tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; min-width: 23px; font-size: 20px; line-height: 1; color: #a64b2e; }
+.tip-badge-number > span { display: inline-block; font-size: .7em; line-height: 1; }
+.tip-badge-label { font-size: 10.5px; letter-spacing: .1px; }
+.tip-badge-foot { margin-top: 1px; padding-top: 4px; border-top: 1px solid #bc8b5380; font-family: "Lilita One", "Arial Rounded MT Bold", sans-serif; font-size: 8.5px; line-height: 1.2; font-weight: 400; letter-spacing: -.1px; text-align: center; white-space: nowrap; color: #65452f; }
+.tip-pitch .tip-controls { margin: -6px 0 0; }
+.tip-pitch .tip-trigger, .tip-pitch .tip-fallback { min-width: 110px; min-height: 40px; padding: 8px 6px; border: 0; }
+.header:has(.tip-dock-slot) { height: 138px; }
+.tip-dock-slot, .tip-widget--dock { width: 198px; }
+.tip-dock-slot { height: 126px; }
+.tip-widget--dock .tip-stage { gap: 0; border-radius: 20px; }
+.tip-widget--dock.is-moved .tip-stage { padding: 0; }
+.tip-widget--dock .tip-move { flex: 0 0 110px; width: 110px; height: 120px; }
+.tip-widget--dock .tip-character { width: 110px; height: 120px; }
+.tip-widget--dock .tip-pitch { margin-left: -18px; transform: translateY(8px); }
+.tip-widget--dock .tip-badge { width: 96px; height: 92px; padding: 14px 6px; gap: 3px; }
+.tip-widget--dock .tip-badge-number { min-width: 20px; font-size: 17px; }
+.tip-widget--dock .tip-badge-label { font-size: 9.5px; }
+.tip-widget--dock .tip-badge-foot { font-size: 8px; padding-top: 3px; }
+.tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-width: 100px; min-height: 36px; padding: 6px 4px; }
 @media (max-width: 620px) {
-  .tip-stage { grid-template-columns: 100px minmax(0, 1fr); gap: 12px; }
-  .tip-stage > .tip-character { grid-row: auto; }
-  .tip-badge { width: 176px; min-height: 104px; padding-inline: 12px; }
-  .tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; line-height: 1; min-width: 39px; font-size: 30px; }
-  .tip-badge-label { width: 98px; font-size: 15px; }
-  .header:has(.tip-dock-slot) { height: 146px; }
-  .tip-dock-slot, .tip-widget--dock { width: 183px; }
-  .tip-dock-slot { height: 116px; }
-  .tip-widget--dock .tip-stage { gap: 5px; }
-  .tip-widget--dock .tip-move { flex-basis: 49px; width: 49px; height: 70px; }
-  .tip-widget--dock .tip-character { width: 49px; height: 66px; }
-  .tip-widget--dock .tip-badge { width: 125px; min-height: 74px; padding-inline: 7px; border-radius: 20px / 14px; }
-  .tip-widget--dock .tip-badge-row { gap: 3px; }
-  .tip-widget--dock .tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; line-height: 1; min-width: 29px; font-size: 23px; }
-  .tip-widget--dock .tip-badge-label { width: 72px; font-size: 10.6px; letter-spacing: .1px; }
-  .tip-widget--dock .tip-badge-foot { font-size: 7.5px; letter-spacing: .2px; }
-}
-@media (max-width: 370px) {
-  .tip-stage { grid-template-columns: 70px minmax(0, 1fr); gap: 10px; padding-inline: 9px; }
-  .tip-stage > .tip-character { width: 76px; height: 120px; }
-  .tip-badge { width: 154px; padding-inline: 9px; }
-  .tip-badge-row { gap: 5px; }
-  .tip-badge-number { display: inline-flex; justify-content: center; align-items: baseline; line-height: 1; min-width: 32px; font-size: 28px; }
-  .tip-badge-label { width: 87px; font-size: 13px; }
-  .tip-badge-foot { font-size: 8px; letter-spacing: .4px; }
+  .tip-stage { grid-template-columns: 112px minmax(0, 1fr); gap: 0; padding: 20px 20px 18px 12px; }
+  .tip-stage > .tip-character { grid-row: auto; width: 112px; height: 126px; }
+  .tip-badge { width: 98px; height: 94px; padding: 14px 6px; gap: 3px; }
+  .tip-badge-number { min-width: 21px; font-size: 18px; }
+  .tip-badge-label { font-size: 9.5px; }
+  .tip-badge-foot { font-size: 8px; }
+  .header:has(.tip-dock-slot) { height: 130px; }
   .tip-dock-slot, .tip-widget--dock { width: 180px; }
+  .tip-dock-slot { height: 120px; }
+  .tip-widget--dock .tip-move { flex-basis: 102px; width: 102px; height: 114px; }
+  .tip-widget--dock .tip-character { width: 102px; height: 114px; }
+  .tip-widget--dock .tip-pitch { margin-left: -20px; }
+  .tip-widget--dock .tip-badge { width: 90px; height: 84px; padding-inline: 5px; }
+  .tip-widget--dock .tip-badge-number { min-width: 18px; font-size: 15px; }
+  .tip-widget--dock .tip-badge-label { font-size: 9px; letter-spacing: -.1px; }
+  .tip-widget--dock .tip-badge-foot { font-size: 7.5px; }
+  .tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-width: 96px; }
 }

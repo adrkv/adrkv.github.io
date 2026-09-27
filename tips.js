@@ -83,7 +83,7 @@
     };
     const toggle = (control) => {
       opener = control;
-      if (!panel.hidden) close();
+      if (!panel.hidden && pinned) close();
       else { pinned = true; dismissed = false; setOpen(true); }
     };
     const moveTo = (left, top) => {
