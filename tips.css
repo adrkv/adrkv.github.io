@@ -136,7 +136,7 @@
 .tip-badge {
   position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px;
   width: 110px; height: 104px; padding: 16px 8px;
-  border: 0; border-radius: 0; background: transparent; color: #f4dc65;
+  border: 0; border-radius: 0; background: transparent; color: #212522;
   filter: none; transform: translate(5px, -7px) rotate(-9deg); transform-origin: left center;
   font-family: "Metal Mania", Impact, "Arial Narrow", sans-serif; font-weight: 400; line-height: 1; text-transform: uppercase; -webkit-font-smoothing: antialiased;
 }
@@ -180,9 +180,18 @@
   .tip-widget--dock .tip-trigger, .tip-widget--dock .tip-fallback { min-width: 96px; }
 }
 
-/* Match the greeting highlighter; a fine dark edge preserves contrast. */
-.tip-badge-number, .tip-badge-label, .tip-badge-foot { color: #f4dc65; -webkit-text-fill-color: #f4dc65; -webkit-text-stroke: 1.2px #393324; paint-order: stroke fill; text-shadow: none; }
+/* Dark lettering on loose marker strokes, matching the greeting highlight. */
+.tip-badge-number, .tip-badge-label, .tip-badge-foot { color: #212522; -webkit-text-fill-color: currentColor; -webkit-text-stroke: 0; text-shadow: none; }
+.tip-badge-row, .tip-badge-foot { position: relative; isolation: isolate; }
+.tip-badge-row::before, .tip-badge-foot::before {
+  content: ""; position: absolute; z-index: -1; left: -3px; bottom: -1px; width: calc(100% + 6px); height: 80%;
+  background: #f4dc65; opacity: .82; transform: rotate(-2deg);
+  clip-path: polygon(1% 9%, 98% 0, 100% 80%, 87% 96%, 47% 91%, 2% 100%, 0 48%); pointer-events: none;
+}
+.tip-badge-row:nth-child(2)::before { transform: rotate(1deg); }
+.tip-badge-foot::before { height: 70%; transform: rotate(-1deg); }
 
 @media (forced-colors: active) {
-  .tip-badge-number, .tip-badge-label, .tip-badge-foot { color: CanvasText; -webkit-text-fill-color: CanvasText; -webkit-text-stroke: 0; text-shadow: none; }
+  .tip-badge-number, .tip-badge-label, .tip-badge-foot { color: CanvasText; -webkit-text-fill-color: CanvasText; }
+  .tip-badge-row::before, .tip-badge-foot::before { display: none; }
 }
