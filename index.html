@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Strategy, enablement, and partnerships. My background and projects.">
   <meta name="twitter:image" content="https://adrkv.github.io/assets/featured-card.png">
   <link rel="icon" type="image/svg+xml" href="assets/addy-icon.svg">
-  <link rel="stylesheet" href="style.css?v=20260927-project-logos">
+  <link rel="stylesheet" href="style.css?v=20260927-dot-arrow">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -31,16 +31,15 @@
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow"><a class="location-link" href="meet.html" aria-label="Meet Addy for coffee or a drink in Boston"><span class="location-pin" aria-hidden="true">📍</span> BOSTON, MA <span class="location-arrow" aria-hidden="true">↗</span></a></p>
-        <h1 id="hero-title">Addy<br> Kaveti<span class="period">.</span></h1>
+        <h1 id="hero-title">Addy<br> <span class="surname">Kaveti<span class="period" aria-hidden="true"></span></span></h1>
         <p class="hero-intro"><a href="#strategy">Strategy</a>, <a href="#enablement">enablement</a><br> & <a href="#partnerships">partnerships</a>.</p>
         <div class="hero-actions">
           <a class="button" href="#work">View my work <span aria-hidden="true">↗</span></a>
           <div class="hero-connect">
-            <svg class="hello-curve" width="180" height="200" viewBox="0 0 180 200" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M42 9C100-4 173 17 160 65C151 99 105 95 112 69C122 35 182 95 144 136C112 172 57 170 13 185M21 173L13 185L28 187"/></svg>
-            <svg class="hello-curve-mobile" width="116" height="54" viewBox="0 0 116 54" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 8C51 0 96 8 87 30C81 44 57 41 62 26C67 12 99 28 91 48M85 40L91 48L98 40"/></svg>
             <a class="hero-greeting" href="#contact"><span class="greeting-label">Say hello <span aria-hidden="true">↗</span></span><span class="greeting-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Zm12 1h2a3 3 0 0 1 0 6h-2M2 22h17M8 2v3M12 2v3"/></svg>Online or in Boston</span></a>
           </div>
         </div>
+        <svg class="hello-curve" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path class="hello-curve-line"/><path class="hello-curve-head"/></svg>
       </div>
       <figure class="portrait-frame">
         <img src="assets/portrait-grooming-candidate.png" width="1087" height="1447" alt="Addy smiling outdoors in a blazer and open-collar shirt, raising a drink beneath the evening sky." fetchpriority="high">
@@ -198,6 +197,66 @@
     </section>
   </main>
   <footer class="footer wrap"><span>© <span id="year">2026</span> Addy Kaveti</span><span>Boston, MA</span><a href="https://www.linkedin.com/in/adrkv/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (() => {
+      const copy = document.querySelector('.hero-copy');
+      const dot = copy.querySelector('.period');
+      const intro = copy.querySelector('.hero-intro');
+      const greeting = copy.querySelector('.greeting-label');
+      const curve = copy.querySelector('.hello-curve');
+      const line = curve.querySelector('.hello-curve-line');
+      const head = curve.querySelector('.hello-curve-head');
+      let frame;
+      function drawCurve() {
+        const bounds = copy.getBoundingClientRect();
+        const start = dot.getBoundingClientRect();
+        const end = greeting.getBoundingClientRect();
+        const introBounds = intro.getBoundingClientRect();
+        const text = document.createRange();
+        text.selectNodeContents(intro);
+        const textRight = Math.max(...Array.from(text.getClientRects(), rect => rect.right - bounds.left));
+        const sx = start.right - bounds.left - 1;
+        const sy = start.top - bounds.top + start.height / 2;
+        const ex = end.left - bounds.left + end.width * .44;
+        const ey = end.top - bounds.top - 13;
+        const outer = Math.min(bounds.width - 7, Math.max(textRight + 65, sx + 110));
+        let d;
+        const compact = window.innerWidth <= 760 || bounds.width < 400;
+        if (compact) {
+          const bottom = introBounds.bottom - bounds.top;
+          const right = Math.min(outer, ex + 68);
+          const left = Math.max(ex + 15, right - 44);
+          d = `M ${sx} ${sy} C ${sx + (outer - sx) * .55} ${sy - 25}, ${outer} ${sy - 30}, ${outer} ${sy + 28}
+            C ${outer} ${bottom + 6}, ${right} ${bottom + 39}, ${left} ${bottom + 27}
+            C ${left - 23} ${bottom + 20}, ${left - 8} ${bottom - 2}, ${left + 10} ${bottom + 12}
+            C ${right + 5} ${bottom + 34}, ${ex + 36} ${ey - 10}, ${ex} ${ey}`;
+        } else {
+          const inner = Math.max(textRight + 16, outer - 70);
+          d = `M ${sx} ${sy} C ${sx + 35} ${sy - 35}, ${outer + 6} ${sy - 52}, ${outer - 2} ${sy + 26}
+            C ${outer - 10} ${sy + 60}, ${inner - 4} ${sy + 54}, ${inner + 2} ${sy + 28}
+            C ${inner + 10} ${sy - 4}, ${outer + 10} ${sy + 54}, ${outer - 4} ${sy + 90}
+            C ${outer - 12} ${ey - 20}, ${ex + 45} ${ey - 12}, ${ex} ${ey}`;
+        }
+        curve.setAttribute('viewBox', `0 0 ${bounds.width} ${bounds.height}`);
+        line.setAttribute('d', d);
+        // Match the arrowhead to the final curve tangent.
+        const angle = compact ? Math.atan2(10, -36) : Math.atan2(12, -45);
+        const size = 10;
+        const wing = .5;
+        head.setAttribute('d', `M ${ex - size * Math.cos(angle - wing)} ${ey - size * Math.sin(angle - wing)} L ${ex} ${ey} L ${ex - size * Math.cos(angle + wing)} ${ey - size * Math.sin(angle + wing)}`);
+        curve.classList.add('is-ready');
+      }
+      function scheduleDraw() {
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(drawCurve);
+      }
+      const observer = new ResizeObserver(scheduleDraw);
+      [copy, dot, intro, greeting].forEach(element => observer.observe(element));
+      window.addEventListener('resize', scheduleDraw, { passive: true });
+      document.fonts.ready.then(scheduleDraw);
+      scheduleDraw();
+    })();
+  </script>
 </body>
 </html>
