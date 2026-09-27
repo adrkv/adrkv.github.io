@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI for feeder hosting capacity | Addy Kaveti</title>
+  <meta name="description" content="Connecting renewable integration decisions to grid constraints, AI/ML models, and a practical pilot approach.">
+  <link rel="canonical" href="https://adrkv.github.io/feeder-hosting-capacity.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI for feeder hosting capacity">
+  <meta property="og:description" content="Connecting renewable integration decisions to grid constraints, AI/ML models, and a practical pilot approach.">
+  <meta property="og:url" content="https://adrkv.github.io/feeder-hosting-capacity.html">
+  <meta property="og:site_name" content="Addy Kaveti">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/assets/addy-icon.svg">
+  <link rel="stylesheet" href="/article.css?v=20260927-visuals">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header">
+    <a class="brand" href="/" aria-label="Addy Kaveti home">Addy Kaveti<span aria-hidden="true">.</span></a>
+    <nav aria-label="Main navigation"><a href="/#strategy">Strategy</a><a href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="main" class="article-main wrap">
+    <a class="back-link" href="/#strategy"><span aria-hidden="true">←</span> Back to Strategy</a>
+    <article aria-labelledby="article-title">
+      <header class="article-heading">
+        <p class="eyebrow">WHITEPAPER</p>
+        <h1 id="article-title">AI for feeder hosting capacity</h1>
+        <p class="article-summary">Connecting renewable integration decisions to grid constraints, AI/ML models, and a practical pilot approach.</p>
+      </header>
+      <div class="reading-layout">
+        <nav class="article-contents" aria-label="Article contents">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#hosting-capacity">What hosting capacity tells us</a></li>
+            <li><a href="#business-impact">Business impact</a></li>
+            <li><a href="#approach">The AI/ML approach</a></li>
+            <li><a href="#data">Data requirements</a></li>
+            <li><a href="#trade-offs">Comparing approaches</a></li>
+            <li><a href="#pilot">Starting with a pilot</a></li>
+            <li><a href="#references">Information sources</a></li>
+          </ol>
+        </nav>
+        <div class="article-body">
+          <p class="article-intro">Accurately determining feeder hosting capacity is vital for integrating distributed energy resources while maintaining the reliability and safety of the power grid. AI and machine learning can help estimate that capacity across many feeders by learning relationships between network characteristics and simulation results.</p>
+
+          <h2 id="hosting-capacity">What hosting capacity tells us</h2>
+          <p>In the context of power systems, a feeder is a distribution line that carries electricity from a power substation to end consumers. As part of the electrical distribution network, it has capacity limits determined by its physical and operational characteristics: the size and type of conductors, the network configuration, and the constraints imposed by safety and reliability requirements.</p>
+          <p>Distributed energy resources (DERs), such as solar panels, wind turbines, and energy storage systems, change the magnitude and direction of power flowing through the feeder. Their effect depends on where they connect, when they generate or charge, and the demand elsewhere on the network.</p>
+          <p><strong>Feeder hosting capacity (HC)</strong> is the maximum DER capacity that can be accommodated without violating the operational limits being assessed, under specified network and operating conditions. It is an estimate tied to those assumptions, rather than one permanent number for the grid.</p>
+          <div class="decision-pair" aria-label="The consequences of overestimating and underestimating hosting capacity">
+            <section><span class="visual-kicker">ESTIMATE TOO HIGH</span><h3>More exposure to grid constraints</h3><p>Overvoltage or equipment overloading can lead to outages, repairs, and restrictions on renewable generation.</p></section>
+            <section><span class="visual-kicker">ESTIMATE TOO LOW</span><h3>Useful capacity goes unused</h3><p>Viable renewable connections may be delayed, and existing network assets may not be used to their full potential.</p></section>
+          </div>
+
+          <h2 id="business-impact">Business impact</h2>
+          <p>Understanding and accurately calculating HC influences operational performance and investment decisions. It helps utilities assess DER connections, anticipate constraints, and connect engineering decisions to customer outcomes.</p>
+          <p>Exceeding the assessed limits can create technical problems such as overvoltage, overcurrent, and transformer overloading. Reverse power flow and harmonics may also require consideration. Anticipating these conditions helps utilities target mitigation before they affect service.</p>
+          <div class="table-scroll" role="region" aria-label="Hosting capacity decisions and business measures" tabindex="0">
+            <table>
+              <caption><span>Connect the engineering question to the business decision</span></caption>
+              <thead><tr><th scope="col">Business priority</th><th scope="col">What to assess</th><th scope="col">Decision it supports</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Right-size DER integration</th><td>Voltage stability, feeder loading, and transformer loading.</td><td>Where additional DER capacity may fit, and where mitigation or reinforcement needs review.</td></tr>
+                <tr><th scope="row">Maintain power quality</th><td>Voltage limits, current limits, and applicable power-quality requirements.</td><td>Which operating constraints must be respected as connections increase.</td></tr>
+                <tr><th scope="row">Protect customer outcomes</th><td>Service quality, network losses, energy efficiency, and customer satisfaction.</td><td>How integration choices could affect service and the value delivered by network assets.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="figure-note">Measures and acceptance limits should be defined for the utility’s network and the intended decision.</p>
+
+          <h2 id="approach">The AI/ML approach</h2>
+          <p>Traditional deterministic and probabilistic approaches remain important for evaluating feeder behavior. Applying detailed studies repeatedly across many feeders and scenarios can, however, require substantial computation and expert effort. A supervised-learning approach uses labeled examples from those studies to estimate HC and potential constraints for additional cases.</p>
+          <p>Two target variables are useful: the maximum capacity for DER integration, and the operational constraint that limits it. Regression models estimate a continuous HC value; classification models identify the limiting constraint, such as overvoltage or transformer overloading.</p>
+          <figure class="visual-panel">
+            <h3 class="visual-title">One dataset. Two useful outputs.</h3>
+            <div class="model-input">Feeder characteristics + simulation labels</div>
+            <div class="model-outputs">
+              <div><span class="visual-kicker">REGRESSION</span><strong>How much capacity?</strong><p>Estimate the feeder’s hosting capacity.</p></div>
+              <div><span class="visual-kicker">CLASSIFICATION</span><strong>What limits it?</strong><p>Identify the potential constraint violation.</p></div>
+            </div>
+            <figcaption class="figure-note">Capacity estimates and constraint labels serve different planning questions. Both require validation against the engineering conditions they represent.</figcaption>
+          </figure>
+
+          <h3>Obtaining labels</h3>
+          <p>The first step is preparing the dataset. This includes exploratory data analysis, preprocessing, and feature selection. Essential grid data, such as the number of connection points, transformer capacities, and distances between nodes, provides a picture of the grid’s structure.</p>
+          <p>Monte Carlo simulations test the grid under different conditions, including high solar output during periods of low consumption. As DER output increases in these scenarios, the analysis monitors for issues such as voltage-limit violations or transformer overloading. The outcomes provide labels for HC and the constraints encountered.</p>
+          <p>These labels form the training dataset. They describe simulated operating conditions; their usefulness depends on the quality of the network model, input data, and scenarios used to generate them.</p>
+
+          <h3>Building and evaluating models</h3>
+          <p>Once a labeled dataset is available, regression techniques such as random forest, decision tree, and linear regression can be evaluated for HC estimation. For constraint classification, candidate algorithms include logistic regression, K-nearest neighbors (KNN), and support vector machines (SVM).</p>
+          <p>The aim is to learn relationships between the feeder inputs and the target outputs, then apply them to cases not used during training. A small labeled dataset may support an initial experiment, but its size alone does not establish reliable performance. Testing on held-out, representative feeders is necessary before expanding the model’s use.</p>
+          <figure class="visual-panel">
+            <h3 class="visual-title">From network data to a usable estimate</h3>
+            <ol class="process-flow">
+              <li><span class="step-number" aria-hidden="true">01</span><strong>Prepare the data</strong><p>Review topology, equipment ratings, loading, and generation scenarios.</p></li>
+              <li><span class="step-number" aria-hidden="true">02</span><strong>Generate labels</strong><p>Use engineering simulations to identify capacity and limiting constraints.</p></li>
+              <li><span class="step-number" aria-hidden="true">03</span><strong>Train and test</strong><p>Compare AI/ML models using cases held out from training.</p></li>
+              <li><span class="step-number" aria-hidden="true">04</span><strong>Review the decision</strong><p>Check estimates against operating limits before using them in planning.</p></li>
+            </ol>
+            <figcaption class="figure-note">A proposed workflow for decision support. The model accelerates estimation; engineering review establishes where the estimates are suitable for use.</figcaption>
+          </figure>
+
+          <h2 id="data">Data requirements</h2>
+          <p>After establishing the target variables, the next step is gathering input variables that describe each feeder. The following characteristics provide a starting point for model development.</p>
+          <div class="table-scroll" role="region" aria-label="Feeder model input variables" tabindex="0">
+            <table>
+              <caption><span>What the model needs to know about a feeder</span></caption>
+              <thead><tr><th scope="col">Input</th><th scope="col">What it represents</th><th scope="col">Why it matters</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Number of nodes</th><td>Connection points in the network.</td><td>Nodes can represent consumption, generation, or both.</td></tr>
+                <tr><th scope="row">Transformer rating</th><td>The rated capacity of the transformer at the feeder head.</td><td>Places a limit on the loading the equipment can accommodate.</td></tr>
+                <tr><th scope="row">Feeder length</th><td>Distance from the starting point to the farthest node.</td><td>Relates to resistance and voltage changes along the feeder.</td></tr>
+                <tr><th scope="row">Total path resistance</th><td>The resistance of the feeder’s cable paths.</td><td>Helps describe its electrical characteristics.</td></tr>
+                <tr><th scope="row">Average impedance</th><td>A summary of network impedance.</td><td>Provides an additional description of electrical behavior.</td></tr>
+                <tr><th scope="row">Load and generation profiles</th><td>Consumption and DER output across operating conditions.</td><td>Captures the demand and generation variability behind the assessment.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Available real-time load and renewable-output data may also be considered as inputs. Using these signals requires consistent data preparation and validation; adding live data does not make a trained model adapt automatically.</p>
+          <p>Example labeled records in the <a href="https://doi.org/10.1049/gtd2.12933" target="_blank" rel="noopener noreferrer">cited research</a> pair feeder characteristics with HC values and constraint labels.</p>
+
+          <h2 id="trade-offs">Comparing approaches</h2>
+          <p>AI/ML can reduce the need to repeat a detailed simulation for every estimate. It also introduces a different dependency: the training data must adequately represent the feeders and conditions where the model will be used. The practical comparison is therefore about the work each approach performs and the checks each requires.</p>
+          <div class="table-scroll" role="region" aria-label="Engineering studies and AI machine learning comparison" tabindex="0">
+            <table>
+              <caption><span>Different tools for different parts of the assessment</span></caption>
+              <thead><tr><th scope="col">Consideration</th><th scope="col">Detailed engineering studies</th><th scope="col">AI/ML estimation</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Basis for the estimate</th><td>Network models, physical constraints, and specified scenarios.</td><td>Relationships learned from labeled study examples.</td></tr>
+                <tr><th scope="row">Scaling to more feeders</th><td>Additional cases require further study setup and computation.</td><td>Trained models can produce estimates quickly within a validated range of use.</td></tr>
+                <tr><th scope="row">Changing conditions</th><td>Update network inputs and rerun the assessment.</td><td>Recheck data coverage and model performance; retrain when needed.</td></tr>
+                <tr><th scope="row">Accuracy</th><td>Depends on network fidelity, assumptions, and scenario coverage.</td><td>Must be tested against trusted results on representative, unseen cases.</td></tr>
+                <tr><th scope="row">Cost over time</th><td>Includes expert input and recurring computational effort.</td><td>Includes data preparation, training, validation, and ongoing maintenance.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Combining simulation-based labels with AI/ML estimation can make repeated assessment more manageable. The value comes from demonstrating an acceptable balance of accuracy, effort, and decision usefulness for the intended application.</p>
+
+          <h2 id="pilot">Starting with a pilot</h2>
+          <p>Implementing AI/ML at a large scale right away can be risky. Models depend on the quality, quantity, and relevance of the available data. A focused pilot provides a way to establish baseline performance before committing to production infrastructure.</p>
+          <ol class="pilot-list">
+            <li><strong>Review the data.</strong> Assess quality, quantity, relevance, and coverage of the feeders under consideration.</li>
+            <li><strong>Define a manageable scope.</strong> Choose a business question large enough to matter and narrow enough to evaluate in a short development cycle.</li>
+            <li><strong>Use existing data first.</strong> Establish feasibility before engineering expensive production pipelines.</li>
+            <li><strong>Build a baseline and iterate.</strong> Test proof-of-concept models, identify performance gaps, and decide what is needed before expanding their use.</li>
+          </ol>
+          <h3>Agree on the handoffs</h3>
+          <p>A pilot also needs agreement on what each group contributes and what constitutes an acceptable result. The following is a practical way to organize that discussion.</p>
+          <div class="table-scroll" role="region" aria-label="Suggested alignment for a hosting capacity pilot" tabindex="0">
+            <table>
+              <caption><span>Decisions to align before scaling</span></caption>
+              <thead><tr><th scope="col">Perspective</th><th scope="col">Question to resolve together</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Business and planning</th><td>Which integration decision should improve, and how will usefulness be assessed?</td></tr>
+                <tr><th scope="row">Grid engineering</th><td>Which assumptions, constraints, and reference studies define an acceptable estimate?</td></tr>
+                <tr><th scope="row">Data and modeling</th><td>Which data can be trusted, how will models be tested, and which cases need further review?</td></tr>
+                <tr><th scope="row">Operational adoption</th><td>Who reviews the output, and what should happen when network conditions change?</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>This keeps the technical work connected to the decision it supports. A successful pilot should clarify both where the approach is useful and what remains to be resolved before wider adoption.</p>
+
+          <h2 id="references">Information sources</h2>
+          <ol class="article-references">
+            <li>Qammar, N., Arshad, A., Miller, R. J., Mahmoud, K., &amp; Lehtonen, M. <cite><a href="https://doi.org/10.1049/gtd2.12933" target="_blank" rel="noopener noreferrer">Machine learning based hosting capacity determination methodology for low voltage distribution networks.</a></cite> IET Generation, Transmission &amp; Distribution, 18(5), 911–920 (2024). First published online October 17, 2023.</li>
+          </ol>
+        </div>
+      </div>
+    </article>
+    <nav class="article-end" aria-label="Article navigation"><a class="back-link" href="/#strategy"><span aria-hidden="true">←</span> Back to Strategy</a><a class="text-link" href="/#contact">Say hello <span aria-hidden="true">↗</span></a></nav>
+  </main>
+  <footer class="footer wrap"><a href="/">Addy Kaveti</a><a href="https://www.linkedin.com/in/adrkv/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>
