@@ -291,7 +291,13 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
   .header .tip-widget--dock .tip-stage{grid-template-columns:102px 88px}
   .header .audience-links{grid-column:1;grid-row:2;width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
 }
-.enablement-mission{margin:-8px 0 28px;color:var(--muted);font-size:15px;line-height:1.8}
+.enablement-mission{margin:-8px 0 12px;color:var(--muted);font-size:15px;line-height:1.9}
+.peakwhale-intro-link{display:inline-flex;align-items:center;gap:8px;vertical-align:middle;color:var(--ink);white-space:nowrap}
+.peakwhale-intro-link img{width:32px;height:32px;border-radius:8px;object-fit:contain}
+.peakwhale-intro-link strong{font-weight:600}
+.peakwhale-intro-link:hover strong{text-decoration:underline;text-underline-offset:4px}
+.mission-highlight{padding:0 .12em;white-space:nowrap;color:var(--ink);background:linear-gradient(177deg,transparent 18%,#f4dc65d1 19%,#f4dc65d1 91%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.enablement-booking{margin:0 0 28px;color:var(--muted);font-size:14px;line-height:1.8}
 .github-source-link,.enablement-booking-link{display:inline-flex;align-items:center;gap:6px;vertical-align:baseline;color:var(--accent);white-space:nowrap}
 .github-source-link svg,.enablement-booking-link img{width:15px;height:15px;flex:0 0 15px}
 .github-source-link span,.enablement-booking-link span{text-decoration:underline;text-decoration-color:#a6c1bd;text-underline-offset:4px}
@@ -304,7 +310,7 @@ h2{font-size:clamp(36px,4vw,53px);letter-spacing:-2px;line-height:1.08;font-weig
 .event-pointer path{vector-effect:non-scaling-stroke}
 .event-annotation{position:absolute;left:29%;top:85.5%;transform:translateY(-50%);color:#fffefa;font-size:12px;font-weight:500;font-style:italic;line-height:1.3;white-space:nowrap;text-shadow:0 1px 3px #142421cc,0 0 1px #142421;pointer-events:none}
 .patent-preview{display:block;width:100%;height:auto;object-fit:contain;object-position:center;padding:8px;border:1px solid var(--line);border-radius:10px;background:#fff}
-@media(max-width:760px){.enablement-mission{font-size:13px;margin:-7px 0 24px}}
+@media(max-width:760px){.enablement-mission{font-size:13px;margin:-7px 0 12px}.enablement-booking{font-size:13px;margin-bottom:24px}}
 @media(min-width:761px) and (max-width:1000px){.patent-summary{grid-template-columns:1fr}.patent-preview{max-width:210px}}
 @media(max-width:520px){.patent-summary{grid-template-columns:1fr}.patent-preview{max-width:240px}.research-records>.strategy-category h3{font-size:22px}}
 
