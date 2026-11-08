@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="g-chute-rills" viewBox="-12 103.87 984 513.75" fill="none" stroke="#987341" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<g class="g-water-washes" stroke="none">
+  <path d="M497 120 L597 121 L594 132 L495 131 Z" fill="#6c959f" fill-opacity="0.24"/>
+  <path d="M548 136 L564 136.5 L549 169 L533 168.5 Z" fill="#6c959f" fill-opacity="0.26"/>
+  <path d="M487 178 L585 179 L567 444 L464 443 Z" fill="#6c959f" fill-opacity="0.18"/>
+  <path d="M445 457 L571 459 L568 478 L442 476 Z" fill="#628d98" fill-opacity="0.28"/>
+  <path d="M104.4 557.1 Q73.4 562.6 44.0 598.0 L68.0 602.0 Q79.4 562.6 104.4 557.1 Z" fill="#7ca0a8" fill-opacity="0.24"/>
+  <ellipse cx="56.0" cy="601.5" rx="19" ry="4.8" fill="#89adb4" fill-opacity="0.26"/>
+  <path d="M229.3 560.6 Q172.9 576.4 118.0 608.0 L146.0 612.0 Q178.9 576.4 229.3 560.6 Z" fill="#7ca0a8" fill-opacity="0.24"/>
+  <ellipse cx="132.0" cy="611.5" rx="19" ry="4.8" fill="#89adb4" fill-opacity="0.26"/>
+  <path d="M355.2 564.1 Q312.0 586.6 262.0 612.0 L290.0 616.0 Q318.0 586.6 355.2 564.1 Z" fill="#7ca0a8" fill-opacity="0.24"/>
+  <ellipse cx="276.0" cy="615.5" rx="19" ry="4.8" fill="#89adb4" fill-opacity="0.26"/>
+  <path d="M482.1 567.6 Q471.2 592.5 452.0 615.0 L480.0 617.0 Q477.2 592.5 482.1 567.6 Z" fill="#7ca0a8" fill-opacity="0.24"/>
+  <ellipse cx="466.0" cy="617.5" rx="19" ry="4.8" fill="#89adb4" fill-opacity="0.26"/>
+  <path d="M610.1 571.1 Q632.9 595.4 646.0 617.0 L674.0 614.0 Q638.9 595.4 610.1 571.1 Z" fill="#7ca0a8" fill-opacity="0.24"/>
+  <ellipse cx="660.0" cy="617.5" rx="19" ry="4.8" fill="#89adb4" fill-opacity="0.26"/>
+  <path d="M739.2 574.7 Q783.6 594.9 812.0 617.0 L840.0 613.0 Q789.6 594.9 739.2 574.7 Z" fill="#7ca0a8" fill-opacity="0.24"/>
+  <ellipse cx="826.0" cy="616.5" rx="19" ry="4.8" fill="#89adb4" fill-opacity="0.26"/>
+  <path d="M869.4 578.3 Q897.4 587.0 904.0 610.0 L928.0 606.0 Q903.4 587.0 869.4 578.3 Z" fill="#7ca0a8" fill-opacity="0.24"/>
+  <ellipse cx="916.0" cy="609.5" rx="19" ry="4.8" fill="#89adb4" fill-opacity="0.26"/>
+</g>
+<g class="g-chute-source">
+  <path class="g-flow g-flow-aqua g-stagger-1" pathLength="100" d="M502 123 Q548 120.8 592 123.5" stroke="#56838f" stroke-width="1.6" stroke-opacity="0.72"/>
+  <path class="g-flow g-flow-foam g-stagger-2" pathLength="100" d="M507 126.5 Q550 128.8 588 126.5" stroke="#f7f8f2" stroke-width="1.6" stroke-opacity="0.88"/>
+  <path class="g-flow g-flow-gold g-stagger-3" pathLength="100" d="M501 130 Q546 131.5 590 129.5" stroke="#a88248" stroke-width="1.3" stroke-opacity="0.65"/>
+  <path class="g-flow g-flow-aqua g-stagger-1" pathLength="100" d="M550 136 L535 173.5" stroke="#56838f" stroke-width="2.0" stroke-opacity="0.76"/>
+  <path class="g-flow g-flow-foam g-stagger-3" pathLength="100" d="M555 136.5 L540 174" stroke="#f7f8f2" stroke-width="1.8" stroke-opacity="0.92"/>
+  <path class="g-flow g-flow-gold g-stagger-2" pathLength="100" d="M559 137 L544 174.5" stroke="#b68e52" stroke-width="1.4" stroke-opacity="0.68"/>
+</g>
+<g class="g-chute-cascade">
+  <path class="g-weir-foam" pathLength="100" d="M488 178 Q537 180 585 179" stroke="#f7f8f2" stroke-width="2.2" stroke-opacity="0.90"/>
+  <path d="M495.8 179.0 L495.5 197.9 L492.5 216.7 L489.3 235.6 L488.9 254.4 L488.8 273.3 L485.9 292.1 L482.6 311.0 L482.1 329.9 L482.0 348.7 L479.2 367.6 L475.9 386.4 L475.3 405.3 L475.3 424.1 L472.6 443.0" stroke="#66919b" stroke-width="2.0" stroke-opacity="0.38"/>
+  <path class="g-flow g-flow-aqua g-stagger-1" pathLength="100" d="M495.8 179.0 L495.5 197.9 L492.5 216.7 L489.3 235.6 L488.9 254.4 L488.8 273.3 L485.9 292.1 L482.6 311.0 L482.1 329.9 L482.0 348.7 L479.2 367.6 L475.9 386.4 L475.3 405.3 L475.3 424.1 L472.6 443.0" stroke="#52808c" stroke-width="1.8" stroke-opacity="0.72"/>
+  <path class="g-flow g-flow-foam g-stagger-3" pathLength="100" d="M495.8 179.0 L495.5 197.9 L492.5 216.7 L489.3 235.6 L488.9 254.4 L488.8 273.3 L485.9 292.1 L482.6 311.0 L482.1 329.9 L482.0 348.7 L479.2 367.6 L475.9 386.4 L475.3 405.3 L475.3 424.1 L472.6 443.0" stroke="#f7f8f2" stroke-width="1.7" stroke-opacity="0.88"/>
+  <path d="M507.6 179.0 L505.5 197.9 L502.0 216.7 L500.8 235.6 L501.1 254.4 L499.1 273.3 L495.5 292.1 L494.1 311.0 L494.4 329.9 L492.6 348.7 L489.1 367.6 L487.5 386.4 L487.8 405.3 L486.2 424.1 L482.6 443.0" stroke="#66919b" stroke-width="2.0" stroke-opacity="0.38"/>
+  <path class="g-flow g-flow-gold g-stagger-2" pathLength="100" d="M507.6 179.0 L505.5 197.9 L502.0 216.7 L500.8 235.6 L501.1 254.4 L499.1 273.3 L495.5 292.1 L494.1 311.0 L494.4 329.9 L492.6 348.7 L489.1 367.6 L487.5 386.4 L487.8 405.3 L486.2 424.1 L482.6 443.0" stroke="#b0884c" stroke-width="1.8" stroke-opacity="0.62"/>
+  <path class="g-flow g-flow-foam g-stagger-4" pathLength="100" d="M507.6 179.0 L505.5 197.9 L502.0 216.7 L500.8 235.6 L501.1 254.4 L499.1 273.3 L495.5 292.1 L494.1 311.0 L494.4 329.9 L492.6 348.7 L489.1 367.6 L487.5 386.4 L487.8 405.3 L486.2 424.1 L482.6 443.0" stroke="#f7f8f2" stroke-width="1.7" stroke-opacity="0.88"/>
+  <path d="M519.3 179.0 L515.8 197.9 L513.7 216.7 L514.0 235.6 L513.0 254.4 L509.6 273.3 L507.3 292.1 L507.5 311.0 L506.7 329.9 L503.4 348.7 L500.9 367.6 L501.1 386.4 L500.4 405.3 L497.2 424.1 L494.6 443.0" stroke="#66919b" stroke-width="2.0" stroke-opacity="0.38"/>
+  <path class="g-flow g-flow-aqua g-stagger-3" pathLength="100" d="M519.3 179.0 L515.8 197.9 L513.7 216.7 L514.0 235.6 L513.0 254.4 L509.6 273.3 L507.3 292.1 L507.5 311.0 L506.7 329.9 L503.4 348.7 L500.9 367.6 L501.1 386.4 L500.4 405.3 L497.2 424.1 L494.6 443.0" stroke="#52808c" stroke-width="1.8" stroke-opacity="0.72"/>
+  <path class="g-flow g-flow-foam g-stagger-1" pathLength="100" d="M519.3 179.0 L515.8 197.9 L513.7 216.7 L514.0 235.6 L513.0 254.4 L509.6 273.3 L507.3 292.1 L507.5 311.0 L506.7 329.9 L503.4 348.7 L500.9 367.6 L501.1 386.4 L500.4 405.3 L497.2 424.1 L494.6 443.0" stroke="#f7f8f2" stroke-width="1.7" stroke-opacity="0.88"/>
+  <path d="M529.7 179.0 L526.8 197.9 L526.6 216.7 L526.5 235.6 L523.7 254.4 L520.7 273.3 L520.4 292.1 L520.4 311.0 L517.7 329.9 L514.6 348.7 L514.1 367.6 L514.2 386.4 L511.7 405.3 L508.5 424.1 L507.9 443.0" stroke="#66919b" stroke-width="2.0" stroke-opacity="0.38"/>
+  <path class="g-flow g-flow-gold g-stagger-4" pathLength="100" d="M529.7 179.0 L526.8 197.9 L526.6 216.7 L526.5 235.6 L523.7 254.4 L520.7 273.3 L520.4 292.1 L520.4 311.0 L517.7 329.9 L514.6 348.7 L514.1 367.6 L514.2 386.4 L511.7 405.3 L508.5 424.1 L507.9 443.0" stroke="#b0884c" stroke-width="1.8" stroke-opacity="0.62"/>
+  <path class="g-flow g-flow-foam g-stagger-2" pathLength="100" d="M529.7 179.0 L526.8 197.9 L526.6 216.7 L526.5 235.6 L523.7 254.4 L520.7 273.3 L520.4 292.1 L520.4 311.0 L517.7 329.9 L514.6 348.7 L514.1 367.6 L514.2 386.4 L511.7 405.3 L508.5 424.1 L507.9 443.0" stroke="#f7f8f2" stroke-width="1.7" stroke-opacity="0.88"/>
+  <path d="M540.1 179.0 L539.2 197.9 L539.6 216.7 L537.7 235.6 L534.3 254.4 L533.1 273.3 L533.6 292.1 L531.9 311.0 L528.4 329.9 L527.1 348.7 L527.6 367.6 L526.0 386.4 L522.6 405.3 L521.1 424.1 L521.6 443.0" stroke="#66919b" stroke-width="2.0" stroke-opacity="0.38"/>
+  <path class="g-flow g-flow-aqua g-stagger-1" pathLength="100" d="M540.1 179.0 L539.2 197.9 L539.6 216.7 L537.7 235.6 L534.3 254.4 L533.1 273.3 L533.6 292.1 L531.9 311.0 L528.4 329.9 L527.1 348.7 L527.6 367.6 L526.0 386.4 L522.6 405.3 L521.1 424.1 L521.6 443.0" stroke="#52808c" stroke-width="1.8" stroke-opacity="0.72"/>
+  <path class="g-flow g-flow-foam g-stagger-3" pathLength="100" d="M540.1 179.0 L539.2 197.9 L539.6 216.7 L537.7 235.6 L534.3 254.4 L533.1 273.3 L533.6 292.1 L531.9 311.0 L528.4 329.9 L527.1 348.7 L527.6 367.6 L526.0 386.4 L522.6 405.3 L521.1 424.1 L521.6 443.0" stroke="#f7f8f2" stroke-width="1.7" stroke-opacity="0.88"/>
+  <path d="M551.8 179.0 L552.3 197.9 L551.4 216.7 L548.1 235.6 L546.0 254.4 L546.4 273.3 L545.7 292.1 L542.5 311.0 L540.3 329.9 L540.6 348.7 L540.0 367.6 L536.9 386.4 L534.5 405.3 L534.8 424.1 L534.4 443.0" stroke="#66919b" stroke-width="2.0" stroke-opacity="0.38"/>
+  <path class="g-flow g-flow-gold g-stagger-2" pathLength="100" d="M551.8 179.0 L552.3 197.9 L551.4 216.7 L548.1 235.6 L546.0 254.4 L546.4 273.3 L545.7 292.1 L542.5 311.0 L540.3 329.9 L540.6 348.7 L540.0 367.6 L536.9 386.4 L534.5 405.3 L534.8 424.1 L534.4 443.0" stroke="#b0884c" stroke-width="1.8" stroke-opacity="0.62"/>
+  <path class="g-flow g-flow-foam g-stagger-4" pathLength="100" d="M551.8 179.0 L552.3 197.9 L551.4 216.7 L548.1 235.6 L546.0 254.4 L546.4 273.3 L545.7 292.1 L542.5 311.0 L540.3 329.9 L540.6 348.7 L540.0 367.6 L536.9 386.4 L534.5 405.3 L534.8 424.1 L534.4 443.0" stroke="#f7f8f2" stroke-width="1.7" stroke-opacity="0.88"/>
+  <path d="M564.7 179.0 L564.7 197.9 L561.9 216.7 L559.1 235.6 L559.0 254.4 L559.1 273.3 L556.5 292.1 L553.6 311.0 L553.4 329.9 L553.6 348.7 L551.1 367.6 L548.1 386.4 L547.8 405.3 L548.1 424.1 L545.7 443.0" stroke="#66919b" stroke-width="2.0" stroke-opacity="0.38"/>
+  <path class="g-flow g-flow-aqua g-stagger-3" pathLength="100" d="M564.7 179.0 L564.7 197.9 L561.9 216.7 L559.1 235.6 L559.0 254.4 L559.1 273.3 L556.5 292.1 L553.6 311.0 L553.4 329.9 L553.6 348.7 L551.1 367.6 L548.1 386.4 L547.8 405.3 L548.1 424.1 L545.7 443.0" stroke="#52808c" stroke-width="1.8" stroke-opacity="0.72"/>
+  <path class="g-flow g-flow-foam g-stagger-1" pathLength="100" d="M564.7 179.0 L564.7 197.9 L561.9 216.7 L559.1 235.6 L559.0 254.4 L559.1 273.3 L556.5 292.1 L553.6 311.0 L553.4 329.9 L553.6 348.7 L551.1 367.6 L548.1 386.4 L547.8 405.3 L548.1 424.1 L545.7 443.0" stroke="#f7f8f2" stroke-width="1.7" stroke-opacity="0.88"/>
+  <path d="M577.5 179.0 L575.6 197.9 L572.4 216.7 L571.5 235.6 L572.1 254.4 L570.4 273.3 L567.2 292.1 L566.2 311.0 L566.8 329.9 L565.2 348.7 L562.0 367.6 L560.8 386.4 L561.4 405.3 L560.0 424.1 L556.7 443.0" stroke="#66919b" stroke-width="2.0" stroke-opacity="0.38"/>
+  <path class="g-flow g-flow-gold g-stagger-4" pathLength="100" d="M577.5 179.0 L575.6 197.9 L572.4 216.7 L571.5 235.6 L572.1 254.4 L570.4 273.3 L567.2 292.1 L566.2 311.0 L566.8 329.9 L565.2 348.7 L562.0 367.6 L560.8 386.4 L561.4 405.3 L560.0 424.1 L556.7 443.0" stroke="#b0884c" stroke-width="1.8" stroke-opacity="0.62"/>
+  <path class="g-flow g-flow-foam g-stagger-2" pathLength="100" d="M577.5 179.0 L575.6 197.9 L572.4 216.7 L571.5 235.6 L572.1 254.4 L570.4 273.3 L567.2 292.1 L566.2 311.0 L566.8 329.9 L565.2 348.7 L562.0 367.6 L560.8 386.4 L561.4 405.3 L560.0 424.1 L556.7 443.0" stroke="#f7f8f2" stroke-width="1.7" stroke-opacity="0.88"/>
+  <path class="g-weir-foam" pathLength="100" d="M464 443.5 Q490 446.5 516 444 Q542 446.5 567 444.5" stroke="#f7f8f2" stroke-width="2.6" stroke-opacity="0.92"/>
+  <path class="g-flow g-flow-foam g-stagger-2" pathLength="100" d="M466 446.8 Q515 449.5 565 447.5" stroke="#f7f8f2" stroke-width="1.9" stroke-opacity="0.84"/>
+</g>
+<g class="g-chute-basin">
+  <path class="g-flow g-flow-aqua g-stagger-1" pathLength="100" d="M449 461.5 Q508 464.8 567 462.2" stroke="#52808c" stroke-width="1.8" stroke-opacity="0.74"/>
+  <path class="g-flow g-flow-foam g-stagger-3" pathLength="100" d="M446 467 Q506 470.2 568 468" stroke="#f7f8f2" stroke-width="1.8" stroke-opacity="0.88"/>
+  <path class="g-flow g-flow-gold g-stagger-2" pathLength="100" d="M445 473 Q506 475.8 566 474" stroke="#a88248" stroke-width="1.5" stroke-opacity="0.66"/>
+</g>
+<g class="g-rill-channels">
+  <path d="M454.4 488.4 L104.4 557.1 Q76.4 562.6 56.0 600.0" stroke="#638e99" stroke-width="3.0" stroke-opacity="0.46"/>
+  <path id="g-rill-1" class="water" data-step="1" pathLength="1" d="M454.4 488.4 L104.4 557.1" stroke="#987341" stroke-width="1.7" stroke-opacity="0.78" vector-effect="non-scaling-stroke"/>
+  <path class="g-flow g-flow-aqua g-stagger-2" pathLength="100" d="M454.4 488.4 L104.4 557.1 Q76.4 562.6 56.0 600.0" stroke="#4d7b87" stroke-width="2.0" stroke-opacity="0.78"/>
+  <path class="g-flow g-flow-foam g-stagger-3" pathLength="100" d="M454.4 488.4 L104.4 557.1 Q76.4 562.6 56.0 600.0" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.92"/>
+  <path class="g-flow g-flow-aqua g-stagger-4" pathLength="100" d="M104.4 557.1 Q73.9 562.6 44.0 598.0" stroke="#638e99" stroke-width="1.5" stroke-opacity="0.66"/>
+  <path class="g-flow g-flow-foam g-stagger-2" pathLength="100" d="M104.4 557.1 Q73.9 562.6 44.0 598.0" stroke="#f7f8f2" stroke-width="1.35" stroke-opacity="0.84"/>
+  <path class="g-flow g-flow-aqua g-stagger-1" pathLength="100" d="M104.4 557.1 Q78.9 562.6 68.0 602.0" stroke="#638e99" stroke-width="1.45" stroke-opacity="0.64"/>
+  <path class="g-flow g-flow-foam g-stagger-4" pathLength="100" d="M104.4 557.1 Q78.9 562.6 68.0 602.0" stroke="#f7f8f2" stroke-width="1.25" stroke-opacity="0.82"/>
+  <path class="g-splash-arc g-stagger-2" pathLength="100" d="M38.0 599.0 Q55.0 605.5 72.0 599.5" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.88"/>
+  <path class="g-splash-arc g-stagger-4" pathLength="100" d="M32.0 602.5 Q53.0 608.5 75.0 602.5" stroke="#5a8691" stroke-width="1.45" stroke-opacity="0.66"/>
+  <path d="M471.8 488.8 L229.3 560.6 Q175.9 576.4 132.0 610.0" stroke="#638e99" stroke-width="3.0" stroke-opacity="0.46"/>
+  <path id="g-rill-2" class="water" data-step="2" pathLength="1" d="M471.8 488.8 L229.3 560.6" stroke="#987341" stroke-width="1.7" stroke-opacity="0.78" vector-effect="non-scaling-stroke"/>
+  <path class="g-flow g-flow-aqua g-stagger-3" pathLength="100" d="M471.8 488.8 L229.3 560.6 Q175.9 576.4 132.0 610.0" stroke="#4d7b87" stroke-width="2.0" stroke-opacity="0.78"/>
+  <path class="g-flow g-flow-foam g-stagger-4" pathLength="100" d="M471.8 488.8 L229.3 560.6 Q175.9 576.4 132.0 610.0" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.92"/>
+  <path class="g-flow g-flow-aqua g-stagger-1" pathLength="100" d="M229.3 560.6 Q173.4 576.4 118.0 608.0" stroke="#638e99" stroke-width="1.5" stroke-opacity="0.66"/>
+  <path class="g-flow g-flow-foam g-stagger-3" pathLength="100" d="M229.3 560.6 Q173.4 576.4 118.0 608.0" stroke="#f7f8f2" stroke-width="1.35" stroke-opacity="0.84"/>
+  <path class="g-flow g-flow-aqua g-stagger-2" pathLength="100" d="M229.3 560.6 Q178.4 576.4 146.0 612.0" stroke="#638e99" stroke-width="1.45" stroke-opacity="0.64"/>
+  <path class="g-flow g-flow-foam g-stagger-1" pathLength="100" d="M229.3 560.6 Q178.4 576.4 146.0 612.0" stroke="#f7f8f2" stroke-width="1.25" stroke-opacity="0.82"/>
+  <path class="g-splash-arc g-stagger-3" pathLength="100" d="M114.0 609.0 Q131.0 615.5 148.0 609.5" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.88"/>
+  <path class="g-splash-arc g-stagger-1" pathLength="100" d="M108.0 612.5 Q129.0 618.5 151.0 612.5" stroke="#5a8691" stroke-width="1.45" stroke-opacity="0.66"/>
+  <path d="M489.2 489.2 L355.2 564.1 Q315.0 586.6 276.0 614.0" stroke="#638e99" stroke-width="3.0" stroke-opacity="0.46"/>
+  <path id="g-rill-3" class="water" data-step="3" pathLength="1" d="M489.2 489.2 L355.2 564.1" stroke="#987341" stroke-width="1.7" stroke-opacity="0.78" vector-effect="non-scaling-stroke"/>
+  <path class="g-flow g-flow-aqua g-stagger-4" pathLength="100" d="M489.2 489.2 L355.2 564.1 Q315.0 586.6 276.0 614.0" stroke="#4d7b87" stroke-width="2.0" stroke-opacity="0.78"/>
+  <path class="g-flow g-flow-foam g-stagger-1" pathLength="100" d="M489.2 489.2 L355.2 564.1 Q315.0 586.6 276.0 614.0" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.92"/>
+  <path class="g-flow g-flow-aqua g-stagger-2" pathLength="100" d="M355.2 564.1 Q312.5 586.6 262.0 612.0" stroke="#638e99" stroke-width="1.5" stroke-opacity="0.66"/>
+  <path class="g-flow g-flow-foam g-stagger-4" pathLength="100" d="M355.2 564.1 Q312.5 586.6 262.0 612.0" stroke="#f7f8f2" stroke-width="1.35" stroke-opacity="0.84"/>
+  <path class="g-flow g-flow-aqua g-stagger-3" pathLength="100" d="M355.2 564.1 Q317.5 586.6 290.0 616.0" stroke="#638e99" stroke-width="1.45" stroke-opacity="0.64"/>
+  <path class="g-flow g-flow-foam g-stagger-2" pathLength="100" d="M355.2 564.1 Q317.5 586.6 290.0 616.0" stroke="#f7f8f2" stroke-width="1.25" stroke-opacity="0.82"/>
+  <path class="g-splash-arc g-stagger-4" pathLength="100" d="M258.0 613.0 Q275.0 619.5 292.0 613.5" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.88"/>
+  <path class="g-splash-arc g-stagger-2" pathLength="100" d="M252.0 616.5 Q273.0 622.5 295.0 616.5" stroke="#5a8691" stroke-width="1.45" stroke-opacity="0.66"/>
+  <path d="M506.7 489.7 L482.1 567.6 Q474.2 592.5 466.0 616.0" stroke="#638e99" stroke-width="3.0" stroke-opacity="0.46"/>
+  <path id="g-rill-4" class="water" data-step="4" pathLength="1" d="M506.7 489.7 L482.1 567.6" stroke="#987341" stroke-width="1.7" stroke-opacity="0.78" vector-effect="non-scaling-stroke"/>
+  <path class="g-flow g-flow-aqua g-stagger-1" pathLength="100" d="M506.7 489.7 L482.1 567.6 Q474.2 592.5 466.0 616.0" stroke="#4d7b87" stroke-width="2.0" stroke-opacity="0.78"/>
+  <path class="g-flow g-flow-foam g-stagger-2" pathLength="100" d="M506.7 489.7 L482.1 567.6 Q474.2 592.5 466.0 616.0" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.92"/>
+  <path class="g-flow g-flow-aqua g-stagger-3" pathLength="100" d="M482.1 567.6 Q471.7 592.5 452.0 615.0" stroke="#638e99" stroke-width="1.5" stroke-opacity="0.66"/>
+  <path class="g-flow g-flow-foam g-stagger-1" pathLength="100" d="M482.1 567.6 Q471.7 592.5 452.0 615.0" stroke="#f7f8f2" stroke-width="1.35" stroke-opacity="0.84"/>
+  <path class="g-flow g-flow-aqua g-stagger-4" pathLength="100" d="M482.1 567.6 Q476.7 592.5 480.0 617.0" stroke="#638e99" stroke-width="1.45" stroke-opacity="0.64"/>
+  <path class="g-flow g-flow-foam g-stagger-3" pathLength="100" d="M482.1 567.6 Q476.7 592.5 480.0 617.0" stroke="#f7f8f2" stroke-width="1.25" stroke-opacity="0.82"/>
+  <path class="g-splash-arc g-stagger-1" pathLength="100" d="M448.0 615.0 Q465.0 621.5 482.0 615.5" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.88"/>
+  <path class="g-splash-arc g-stagger-3" pathLength="100" d="M442.0 618.5 Q463.0 624.5 485.0 618.5" stroke="#5a8691" stroke-width="1.45" stroke-opacity="0.66"/>
+  <path d="M524.1 490.1 L610.1 571.1 Q635.9 595.4 660.0 616.0" stroke="#638e99" stroke-width="3.0" stroke-opacity="0.46"/>
+  <path id="g-rill-5" class="water" data-step="5" pathLength="1" d="M524.1 490.1 L610.1 571.1" stroke="#987341" stroke-width="1.7" stroke-opacity="0.78" vector-effect="non-scaling-stroke"/>
+  <path class="g-flow g-flow-aqua g-stagger-2" pathLength="100" d="M524.1 490.1 L610.1 571.1 Q635.9 595.4 660.0 616.0" stroke="#4d7b87" stroke-width="2.0" stroke-opacity="0.78"/>
+  <path class="g-flow g-flow-foam g-stagger-3" pathLength="100" d="M524.1 490.1 L610.1 571.1 Q635.9 595.4 660.0 616.0" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.92"/>
+  <path class="g-flow g-flow-aqua g-stagger-4" pathLength="100" d="M610.1 571.1 Q633.4 595.4 646.0 617.0" stroke="#638e99" stroke-width="1.5" stroke-opacity="0.66"/>
+  <path class="g-flow g-flow-foam g-stagger-2" pathLength="100" d="M610.1 571.1 Q633.4 595.4 646.0 617.0" stroke="#f7f8f2" stroke-width="1.35" stroke-opacity="0.84"/>
+  <path class="g-flow g-flow-aqua g-stagger-1" pathLength="100" d="M610.1 571.1 Q638.4 595.4 674.0 614.0" stroke="#638e99" stroke-width="1.45" stroke-opacity="0.64"/>
+  <path class="g-flow g-flow-foam g-stagger-4" pathLength="100" d="M610.1 571.1 Q638.4 595.4 674.0 614.0" stroke="#f7f8f2" stroke-width="1.25" stroke-opacity="0.82"/>
+  <path class="g-splash-arc g-stagger-2" pathLength="100" d="M642.0 615.0 Q659.0 621.5 676.0 615.5" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.88"/>
+  <path class="g-splash-arc g-stagger-4" pathLength="100" d="M636.0 618.5 Q657.0 624.5 679.0 618.5" stroke="#5a8691" stroke-width="1.45" stroke-opacity="0.66"/>
+  <path d="M541.6 490.5 L739.2 574.7 Q786.6 594.9 826.0 615.0" stroke="#638e99" stroke-width="3.0" stroke-opacity="0.46"/>
+  <path id="g-rill-6" class="water" data-step="6" pathLength="1" d="M541.6 490.5 L739.2 574.7" stroke="#987341" stroke-width="1.7" stroke-opacity="0.78" vector-effect="non-scaling-stroke"/>
+  <path class="g-flow g-flow-aqua g-stagger-3" pathLength="100" d="M541.6 490.5 L739.2 574.7 Q786.6 594.9 826.0 615.0" stroke="#4d7b87" stroke-width="2.0" stroke-opacity="0.78"/>
+  <path class="g-flow g-flow-foam g-stagger-4" pathLength="100" d="M541.6 490.5 L739.2 574.7 Q786.6 594.9 826.0 615.0" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.92"/>
+  <path class="g-flow g-flow-aqua g-stagger-1" pathLength="100" d="M739.2 574.7 Q784.1 594.9 812.0 617.0" stroke="#638e99" stroke-width="1.5" stroke-opacity="0.66"/>
+  <path class="g-flow g-flow-foam g-stagger-3" pathLength="100" d="M739.2 574.7 Q784.1 594.9 812.0 617.0" stroke="#f7f8f2" stroke-width="1.35" stroke-opacity="0.84"/>
+  <path class="g-flow g-flow-aqua g-stagger-2" pathLength="100" d="M739.2 574.7 Q789.1 594.9 840.0 613.0" stroke="#638e99" stroke-width="1.45" stroke-opacity="0.64"/>
+  <path class="g-flow g-flow-foam g-stagger-1" pathLength="100" d="M739.2 574.7 Q789.1 594.9 840.0 613.0" stroke="#f7f8f2" stroke-width="1.25" stroke-opacity="0.82"/>
+  <path class="g-splash-arc g-stagger-3" pathLength="100" d="M808.0 614.0 Q825.0 620.5 842.0 614.5" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.88"/>
+  <path class="g-splash-arc g-stagger-1" pathLength="100" d="M802.0 617.5 Q823.0 623.5 845.0 617.5" stroke="#5a8691" stroke-width="1.45" stroke-opacity="0.66"/>
+  <path d="M559.1 491.0 L869.4 578.3 Q900.4 587.0 916.0 608.0" stroke="#638e99" stroke-width="3.0" stroke-opacity="0.46"/>
+  <path id="g-rill-7" class="water" data-step="7" pathLength="1" d="M559.1 491.0 L869.4 578.3" stroke="#987341" stroke-width="1.7" stroke-opacity="0.78" vector-effect="non-scaling-stroke"/>
+  <path class="g-flow g-flow-aqua g-stagger-4" pathLength="100" d="M559.1 491.0 L869.4 578.3 Q900.4 587.0 916.0 608.0" stroke="#4d7b87" stroke-width="2.0" stroke-opacity="0.78"/>
+  <path class="g-flow g-flow-foam g-stagger-1" pathLength="100" d="M559.1 491.0 L869.4 578.3 Q900.4 587.0 916.0 608.0" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.92"/>
+  <path class="g-flow g-flow-aqua g-stagger-2" pathLength="100" d="M869.4 578.3 Q897.9 587.0 904.0 610.0" stroke="#638e99" stroke-width="1.5" stroke-opacity="0.66"/>
+  <path class="g-flow g-flow-foam g-stagger-4" pathLength="100" d="M869.4 578.3 Q897.9 587.0 904.0 610.0" stroke="#f7f8f2" stroke-width="1.35" stroke-opacity="0.84"/>
+  <path class="g-flow g-flow-aqua g-stagger-3" pathLength="100" d="M869.4 578.3 Q902.9 587.0 928.0 606.0" stroke="#638e99" stroke-width="1.45" stroke-opacity="0.64"/>
+  <path class="g-flow g-flow-foam g-stagger-2" pathLength="100" d="M869.4 578.3 Q902.9 587.0 928.0 606.0" stroke="#f7f8f2" stroke-width="1.25" stroke-opacity="0.82"/>
+  <path class="g-splash-arc g-stagger-4" pathLength="100" d="M898.0 607.0 Q915.0 613.5 932.0 607.5" stroke="#f7f8f2" stroke-width="1.75" stroke-opacity="0.88"/>
+  <path class="g-splash-arc g-stagger-2" pathLength="100" d="M892.0 610.5 Q913.0 616.5 935.0 610.5" stroke="#5a8691" stroke-width="1.45" stroke-opacity="0.66"/>
+</g>
+</svg>

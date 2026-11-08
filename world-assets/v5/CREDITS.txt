@@ -1,0 +1,72 @@
+SITE ARTWORK AND SOUND CREDITS
+
+Active water recording: water-flow-loop.m4a
+“Grand Canyon Natural Sound: Bass Rapid”
+National Park Service
+Colorado River, mile 108, Grand Canyon National Park, Arizona
+Duration: 14 seconds. Stereo AAC, 96 kbps target.
+
+Public domain; courtesy of the National Park Service.
+Edited from the approximately 17.29-second original: a two-second equal-power
+crossfade joins the end back into the beginning. No added music or other sounds.
+The original unedited MP3 remains available as water-flow.mp3.
+No claim to original U.S. Government works.
+
+Source and usage information:
+https://www.nps.gov/media/video/view.htm?id=9D30CC3C-1DD8-B71B-0B4F00CC1A481ABA
+
+Recording context:
+https://www.nps.gov/grca/learn/nature/natural_sound.htm
+
+Original audio:
+https://www.nps.gov/nps-audiovideo/legacy/mp3/imr/avElement/grca-rapids02.mp3
+
+National Park Service public-domain policy:
+https://www.nps.gov/aboutus/disclaimer.htm
+
+Archival water recording: water-ambience.mp3 (not used by the active sound control)
+“Stream Soundscape from the Black Canyon Trail”
+Jacob Job / National Park Service
+Rocky Mountain National Park, Colorado
+Recorded May 25, 2016. Duration: five minutes.
+
+Public domain; courtesy of the National Park Service and Jacob Job.
+The original recording is used without editing.
+
+Source page:
+https://www.nps.gov/romo/learn/photosmultimedia/sounds-ambient-soundscapes.htm#environmental
+
+Original audio:
+https://www.nps.gov/nps-audiovideo/legacy/mp3/imr/avElement/romo-StreamAmbientROMO52516BlackCanyonTrailFinal1.mp3
+
+Public-domain usage information:
+https://www.nps.gov/romo/learn/photosmultimedia/soundlibrary.htm
+
+Music: cottonwood-waltz.m4a (plays softly under the water when sound is on)
+“Cottonwood Waltz”
+An original piece made for this site in 2026: a slow waltz in F major for piano,
+harp and strings, about 2 minutes 40 seconds, then a short pause before it repeats.
+Every note was written for this piece, then played with the single-note
+instrument recordings credited below. No melody, score or recording of any
+other piece of music was used.
+
+Piano recordings: “Salamander Grand Piano V3” by Alexander Holm,
+licensed under Creative Commons Attribution 3.0 (CC BY 3.0).
+https://creativecommons.org/licenses/by/3.0/
+Source: https://archive.org/details/SalamanderGrandPianoV3
+MP3 edition used: the @audio-samples/piano-mp3 packages on npm.
+Changes: single notes were re-pitched, shaped, mixed with the other
+instruments and given a room echo. The recordings are not shared separately.
+
+Harp and string recordings: “Versilian Studios Chamber Orchestra 2, Community Edition”
+(VSCO 2 CE) by Versilian Studios, released into the public domain (CC0 1.0).
+https://github.com/sgossner/VSCO-2-CE
+Editions used: the harp recordings straight from VSCO 2 CE, and the violin, viola
+and cello sections and the solo double bass from tiny-orchestra (on npm, from VSCO 2 CE).
+
+Garden drawings
+The terraced garden, the hoopoe and the other line drawings: directed by
+Addy Kaveti, October 2026. They are drawn in code (SVG) and built from the
+shapes of the site's own icons.
+The watercolor garden objects in the world behind the text are rendered
+from the same code drawings.
